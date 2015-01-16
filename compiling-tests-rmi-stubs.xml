@@ -1,0 +1,18 @@
+<project name="BasicComponentModel" default="tests.stubs.compilation">
+	<target name="tests.stubs.compilation">
+		<echo message="Recompiling stubs..."/>
+		<echo message="Recompiling fr.upmc.components.testSimple.SimpleInboundPort"/>
+		<rmic classpath="${classpath}:../BasicComponentModel/bin"
+			  classname="fr.upmc.components.testSimple.SimpleInboundPort"
+		      base="bin"/>
+		<echo message="Recompiling fr.upmc.components.testSimple.SimpleTwoWayPort"/>
+		<rmic classpath="${classpath}:../BasicComponentModel/bin"
+			  classname="fr.upmc.components.testSimple.SimpleTwoWayPort"
+		      base="bin"/>
+		<echo message="Recompiling fr.upmc.components.testDynamicConnection.DynamicInboundPort"/>
+		<rmic classpath="${classpath}:../BasicComponentModel/bin"
+			  classname="fr.upmc.components.testDynamicConnection.DynamicInboundPort"
+		      base="bin"/>
+		<echo message="Stubs recompiled!"/>
+	</target>
+</project>

@@ -1,0 +1,39 @@
+<project name="BasicComponentModel" default="stubs.compilation">
+	<target name="stubs.compilation">
+		<echo message="Recompiling stubs..."/>
+		<rmic classpath="${classpath}:../BasicComponentModel/bin"
+			  classname="fr.upmc.components.patterns.dconnection.DynamicConnectionRequestInboundPort"
+		      base="bin"/>
+		<rmic classpath="${classpath}:../BasicComponentModel/bin"
+			  classname="fr.upmc.components.extensions.synchronizer.ports.SynchronizerManagerInboundPort"
+		      base="bin"/>
+		<rmic classpath="${classpath}:../BasicComponentModel/bin"
+			  classname="fr.upmc.components.extensions.synchronizer.ports.syncTools.arrayBlockingQueue.ArrayBlockingQueueConnectionInboundPort"
+		      base="bin"/>
+		<rmic classpath="${classpath}:../BasicComponentModel/bin"
+			  classname="fr.upmc.components.extensions.synchronizer.ports.syncTools.arrayBlockingQueue.ArrayBlockingQueuePutInboundPort"
+		      base="bin"/>
+		<rmic classpath="${classpath}:../BasicComponentModel/bin"
+			  classname="fr.upmc.components.extensions.synchronizer.ports.syncTools.arrayBlockingQueue.ArrayBlockingQueueTakeInboundPort"
+		      base="bin"/>
+		<rmic classpath="${classpath}:../BasicComponentModel/bin"
+			  classname="fr.upmc.components.extensions.synchronizer.ports.syncTools.countDownLatch.CountDownLatchConnectionInboundPort"
+		      base="bin"/>
+		<rmic classpath="${classpath}:../BasicComponentModel/bin"
+			  classname="fr.upmc.components.extensions.synchronizer.ports.syncTools.countDownLatch.CountDownLatchInboundPort"
+		      base="bin"/>
+		<rmic classpath="${classpath}:../BasicComponentModel/bin"
+			  classname="fr.upmc.components.extensions.synchronizer.ports.syncTools.cyclicBarrier.CyclicBarrierConnectionInboundPort"
+		      base="bin"/>
+		<rmic classpath="${classpath}:../BasicComponentModel/bin"
+			  classname="fr.upmc.components.extensions.synchronizer.ports.syncTools.cyclicBarrier.CyclicBarrierInboundPort"
+		      base="bin"/>
+		<rmic classpath="${classpath}:../BasicComponentModel/bin"
+			  classname="fr.upmc.components.extensions.synchronizer.ports.syncTools.semaphore.SemaphoreConnectionInboundPort"
+		      base="bin"/>
+		<rmic classpath="${classpath}:../BasicComponentModel/bin"
+			  classname="fr.upmc.components.extensions.synchronizer.ports.syncTools.semaphore.SemaphoreInboundPort"
+		      base="bin"/>
+		<echo message="Stubs recompiled!"/>
+	</target>
+</project>

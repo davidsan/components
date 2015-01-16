@@ -1,0 +1,2 @@
+#!/bin/bash
+scp -r start-* config config.xml jars jmalenfant@la-grande.rsr.lip6.fr:./principal/testscomp

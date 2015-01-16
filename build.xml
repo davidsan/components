@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="components">
+	<property environment="env" />
+	<property name="debuglevel" value="source,lines,vars" />
+	<property name="target" value="1.7" />
+	<property name="source" value="1.7" />
+	<path id="components.classpath">
+    <pathelement location="jars/BasicComponentModel-16092014.jar"/>
+    <pathelement location="jars/commons-math3-3.3.jar"/>
+    <pathelement location="jars/jcip-annotations-1.0.jar"/>
+    <pathelement location="jars/commons-collections4-4.0.jar"/>
+    <pathelement location="jars/guava-18.0.jar"/>
+    <pathelement location="jars/log4j-1.2.17.jar"/>
+	</path>
+	<target name="init">
+		<copy includeemptydirs="false" todir=".">
+			<fileset dir=".">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+	<target name="clean">
+		<delete verbose="true">
+			<fileset dir="." includes="**/*.class" />
+		</delete>
+	</target>
+	<target depends="clean" name="cleanall">
+		<delete verbose="true">
+			<fileset dir="${basedir}" defaultexcludes="no">
+				<include name="**/*~" />
+			</fileset>
+		</delete>
+	</target>
+	<target depends="build-subprojects,build-project,build-jar" name="build" />
+	<target name="build-subprojects" />
+	<target depends="init" name="build-project">
+		<echo message="${ant.project.name}: ${ant.file}" />
+		<javac verbose="true" debug="true" debuglevel="${debuglevel}" destdir="." includeantruntime="false" source="${source}" target="${target}">
+			<src path="." />
+			<classpath refid="components.classpath" />
+		</javac>
+	</target>
+	<target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects" />
+
+	<target depends="init,build-project" name="build-jar">
+		<jar basedir="." destfile="jars/components.jar" excludes="jars/*"/>
+	</target>
+
+</project>

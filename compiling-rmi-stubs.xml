@@ -1,0 +1,12 @@
+<project name="BasicComponentModel" default="stubs.compilation">
+	<target name="stubs.compilation">
+		<echo message="Recompiling stubs..."/>
+		<rmic classpath="${classpath}:../BasicComponentModel/bin"
+			  classname="fr.upmc.components.assemblies.pre.dcc.DynamicallyConnectableComponentInboundPort"
+		      base="bin"/>
+		<rmic classpath="${classpath}:../BasicComponentModel/bin"
+			  classname="fr.upmc.components.assemblies.pre.dcc.DynamicComponentCreationInboundPort"
+		      base="bin"/>
+		<echo message="Stubs recompiled!"/>
+	</target>
+</project>
