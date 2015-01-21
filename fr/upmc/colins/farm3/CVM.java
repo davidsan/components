@@ -39,7 +39,7 @@ public class CVM extends AbstractCVM {
 	protected static final String 	logId = "[    CVM     ]";
 	// Settings
 	/** the main sleep's duration										*/
-	protected static final long 		MAIN_SLEEPING_DURATION = 15000L;
+	protected static final long 		MAIN_SLEEPING_DURATION = 5000L;
 	/** the default clock speed											*/
 	protected static final Double 	CLOCK_SPEED = 1.0;
 	/** the maximum clock speed											*/

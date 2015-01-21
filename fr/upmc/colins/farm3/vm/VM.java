@@ -59,7 +59,7 @@ extends		AbstractComponent
 	
 	
 	/** inbound port for the request generator								*/
-	protected VMRequestArrivalInboundPort 	raip;
+	protected VMInboundPort 	raip;
 	/** outbound ports to the core											*/
 	protected Queue<RequestGeneratorOutboundPort> rgops;
 
@@ -118,7 +118,7 @@ extends		AbstractComponent
 
 		// inbound port for request arrival
 		this.addOfferedInterface(RequestArrivalI.class) ;
-		this.raip = new VMRequestArrivalInboundPort(inboundPortURI, this) ;
+		this.raip = new VMInboundPort(inboundPortURI, this) ;
 		this.addPort(this.raip) ;
 		if (AbstractCVM.isDistributed) {
 			this.raip.publishPort() ;
@@ -132,6 +132,8 @@ extends		AbstractComponent
 		this.addRequiredInterface(RequestArrivalI.class) ;
 		// receive response from cores
 		this.addOfferedInterface(ResponseArrivalI.class) ;
+		
+//		this.addOfferedInterface(VirtualMachineI.class) ;
 		
 		for (int i = 0; i < outboundPortURIs.size(); i++) {
 			String outboundPortURI = outboundPortURIs.get(i);
@@ -253,8 +255,8 @@ extends		AbstractComponent
 		}
 		
 		long t = System.currentTimeMillis() ;
-		System.out.println(logId + " Accepting request       " + r + " at " +
-												TimeProcessing.toString(t)) ;
+//		System.out.println(logId + " Accepting request       " + r + " at " +
+//												TimeProcessing.toString(t)) ;
 		r.setArrivalTime(t) ;
 		this.requestsQueue.add(r) ;
 		if (!this.vmIdle) {
@@ -339,7 +341,7 @@ extends		AbstractComponent
 	 * @param response the received response
 	 */
 	public void 			responseArrivalEvent(Response response) {
-		System.out.println(logId + " Received a response from core");
+		//		System.out.println(logId + " Received a response from core");
 		// forward the response to the request dispatcher
 		try {
 			if(this.vmResponseGeneratorOutboundPort.connected()){

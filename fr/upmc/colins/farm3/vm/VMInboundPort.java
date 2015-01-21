@@ -7,7 +7,7 @@ import fr.upmc.components.ComponentI.ComponentService;
 import fr.upmc.components.ports.AbstractInboundPort;
 
 /**
- * The class <code>VMRequestArrivalInboundPort</code> implements the inbound port
+ * The class <code>VMInboundPort</code> implements the inbound port
  * for a component receiving requests from other components.
  *
  * <p><strong>Description</strong></p>
@@ -28,7 +28,7 @@ import fr.upmc.components.ports.AbstractInboundPort;
  * @author	Colins-Alasca
  * @version	$Name$ -- $Revision$ -- $Date$
  */
-public class			VMRequestArrivalInboundPort
+public class			VMInboundPort
 extends		AbstractInboundPort
 implements	RequestArrivalI
 {
@@ -49,7 +49,7 @@ implements	RequestArrivalI
 	 * @param owner			owner component of the port.
 	 * @throws Exception
 	 */
-	public				VMRequestArrivalInboundPort(
+	public				VMInboundPort(
 		String uri,
 		ComponentI owner
 		) throws Exception

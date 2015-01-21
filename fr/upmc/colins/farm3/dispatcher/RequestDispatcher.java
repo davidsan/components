@@ -11,6 +11,7 @@ import org.apache.commons.math3.distribution.NormalDistribution;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
 import fr.upmc.colins.farm3.connectors.RequestServiceConnector;
+import fr.upmc.colins.farm3.connectors.ResponseServiceConnector;
 import fr.upmc.colins.farm3.core.RequestArrivalI;
 import fr.upmc.colins.farm3.core.ResponseArrivalI;
 import fr.upmc.colins.farm3.generator.RequestGeneratorOutboundPort;
@@ -74,7 +75,11 @@ extends		AbstractComponent
 	/** inbound ports for each cores (to obtain the response) 				*/
 	protected ArrayList<RDResponseArrivalInboundPort> respAips;
 	
+	/** statistics 															*/
 	protected DescriptiveStatistics stats = new DescriptiveStatistics();
+	
+	/** outbound port to the actuator 										*/
+	protected RDResponseGeneratorOutboundPort respGop;
 	
 	
 	/**
@@ -101,6 +106,7 @@ extends		AbstractComponent
 	 * 				the mean number of instructions
 	 * @param standardDeviation 
 	 * 				the standard deviation
+	 * @param rdResponseGeneratorOutboundPortUri 
 	 * @throws Exception
 	 */
 	public				RequestDispatcher(
@@ -109,7 +115,8 @@ extends		AbstractComponent
 		ArrayList<String> outboundPortURIs,
 		ArrayList<String> vmRequestArrivalInboundPortUris, 
 		Double meanNrofInstructions, 
-		Double standardDeviation
+		Double standardDeviation, 
+		String actuatorResponseArrivalInboundPortUri
 		) throws Exception
 	{
 		super(true, true) ;
@@ -144,6 +151,20 @@ extends		AbstractComponent
 		// receive response from the virtual machines
 		this.addOfferedInterface(ResponseArrivalI.class) ;
 		
+		// send response to actuator
+		this.addRequiredInterface(ResponseArrivalI.class) ;
+
+		this.respGop = new RDResponseGeneratorOutboundPort("rd-resp-rgop-"
+				+ java.util.UUID.randomUUID(), this);
+		this.addPort(respGop) ;
+		if (AbstractCVM.isDistributed) {
+			respGop.publishPort() ;
+		} else {
+			respGop.localPublishPort();
+		}
+		// connect the request dispatcher to the actuator
+		respGop.doConnection(actuatorResponseArrivalInboundPortUri, ResponseServiceConnector.class.getCanonicalName());
+		
 		for (int i = 0; i < outboundPortURIs.size(); i++) {
 			String outboundPortURI = outboundPortURIs.get(i);
 			// outbound port for request departure (into a virtual machine)
@@ -155,6 +176,7 @@ extends		AbstractComponent
 			} else {
 				rgop.localPublishPort();
 			}
+		
 			rgop.doConnection(vmRequestArrivalInboundPortUris.get(i),
 					RequestServiceConnector.class.getCanonicalName());
 			System.out.println(logId + " Connect the request dispatcher to the virtual machine (via "
@@ -206,15 +228,19 @@ extends		AbstractComponent
 	public void			shutdown() throws ComponentShutdownException
 	{
 		// disconnect rgops
-		for (RequestGeneratorOutboundPort rgop : this.rgops) {
-			try {
+		try {
+			for (RequestGeneratorOutboundPort rgop : this.rgops) {
 				if (rgop.connected()) {
 					rgop.doDisconnection();
 				}
-			} catch (Exception e) {
-				e.printStackTrace();
 			}
+			if (respGop.connected()) {
+				respGop.doDisconnection();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+
 		super.shutdown();
 	}
 
@@ -343,7 +369,7 @@ extends		AbstractComponent
 
 	/**
 	 * update the mean time of request processing (from the virtual machine)
-	 * TODO: and forward the mean of mean time to a controller
+	 * and forward the mean of mean time to an actuator
 	 * @param response the received response
 	 */
 	public void responseArrivalEvent(Response response) {
@@ -351,8 +377,12 @@ extends		AbstractComponent
 			
 		System.out.println(logId + " New mean time : " + this.stats.getMean());
 		
+		// send the new mean time of the request dispatcher to a controller
 		response.setDuration(this.stats.getMean());
-		// TODO: send the new mean time of the request dispatcher to a controller
-
+		try {
+			respGop.acceptResponse(response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

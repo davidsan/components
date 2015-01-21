@@ -21,16 +21,13 @@ import fr.upmc.colins.farm3.dispatcher.RequestDispatcher;
 public class DynamicRequestDispatcher extends RequestDispatcher {
 
 	public DynamicRequestDispatcher(
-			Integer id, 
-			String inboundPortURI,
-			ArrayList<String> outboundPortURIs,
-			ArrayList<String> vmRequestArrivalInboundPortUris,
-			Double meanNrofInstructions, 
-			Double standardDeviation)
-			throws Exception {
-		super(id, inboundPortURI, outboundPortURIs, vmRequestArrivalInboundPortUris,
-				meanNrofInstructions, standardDeviation);
+			Integer id, String inboundPortURI, ArrayList<String> outboundPortURIs,
+			ArrayList<String> vmRequestArrivalInboundPortUris, Double meanNrofInstructions, Double standardDeviation,
+			String actuatorResponseArrivalInboundPortUri) throws Exception {
+		super(id, inboundPortURI, outboundPortURIs, vmRequestArrivalInboundPortUris, meanNrofInstructions, standardDeviation,
+				actuatorResponseArrivalInboundPortUri);
 	}
+
 
 
 }
