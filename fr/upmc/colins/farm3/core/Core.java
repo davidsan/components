@@ -239,16 +239,27 @@ extends		AbstractComponent
 	public void			requestArrivalEvent(Request r) throws Exception
 	{
 		assert	r != null ;
-
-		long t = System.currentTimeMillis() ;
-		System.out.println(logId + " Accepting request       " + r + " at " +
-												TimeProcessing.toString(t)) ;
-		r.setArrivalTime(t) ;
-		this.requestsQueue.add(r) ;
-		if (!this.coreIdle) {
-			System.out.println(logId + " Queueing request        " + r) ;
+		
+		if (r.getUri() == -100) {
+			if (r.getAppId() == -1) {
+				System.out.println(logId + " Start Updating clock speed");
+				updateClockSpeed(this.clockSpeed - 1);
+			} else {
+				System.out.println(logId + " Start Updating clock speed");
+				updateClockSpeed(this.clockSpeed + 1);
+			}
 		} else {
-			this.beginServicingEvent() ;
+
+			long t = System.currentTimeMillis() ;
+			System.out.println(logId + " Accepting request       " + r + " at " +
+													TimeProcessing.toString(t)) ;
+			r.setArrivalTime(t) ;
+			this.requestsQueue.add(r) ;
+			if (!this.coreIdle) {
+				System.out.println(logId + " Queueing request        " + r) ;
+			} else {
+				this.beginServicingEvent() ;
+			}
 		}
 	}
 

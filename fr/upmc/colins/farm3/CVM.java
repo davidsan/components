@@ -60,6 +60,8 @@ public class CVM extends AbstractCVM {
 	protected static final double 	STANDARD_DEVIATION = 100.0;
 	/** the mean number of instructions 								*/
 	protected static final double 	MEAN_NROF_INSTRUCTIONS = 1000.0;
+	/** the rate for the actuator										*/
+	protected static final double 	WANTED_RATE = 800.0;
 	
 	// Components' URIs
 	protected static final String RG_ARGOP = "rg-argop";
@@ -124,6 +126,7 @@ public class CVM extends AbstractCVM {
 				NROF_CPU * NROF_CORES_PER_CPU, 
 				NROF_CORES_PER_VM, 
 				NROF_VM_PER_DISPATCHER, 
+				WANTED_RATE,
 				AC_CRGOP_PREFIX, 
 				AC_ARAIP, 
 				coreRequestArrivalInboundPortUris,

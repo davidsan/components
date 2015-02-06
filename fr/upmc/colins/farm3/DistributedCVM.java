@@ -42,17 +42,17 @@ public class DistributedCVM extends AbstractDistributedCVM {
 	
 	// Settings
 	/** the main sleep's duration										*/
-	protected static final long 	MAIN_SLEEPING_DURATION = 5000L;
+	protected static final long 	MAIN_SLEEPING_DURATION = 15000L;
 	/** the default clock speed											*/
-	protected static final Double CLOCK_SPEED = 1.0;
+	protected static final Double 	CLOCK_SPEED = 2.0;
 	/** the maximum clock speed											*/
-	protected static final Double MAX_CLOCK_SPEED = 2.0;
+	protected static final Double 	MAX_CLOCK_SPEED = 5.0;
 	/** the number of cpu in the cluster								*/
-	protected static final Long NROF_CPU = 4L;
+	protected static final Long 	NROF_CPU = 4L;
 	/** the number of cores	in the cluster								*/
-	protected static final Long NROF_CORES_PER_CPU = 2L;
+	protected static final Long 	NROF_CORES_PER_CPU = 2L;
 	/** the number of applications to be submitted by the consumer		*/
-	protected static final Long NROF_APPS = 2L;
+	protected static final Long 	NROF_APPS = 2L;
 	/** the number of cores allocated per virtual machines				*/
 	protected static final int 		NROF_CORES_PER_VM = 2;
 	/** the number of virtual machines allocated per dispatcher			*/
@@ -63,6 +63,8 @@ public class DistributedCVM extends AbstractDistributedCVM {
 	protected static final double 	STANDARD_DEVIATION = 100.0;
 	/** the mean number of instructions 								*/
 	protected static final double 	MEAN_NROF_INSTRUCTIONS = 1000.0;
+	/** the rate for the actuator										*/
+	protected static final double 	WANTED_RATE = 500.0;
 
 	// Components' URIs
 	protected static final String RG_ARGOP = "rg-argop";
@@ -148,7 +150,8 @@ public class DistributedCVM extends AbstractDistributedCVM {
 			this.mAdmissionControl = new AdmissionControl(
 					NROF_CPU * NROF_CORES_PER_CPU, 
 					NROF_CORES_PER_VM, 
-					NROF_VM_PER_DISPATCHER, 
+					NROF_VM_PER_DISPATCHER,
+					WANTED_RATE,
 					AC_CRGOP_PREFIX, 
 					AC_ARAIP, 
 					coreRequestArrivalInboundPortUris,

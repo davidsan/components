@@ -64,9 +64,15 @@ public class AdmissionControl extends AbstractComponent {
 	protected static final String RD_RAIP_PREFIX = "rd-raip-";
 	/** prefix uri of the request generator outbound port to each vm		*/
 	protected static final String RD_RGOP_PREFIX = "rd-rgop-";
+	
+	/** prefix uri of the request generator outbound port to each core 		*/
+	protected static final String AT_RGOP_PREFIX = "at-rgop-";
 
 	/** count of request dispatchers instanciated				 			*/
 	protected int requestDispatcherCount ;
+	
+	/** rate for the an app (revoir le commmentaire)						*/
+	protected double wantedRate;
 	
 	/** list of the uris of the core request arrival inbound port 			*/
 	protected List<String> coreRequestArrivalInboundPortUris;
@@ -87,7 +93,8 @@ public class AdmissionControl extends AbstractComponent {
 	 * 
 	 * @param nrofCores
 	 * @param nrofCoresPerVM,
-	 * @param nrofVMPerDispatcher,
+	 * @param nrofVMPerDispatcher
+	 * @param wantedRate
 	 * @param outboundPortUri
 	 * @param inboundPortUri
 	 * @param coreRequestArrivalInboundPortUris 
@@ -98,6 +105,7 @@ public class AdmissionControl extends AbstractComponent {
 			Long nrofCores, 
 			Integer nrofCoresPerVM,
 			Integer nrofVMPerDispatcher,
+			double wantedRate,
 			String outboundPortUri,
 			String inboundPortUri, 
 			ArrayList<String> coreRequestArrivalInboundPortUris,
@@ -110,6 +118,7 @@ public class AdmissionControl extends AbstractComponent {
 		this.nrofCoresPerVM = nrofCoresPerVM;
 		this.nrofVMPerDispatcher = nrofVMPerDispatcher;
 		this.controlRequestGeneratorOutboundPorts = new ArrayList<ControlRequestGeneratorOutboundPort>();
+		this.wantedRate = wantedRate;
 		
 		this.crgops = new ArrayList<ControlRequestGeneratorOutboundPort>();
 		// this is for the outbounds port towards each cpu (managed by the
@@ -202,14 +211,22 @@ public class AdmissionControl extends AbstractComponent {
 		}
 		
 		String actuatorResponseArrivalInboundPortUri = "actuator-response-raip-" + a.getUri() ;
+		ArrayList<String> actuatorRequestGeneratorOutboundPortUris = new ArrayList();
 		
+		for(int i = 0; i< nrofCoresPerVM * nrofVMPerDispatcher; i++) {
+			String uri = AT_RGOP_PREFIX + a.getUri() + "-" + i;
+			actuatorRequestGeneratorOutboundPortUris.add(uri);
+		}
 		
 		// build the actuator
 		this.portToProviderJVM.createComponent(
 				DynamicActuator.class.getCanonicalName(),
 				new Object[]{ 
 					a.getUri(),
-					actuatorResponseArrivalInboundPortUri
+					wantedRate,
+					actuatorResponseArrivalInboundPortUri,
+					actuatorRequestGeneratorOutboundPortUris,
+					this.usedCoreRequestArrivalInboundPortUris
 				}
 			);
 		
