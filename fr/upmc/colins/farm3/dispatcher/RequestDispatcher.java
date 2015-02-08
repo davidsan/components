@@ -80,6 +80,9 @@ extends		AbstractComponent
 	
 	/** outbound port to the actuator 										*/
 	protected RDResponseGeneratorOutboundPort respGop;
+
+	/** boolean to execute some code at first request received by the rd 	*/
+	private boolean firstCall = true;
 	
 	
 	/**
@@ -189,9 +192,9 @@ extends		AbstractComponent
 			RDResponseArrivalInboundPort respAip = new RDResponseArrivalInboundPort(rdResponseArrivalInboundPortUri, this);
 			this.respAips.add(respAip);
 			this.addPort(respAip);
-			if(AbstractCVM.isDistributed){
+			if (AbstractCVM.isDistributed) {
 				respAip.publishPort();
-			}else{
+			} else {
 				respAip.localPublishPort();
 			}
 		}
@@ -269,7 +272,8 @@ extends		AbstractComponent
 		Long nrofInstructions = (long) nd.sample();
 		
 		// ask the virtual machines to do the connection to the inbound port of the request dispatcher (for response)
-		if(r.getUri() == 0){
+		if(firstCall){
+			firstCall =false;
 			System.out.println(logId + " Linking virtual machines to the request dispatcher for response connection");
 			RequestGeneratorOutboundPort[] rgopsArray = rgops.toArray(new RequestGeneratorOutboundPort[0]);
 			for (int i = 0; i < respAips.size(); i++) {
@@ -277,7 +281,7 @@ extends		AbstractComponent
 				if (rgopsArray[i].connected()) {
 					try {
 						rgopsArray[i].connectResponseConnection(rdRespAip
-								.getServerPortURI());
+								.getPortURI());
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

@@ -249,7 +249,7 @@ extends		AbstractComponent
 			RequestGeneratorOutboundPort[] rgopsArray = rgops.toArray(new RequestGeneratorOutboundPort[0]);
 			for (int i = 0; i < respAips.size(); i++) {
 				VMResponseArrivalInboundPort vmRespAip = respAips.get(i);
-				rgopsArray[i].connectResponseConnection(vmRespAip.getServerPortURI());
+				rgopsArray[i].connectResponseConnection(vmRespAip.getPortURI());
 			}
 			cold = false;
 		}
@@ -340,15 +340,12 @@ extends		AbstractComponent
 	 * and forward the new mean time to the request dispatcher
 	 * @param response the received response
 	 */
-	public void 			responseArrivalEvent(Response response) {
+	public void 			responseArrivalEvent(Response response) throws Exception {
 		//		System.out.println(logId + " Received a response from core");
 		// forward the response to the request dispatcher
-		try {
-			if(this.vmResponseGeneratorOutboundPort.connected()){
-				this.vmResponseGeneratorOutboundPort.acceptResponse(response);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+
+		if (this.vmResponseGeneratorOutboundPort.connected()) {
+			this.vmResponseGeneratorOutboundPort.acceptResponse(response);
 		}
 	}
 	

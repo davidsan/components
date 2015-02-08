@@ -179,7 +179,7 @@ public class AdmissionControl extends AbstractComponent {
 					// TODO: the case when we run out of free cores is not yet implemented
 					// returning the empty string as an uri will throw an exception when
 					// the request generator will try to connect to it.
-					System.err.println("The cluster ran out of available cores, sorry.");
+					System.err.println(logId + " The cluster ran out of available cores, sorry.");
 					return "";
 				}
 				String uri = this.coreRequestArrivalInboundPortUris.remove(0);
