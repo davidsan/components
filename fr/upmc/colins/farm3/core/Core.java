@@ -331,7 +331,7 @@ extends		AbstractComponent
 		}
 
 		
-		System.out.println(logId + " Ask the core to update his clock speed");
+		System.out.println(logId + " Ask the cpu to update his clock speed");
 		Boolean updated = this.core2CpuOutboundPort.acceptUpdateClockspeedRequest(clockSpeed, this.coreId);
 		if(updated){
 			System.out.println(logId + " Core clockspeed's update request granted");
