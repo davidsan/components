@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.upmc.colins.farm3.actuator.dynamic.DynamicActuator;
-import fr.upmc.colins.farm3.connectors.ControlRequestServiceConnector;
 import fr.upmc.colins.farm3.core.ControlRequestArrivalI;
 import fr.upmc.colins.farm3.cpu.ControlRequestGeneratorOutboundPort;
 import fr.upmc.colins.farm3.dispatcher.dynamic.DynamicRequestDispatcher;
@@ -68,6 +67,9 @@ public class AdmissionControl extends AbstractComponent {
 	/** prefix uri of the request generator outbound port to each core 		*/
 	protected static final String AT_RGOP_PREFIX = "at-rgop-";
 
+	/** prefix uri of the Core control outbound port to each core 		*/
+	protected static final String AT_CCOP_PREFIX = "at-ccop-";
+	
 	/** count of request dispatchers instanciated				 			*/
 	protected int requestDispatcherCount ;
 	
@@ -77,13 +79,21 @@ public class AdmissionControl extends AbstractComponent {
 	/** list of the uris of the core request arrival inbound port 			*/
 	protected List<String> coreRequestArrivalInboundPortUris;
 	/** list of the used uris of the core request arrival inbound port		*/
-	protected List<String> usedCoreRequestArrivalInboundPortUris;
+	protected ArrayList<String> usedCoreRequestArrivalInboundPortUris;
 	
 	/** dynamic component creation outbound port to the provider's JVM		*/
 	protected DynamicComponentCreationOutboundPort portToProviderJVM;
 
 	/** list of the uris of the control request generator outbound port 	*/
 	protected List<ControlRequestGeneratorOutboundPort> crgops;
+	
+	
+	/** list of the used uris of the core control inbound port		*/
+	protected List<String>coreControlRequestArrivalInboundPortUris;
+	
+	/** list of the used uris of the core control inbound port		*/
+	protected ArrayList<String> usedCoreControlInboundPortUris;
+	
 
 
 
@@ -135,8 +145,11 @@ public class AdmissionControl extends AbstractComponent {
 				crgop.localPublishPort();
 			}
 			controlRequestGeneratorOutboundPorts.add(crgop);
+			
+			/* TODO check  old version
 			crgop.doConnection(coreControlRequestArrivalInboundPortUris.get(i),
-					ControlRequestServiceConnector.class.getCanonicalName());					
+					ControlRequestServiceConnector.class.getCanonicalName());	
+		*/				
 		}
 
 		this.addOfferedInterface(ApplicationRequestArrivalI.class);
@@ -154,6 +167,9 @@ public class AdmissionControl extends AbstractComponent {
 		
 		this.coreRequestArrivalInboundPortUris = coreRequestArrivalInboundPortUris;
 		this.usedCoreRequestArrivalInboundPortUris = new ArrayList<>();
+		
+		this.coreControlRequestArrivalInboundPortUris=coreControlRequestArrivalInboundPortUris;
+		this.usedCoreControlInboundPortUris=new ArrayList<>();
 		
 		// for the dynamic stuff below
 		this.addRequiredInterface(DynamicComponentCreationI.class) ;
@@ -181,6 +197,9 @@ public class AdmissionControl extends AbstractComponent {
 			Integer virtualMachineId = virtualMachineCount++;
 			ArrayList<String> vmRequestGeneratorOutboundPortUris = new ArrayList<>();
 			ArrayList<String> assignedCoreRequestArrivalInboundPortUris = new ArrayList<>();
+			
+			ArrayList<String>assignedCoreControlInboundPortUris= new ArrayList<String>();
+			
 			for (int j = 0; j < nrofCoresPerVM; j++) {
 				vmRequestGeneratorOutboundPortUris.add(VM_RGOP_PREFIX + virtualMachineId + j);
 				if(this.coreRequestArrivalInboundPortUris.size() <= 0){
@@ -194,6 +213,10 @@ public class AdmissionControl extends AbstractComponent {
 				String uri = this.coreRequestArrivalInboundPortUris.remove(0);
 				assignedCoreRequestArrivalInboundPortUris.add(uri);
 				this.usedCoreRequestArrivalInboundPortUris.add(uri);
+				
+				String uriCoreControl=this.coreControlRequestArrivalInboundPortUris.remove(0);
+				assignedCoreControlInboundPortUris.add(uriCoreControl);
+				this.usedCoreControlInboundPortUris.add(uriCoreControl);
 			}
 			
 			this.portToProviderJVM.createComponent(
@@ -218,7 +241,13 @@ public class AdmissionControl extends AbstractComponent {
 			actuatorRequestGeneratorOutboundPortUris.add(uri);
 		}
 		
+		ArrayList<String> actuatorCoreControlOutboundPortUris = new ArrayList();
+		for(int i = 0; i< nrofCoresPerVM * nrofVMPerDispatcher; i++) {
+			String uri = AT_CCOP_PREFIX + a.getUri() + "-" + i;
+			actuatorCoreControlOutboundPortUris.add(uri);
+		}
 		// build the actuator
+		System.out.println(actuatorCoreControlOutboundPortUris.size());
 		this.portToProviderJVM.createComponent(
 				DynamicActuator.class.getCanonicalName(),
 				new Object[]{ 
@@ -226,7 +255,9 @@ public class AdmissionControl extends AbstractComponent {
 					wantedRate,
 					actuatorResponseArrivalInboundPortUri,
 					actuatorRequestGeneratorOutboundPortUris,
-					this.usedCoreRequestArrivalInboundPortUris
+					usedCoreRequestArrivalInboundPortUris,
+					usedCoreControlInboundPortUris,
+					actuatorCoreControlOutboundPortUris
 				}
 			);
 		

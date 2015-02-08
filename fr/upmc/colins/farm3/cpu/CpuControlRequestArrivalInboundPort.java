@@ -58,6 +58,7 @@ implements	ControlRequestArrivalI
 	@Override
 	public boolean updateClockSpeed(Double clockSpeed) throws Exception {
 		final Cpu fc = (Cpu) this.owner ;
+		System.out.println("he ho");
 		final Double fcs = clockSpeed ;
 		return fc.updateClockSpeed(fcs);
 	}

@@ -10,9 +10,7 @@ import fr.upmc.colins.farm3.connectors.RequestServiceConnector;
 import fr.upmc.colins.farm3.core.RequestArrivalI;
 import fr.upmc.colins.farm3.core.ResponseArrivalI;
 import fr.upmc.colins.farm3.generator.RequestGeneratorOutboundPort;
-import fr.upmc.colins.farm3.objects.Request;
 import fr.upmc.colins.farm3.objects.Response;
-import fr.upmc.colins.farm3.utils.TimeProcessing;
 import fr.upmc.components.AbstractComponent;
 import fr.upmc.components.cvm.AbstractCVM;
 import fr.upmc.components.exceptions.ComponentShutdownException;
@@ -62,7 +60,12 @@ extends		AbstractComponent
 	/** outbound ports to the core											*/
 	protected Queue<RequestGeneratorOutboundPort> rgops;
 	
-	/** control outbound port to each port of cores							*/
+	/** list of the used uris of the core control inbound port		*/
+	protected List<String> usedCoreControlInboundPortUris;
+	
+	/** outbound ports to the core Control										*/
+	protected Queue<ActuatorControlCoreOutboundPort> accops;
+;
 	
 	
 	/**
@@ -84,7 +87,9 @@ extends		AbstractComponent
 		Double wantedRate,
 		String actuatorResponseArrivalInboundPortUri,
 		ArrayList<String> outboundPortURIs,
-		ArrayList<String> usedCoreRequestArrivalInboundPortUris
+		ArrayList<String> usedCoreRequestArrivalInboundPortUris,
+		ArrayList<String> usedCoreControlInboundPortUris,
+		ArrayList<String> outboundCoreControlPortURIs
 		) throws Exception
 	{
 		super(true, true) ;
@@ -96,12 +101,12 @@ extends		AbstractComponent
 		this.wantedRate = wantedRate;
 		
 		this.rgops = new LinkedList<>();
-		
+		this.accops=new LinkedList<>();
 		// inbound port for request arrival
 		this.addOfferedInterface(ResponseArrivalI.class) ;
 		this.respAip = new ActuatorResponseArrivalInboundPort(actuatorResponseArrivalInboundPortUri, this) ;
 		this.usedCoreRequestArrivalInboundPortUris = usedCoreRequestArrivalInboundPortUris;
-		
+		this.usedCoreControlInboundPortUris=usedCoreControlInboundPortUris;
 		this.addPort(this.respAip) ;
 		if (AbstractCVM.isDistributed) {
 			this.respAip.publishPort() ;
@@ -112,7 +117,7 @@ extends		AbstractComponent
 
 		// interface is added once.
 		this.addRequiredInterface(RequestArrivalI.class) ;
-		
+		this.addOfferedInterface(ActuatorControlCoreOutboundPort.class) ;
 		// connect outbound port to the core
 		for (int i = 0; i < outboundPortURIs.size(); i++) {
 			String outboundPortURI = outboundPortURIs.get(i);
@@ -130,6 +135,25 @@ extends		AbstractComponent
 					RequestServiceConnector.class.getCanonicalName());
 			System.out.println(logId + " Connect the actuator to a core (via "
 					+ rgop.getPortURI() + ")");
+			
+			
+			// outbound port for control (into a core)
+			String outboundCoreControlPortURI = outboundCoreControlPortURIs.get(i);
+			ActuatorControlCoreOutboundPort acco = new ActuatorControlCoreOutboundPort(outboundCoreControlPortURI, this);
+			System.out.println(acco.getClass().getName());
+			this.accops.add(acco);
+			this.addPort(acco);
+			if (AbstractCVM.isDistributed) {
+				acco.publishPort();
+			}
+			else {
+				acco.localPublishPort();
+			}
+			acco.doConnection(usedCoreControlInboundPortUris.get(i),
+					RequestServiceConnector.class.getCanonicalName());
+			System.out.println(logId + " Connect the actuator to a core control port (via "
+					+ acco.getPortURI() + ")");
+					
 		}		
 
 		System.out.println(logId + " Actuator (id " + id + ") created for app " + id) ;
@@ -181,37 +205,19 @@ extends		AbstractComponent
 	 * TODO: and forward the mean of mean time to a controller
 	 * @param response the received response
 	 */
-	public void 			responseArrivalEvent(Response response) {
-		// to fast slow down the core clock speed
-		if (response.getDuration() < wantedRate) {
-			Request request = new Request(-100, -1);
-			try {
-				System.out.println(logId + " Update core (slow)     "
-						+ " at "
-						+ TimeProcessing.toString(System.currentTimeMillis())) ;
-				RequestGeneratorOutboundPort rgop = this.rgops.poll();		
-				rgop.acceptRequest(request);
-				this.rgops.add(rgop);
-			} catch (Exception e) {
-				e.printStackTrace();
+	public void 			responseArrivalEvent(Response response) {	
+		System.out.println(logId + " Received a new mean time from his request dispatcher of " + response.getDuration());
+		try {
+			ActuatorControlCoreOutboundPort tmp = accops.poll();
+			if(tmp!=null){
+			tmp.updateClockSpeed(0.4);
+			accops.add(tmp);
+			System.out.println(accops.poll().getOwner().getClass().getName());
 			}
-		// to slow up the core clock speed
-		} else if(response.getDuration() > wantedRate) {
-			Request request = new Request(-100, -2);
-			try {
-				System.out.println(logId + " Update core (fast)    "
-						+ " at "
-						+ TimeProcessing.toString(System.currentTimeMillis())) ;
-				RequestGeneratorOutboundPort rgop = this.rgops.poll();		
-				rgop.acceptRequest(request);
-				this.rgops.add(rgop);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else {
-			System.out.println(logId + " Received a new mean time from his request dispatcher of " + response.getDuration());
-		}
-
 		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

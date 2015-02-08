@@ -59,6 +59,7 @@ implements	ControlRequestArrivalI
 	{
 		final Core sp = (Core) this.owner ;
 		final Double fcs = cs ;
+		System.out.println("here#####################################");
 		return sp.updateClockSpeed(fcs);
 	}
 

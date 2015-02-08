@@ -10,12 +10,16 @@ public class DynamicActuator extends Actuator{
 						   Double wantedRate, 
 						   String actuatorResponseArrivalInboundPortUri,
 						   ArrayList<String> actuatorRequestGeneratorOutboundPortUris,
-						   ArrayList<String> usedCoreRequestArrivalInboundPortUris) throws Exception {
+						   ArrayList<String> usedCoreRequestArrivalInboundPortUris,
+						   ArrayList<String> usedCoreControlInboundPortUris,
+						   ArrayList<String>outboundCoreControlPortURIs) throws Exception {
 		super(id, 
 			  wantedRate, 
 			  actuatorResponseArrivalInboundPortUri,
 			  actuatorRequestGeneratorOutboundPortUris,
-			  usedCoreRequestArrivalInboundPortUris);
+			  usedCoreRequestArrivalInboundPortUris,
+			  usedCoreControlInboundPortUris,
+			  outboundCoreControlPortURIs);
 	}
 
 

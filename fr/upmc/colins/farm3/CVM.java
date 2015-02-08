@@ -39,7 +39,7 @@ public class CVM extends AbstractCVM {
 	protected static final String 	logId = "[    CVM     ]";
 	// Settings
 	/** the main sleep's duration										*/
-	protected static final long 		MAIN_SLEEPING_DURATION = 5000L;
+	protected static final long 		MAIN_SLEEPING_DURATION = 15000L;
 	/** the default clock speed											*/
 	protected static final Double 	CLOCK_SPEED = 1.0;
 	/** the maximum clock speed											*/
@@ -59,9 +59,9 @@ public class CVM extends AbstractCVM {
 	/** the standard deviation 											*/
 	protected static final double 	STANDARD_DEVIATION = 100.0;
 	/** the mean number of instructions 								*/
-	protected static final double 	MEAN_NROF_INSTRUCTIONS = 1000.0;
+	protected static final double 	MEAN_NROF_INSTRUCTIONS = 2000.0;
 	/** the rate for the actuator										*/
-	protected static final double 	WANTED_RATE = 800.0;
+	protected static final double 	WANTED_RATE = 1000.0;
 	
 	// Components' URIs
 	protected static final String RG_ARGOP = "rg-argop";
