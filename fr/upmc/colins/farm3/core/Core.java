@@ -450,6 +450,8 @@ extends		AbstractComponent
 	}
 	
 
+	/** getters */
+	
 	public String getInboundPortURI() {
 		return inboundPortURI;
 	}
@@ -457,4 +459,9 @@ extends		AbstractComponent
 	public String getControlInboundPortURI() {
 		return controlInboundPortURI;
 	}
+
+	public double getClockSpeed() {
+		return clockSpeed;
+	}
+	
 }

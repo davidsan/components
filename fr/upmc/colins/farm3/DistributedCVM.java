@@ -42,7 +42,7 @@ public class DistributedCVM extends AbstractDistributedCVM {
 	
 	// Settings
 	/** the main sleep's duration										*/
-	protected static final long 		MAIN_SLEEPING_DURATION = 10000L;
+	protected static final long 		MAIN_SLEEPING_DURATION = 100000L;
 	/** the default clock speed											*/
 	protected static final Double 		CLOCK_SPEED = 1.0;
 	/** the maximum clock speed											*/
