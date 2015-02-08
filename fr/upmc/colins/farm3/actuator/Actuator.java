@@ -1,7 +1,10 @@
 package fr.upmc.colins.farm3.actuator;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
 
+import fr.upmc.colins.farm3.connectors.ActuatorControlCpuConnector;
+import fr.upmc.colins.farm3.core.ControlRequestArrivalI;
 import fr.upmc.colins.farm3.core.ResponseArrivalI;
 import fr.upmc.colins.farm3.objects.Response;
 import fr.upmc.components.AbstractComponent;
@@ -41,8 +44,18 @@ extends		AbstractComponent
 	/** inbound ports for each cores (to obtain the response) 				*/
 	protected ActuatorResponseArrivalInboundPort respAip;
 	
-	/** control outbound port to each port of cores							*/
+
 	
+	
+	/** list of the used uris of the core request arrival inbound port */
+	 protected ArrayList<String> actuatorRequestGeneratorOutboundPortUris;
+	
+	 /** list of the used uris of the core request arrival inbound port */
+	 protected ArrayList<String> usedCoreRequestArrivalInboundPortUris;
+	
+
+		/** control outbound port to each port of cores							*/
+	 protected ArrayList<ActuatorControlCoreOutboundPort> accops;
 	
 	/**
 	 * create an actuator
@@ -60,7 +73,9 @@ extends		AbstractComponent
 	 */
 	public				Actuator(
 		Integer id, 
-		String actuatorResponseArrivalInboundPortUri
+		String actuatorResponseArrivalInboundPortUri,
+		 ArrayList<String> usedCoreControlInboundPortUris,
+		 ArrayList<String> outboundCoreControlPortURIs
 		) throws Exception
 	{
 		super(true, true) ;
@@ -69,7 +84,7 @@ extends		AbstractComponent
 		
 		this.logId = MessageFormat.format("[ ACTT {0}  ]", String.format("%04d", id));
 		this.id = id ;
-		
+
 		// inbound port for request arrival
 		this.addOfferedInterface(ResponseArrivalI.class) ;
 		this.respAip = new ActuatorResponseArrivalInboundPort(actuatorResponseArrivalInboundPortUri, this) ;
@@ -80,7 +95,26 @@ extends		AbstractComponent
 		} else {
 			this.respAip.localPublishPort() ;
 		}
-
+		accops=new ArrayList<ActuatorControlCoreOutboundPort>();
+		// outbound port for control (into a core)
+		this.addRequiredInterface(ControlRequestArrivalI.class);
+		for (int i = 0; i < usedCoreControlInboundPortUris.size(); i++) {
+			
+			String outboundCoreControlPortURI = usedCoreControlInboundPortUris.get(i);
+			 ActuatorControlCoreOutboundPort acco = new ActuatorControlCoreOutboundPort(outboundCoreControlPortURI, this);
+			 this.accops.add(acco);
+			 this.addPort(acco);
+			 if (AbstractCVM.isDistributed) {
+				 acco.publishPort();
+			 }
+			 else {
+				 acco.localPublishPort();
+			 }
+			 acco.doConnection(usedCoreControlInboundPortUris.get(i),
+					 ActuatorControlCpuConnector.class.getCanonicalName());
+			 System.out.println(logId + " Connect the actuator to a core control port (via "
+					 + acco.getPortURI() + ")");
+		}
 		System.out.println(logId + " Actuator (id " + id + ") created for app " + id) ;
 		assert	id != null;
 	}
@@ -114,6 +148,7 @@ extends		AbstractComponent
 	// -------------------------------------------------------------------------
 	
 
+
 	/**
 	 * update the mean time of request processing (from the virtual machine)
 	 * TODO: and forward the mean of mean time to a controller
@@ -121,6 +156,13 @@ extends		AbstractComponent
 	 */
 	public void 			responseArrivalEvent(Response response) {	
 		System.out.println(logId + " Received a new mean time from his request dispatcher of " + response.getDuration());
-		
+		for(int i=0;i<accops.size();i++){
+			try {
+				accops.get(i).updateClockSpeed(new Double(2.0));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 }

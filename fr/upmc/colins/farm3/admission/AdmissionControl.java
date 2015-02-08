@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.upmc.colins.farm3.actuator.dynamic.DynamicActuator;
-import fr.upmc.colins.farm3.connectors.ControlRequestServiceConnector;
 import fr.upmc.colins.farm3.core.ControlRequestArrivalI;
 import fr.upmc.colins.farm3.cpu.ControlRequestGeneratorOutboundPort;
 import fr.upmc.colins.farm3.dispatcher.dynamic.DynamicRequestDispatcher;
@@ -65,6 +64,7 @@ public class AdmissionControl extends AbstractComponent {
 	/** prefix uri of the request generator outbound port to each vm		*/
 	protected static final String RD_RGOP_PREFIX = "rd-rgop-";
 
+
 	/** count of request dispatchers instanciated				 			*/
 	protected int requestDispatcherCount ;
 	
@@ -79,9 +79,15 @@ public class AdmissionControl extends AbstractComponent {
 	/** list of the uris of the control request generator outbound port 	*/
 	protected List<ControlRequestGeneratorOutboundPort> crgops;
 
-
-
-
+	
+	 /** list of the used uris of the core control inbound port */
+	 protected ArrayList<String> usedCoreControlInboundPortUris;
+	 
+	 ArrayList<String> actuatorCoreControlOutboundPortUris ;
+	 
+		/** list of the uris of the core controlrequest arrival inbound port 			*/
+		protected List<String> coreControlInboundPortUris;
+	
 	/**
 	 * Constructor
 	 * 
@@ -110,7 +116,7 @@ public class AdmissionControl extends AbstractComponent {
 		this.nrofCoresPerVM = nrofCoresPerVM;
 		this.nrofVMPerDispatcher = nrofVMPerDispatcher;
 		this.controlRequestGeneratorOutboundPorts = new ArrayList<ControlRequestGeneratorOutboundPort>();
-		
+		actuatorCoreControlOutboundPortUris=new ArrayList<String>();
 		this.crgops = new ArrayList<ControlRequestGeneratorOutboundPort>();
 		// this is for the outbounds port towards each cpu (managed by the
 		// admission control)
@@ -126,10 +132,12 @@ public class AdmissionControl extends AbstractComponent {
 				crgop.localPublishPort();
 			}
 			controlRequestGeneratorOutboundPorts.add(crgop);
-			crgop.doConnection(coreControlRequestArrivalInboundPortUris.get(i),
-					ControlRequestServiceConnector.class.getCanonicalName());					
+			/*crgop.doConnection(coreControlRequestArrivalInboundPortUris.get(i),
+					ControlRequestServiceConnector.class.getCanonicalName());			
+					*/		
 		}
-
+		coreControlInboundPortUris=coreControlRequestArrivalInboundPortUris;
+		
 		this.addOfferedInterface(ApplicationRequestArrivalI.class);
 		this.applicationRequestArrivalInboundPort = new ApplicationRequestArrivalInboundPort(inboundPortUri,
 				this);
@@ -145,7 +153,7 @@ public class AdmissionControl extends AbstractComponent {
 		
 		this.coreRequestArrivalInboundPortUris = coreRequestArrivalInboundPortUris;
 		this.usedCoreRequestArrivalInboundPortUris = new ArrayList<>();
-		
+		this.usedCoreControlInboundPortUris=new ArrayList<>();
 		// for the dynamic stuff below
 		this.addRequiredInterface(DynamicComponentCreationI.class) ;
 		this.addRequiredInterface(DynamicallyConnectableComponentI.class) ;
@@ -165,6 +173,7 @@ public class AdmissionControl extends AbstractComponent {
 		}
 
 		ArrayList<String> vmRequestArrivalInboundPortUris = new ArrayList<>();
+		
 		for (int i = 0; i < nrofVMPerDispatcher; i++) {	
 			// build the vm
 			// FIXME: select only available cores (by pulling their status)
@@ -184,9 +193,16 @@ public class AdmissionControl extends AbstractComponent {
 				}
 				String uri = this.coreRequestArrivalInboundPortUris.remove(0);
 				assignedCoreRequestArrivalInboundPortUris.add(uri);
+				
 				this.usedCoreRequestArrivalInboundPortUris.add(uri);
+				String uriCore = this.coreControlInboundPortUris.remove(0);			
+				this.usedCoreControlInboundPortUris.add(uriCore);
+
 			}
 			
+
+			 
+			 
 			this.portToProviderJVM.createComponent(
 				DynamicVM.class.getCanonicalName(),
 				new Object[]{ 
@@ -209,7 +225,9 @@ public class AdmissionControl extends AbstractComponent {
 				DynamicActuator.class.getCanonicalName(),
 				new Object[]{ 
 					a.getUri(),
-					actuatorResponseArrivalInboundPortUri
+					actuatorResponseArrivalInboundPortUri,
+					 usedCoreControlInboundPortUris,
+					 actuatorCoreControlOutboundPortUris
 				}
 			);
 		
