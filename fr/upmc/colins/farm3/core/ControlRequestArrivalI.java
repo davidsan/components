@@ -41,4 +41,14 @@ extends		TwoWayI
 	 * @return the list of the control inbound port uri of the cores
 	 * @throws Exception
 	 */
-	ArrayList<String> 	getCoresControlRequestArrivalInboundPortUris() throws Exception;}
+	ArrayList<String> 	getCoresControlRequestArrivalInboundPortUris() throws Exception;
+	
+
+	/**
+	 * get the clock speed
+	 * @return true the clockspeed
+	 * @throws Exception
+	 */
+	Double getClockSpeed() throws Exception;
+	
+}

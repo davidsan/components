@@ -81,4 +81,11 @@ implements	ControlRequestArrivalI
 		return l;
 	}
 
+
+	@Override
+	public Double getClockSpeed() throws Exception {
+		final Core sp = (Core) this.owner;
+		return sp.clockSpeed;
+	}
+
 }

@@ -79,5 +79,10 @@ implements	ControlRequestArrivalI
 		return ((ControlRequestArrivalI)this.connector).getCoresControlRequestArrivalInboundPortUris();
 	}
 
+	@Override
+	public Double getClockSpeed() throws Exception {
+		return ((ControlRequestArrivalI)this.connector).getClockSpeed();
+	}
+
 
 }

@@ -93,4 +93,11 @@ implements	ControlRequestArrivalI
 		return res;
 	}
 
+
+	@Override
+	public Double getClockSpeed() throws Exception {
+		final Cpu fc = (Cpu) this.owner;
+		return fc.clockSpeed;
+	}
+
 }

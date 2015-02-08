@@ -52,6 +52,10 @@ implements	ControlRequestArrivalI,	Serializable
 		.getCoresControlRequestArrivalInboundPortUris();
 	}
 
+	@Override
+	public Double getClockSpeed() throws Exception {
+		return ((ControlRequestArrivalI)this.offering).getClockSpeed();
+	}
 
 
 }
