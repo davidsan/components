@@ -42,27 +42,29 @@ public class DistributedCVM extends AbstractDistributedCVM {
 	
 	// Settings
 	/** the main sleep's duration										*/
-	protected static final long 	MAIN_SLEEPING_DURATION = 30000L;
+	protected static final long 		MAIN_SLEEPING_DURATION = 10000L;
 	/** the default clock speed											*/
-	protected static final Double CLOCK_SPEED = 1.0;
+	protected static final Double 		CLOCK_SPEED = 1.0;
 	/** the maximum clock speed											*/
-	protected static final Double MAX_CLOCK_SPEED = 2.0;
+	protected static final Double 		MAX_CLOCK_SPEED = 2.0;
+	/** the maximum clock speed	gap										*/
+	protected static final Double 		MAX_CLOCK_SPEED_GAP = 0.5;
 	/** the number of cpu in the cluster								*/
-	protected static final Long NROF_CPU = 1L;
+	protected static final Long 		NROF_CPU = 1L;
 	/** the number of cores	in the cluster								*/
-	protected static final Long NROF_CORES_PER_CPU = 8L;
+	protected static final Long 		NROF_CORES_PER_CPU = 8L;
 	/** the number of applications to be submitted by the consumer		*/
-	protected static final Long NROF_APPS = 2L;
+	protected static final Long 		NROF_APPS = 2L;
 	/** the number of cores allocated per virtual machines				*/
-	protected static final int 		NROF_CORES_PER_VM = 2;
+	protected static final int 			NROF_CORES_PER_VM = 2;
 	/** the number of virtual machines allocated per dispatcher			*/
-	protected static final int 		NROF_VM_PER_DISPATCHER = 2;
+	protected static final int 			NROF_VM_PER_DISPATCHER = 2;
 	/** the mean inter arrival time										*/
-	protected static final double 	MEAN_INTER_ARRIVAL_TIME = 1000.0;
+	protected static final double 		MEAN_INTER_ARRIVAL_TIME = 1000.0;
 	/** the standard deviation 											*/
-	protected static final double 	STANDARD_DEVIATION = 100.0;
+	protected static final double 		STANDARD_DEVIATION = 100.0;
 	/** the mean number of instructions 								*/
-	protected static final double 	MEAN_NROF_INSTRUCTIONS = 1000.0;
+	protected static final double 		MEAN_NROF_INSTRUCTIONS = 1000.0;
 
 	// Components' URIs
 	protected static final String RG_ARGOP = "rg-argop";
@@ -135,6 +137,7 @@ public class DistributedCVM extends AbstractDistributedCVM {
 						NROF_CORES_PER_CPU, 
 						CLOCK_SPEED, 
 						MAX_CLOCK_SPEED,
+						MAX_CLOCK_SPEED_GAP,
 						CPU_CRAIP_PREFIX + i,
 						this
 						);

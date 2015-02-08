@@ -6,6 +6,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
+import fr.upmc.colins.farm3.connectors.Core2CpuServiceConnector;
 import fr.upmc.colins.farm3.connectors.ResponseServiceConnector;
 import fr.upmc.colins.farm3.objects.Request;
 import fr.upmc.colins.farm3.objects.Response;
@@ -100,9 +101,17 @@ extends		AbstractComponent
 	/** outbound port of the core to send response to the virtual machine	*/
 	protected CoreResponseGeneratorOutboundPort coreResponseGeneratorOutboundPort;
 
+	/** uri of the core inbound port for request 							*/
 	protected String inboundPortURI;
 
+	/** uri of the core inbound control port								*/
 	protected String controlInboundPortURI;
+
+	/** outbound port to send request of clock update to the cpu 			*/
+	protected Core2CpuOutboundPort core2CpuOutboundPort;
+
+	/** uri of the cpu inbound port for control								*/
+	private String cpuControlInboundPortURI;
 
 	/**
 	 * create a service provider.
@@ -119,6 +128,7 @@ extends		AbstractComponent
 	 * @param maxClockSpeed 		maxClockSpeed
 	 * @param inboundPortURI		URI of the port used to received requests.
 	 * @param controlInboundPortURI URI of the port used to received control request
+	 * @param cpuControlInboundPortURI URI of the port used to send control request to the CPU
 	 * @throws Exception
 	 */
 	public				Core(
@@ -126,7 +136,8 @@ extends		AbstractComponent
 		Double clockSpeed,
 		Double maxClockSpeed,
 		String inboundPortURI,
-		String controlInboundPortURI
+		String controlInboundPortURI,
+		String cpuControlInboundPortURI
 		) throws Exception
 	{
 		super(true, true) ;
@@ -149,15 +160,23 @@ extends		AbstractComponent
 		
 		// inbound port for request arrival
 		this.addOfferedInterface(RequestArrivalI.class) ;
-		PortI p = new CoreRequestArrivalInboundPort(inboundPortURI, this) ;
+		PortI p = new CoreRequestArrivalInboundPort(this.inboundPortURI, this) ;
 		this.addPort(p) ;
 
 		// inbound port for control request arrival
 		this.addOfferedInterface(ControlRequestArrivalI.class) ;
-		PortI controlPort = new CoreControlRequestArrivalInboundPort(controlInboundPortURI, this) ;
+		PortI controlPort = new CoreControlRequestArrivalInboundPort(this.controlInboundPortURI, this) ;
 		this.addPort(controlPort) ;		
 
 		this.addRequiredInterface(ResponseArrivalI.class);
+		
+		
+		this.addRequiredInterface(Core2CpuI.class);
+		this.core2CpuOutboundPort = new Core2CpuOutboundPort("core2cpu-op-"
+				+ java.util.UUID.randomUUID(), this);
+		this.addPort(core2CpuOutboundPort) ;		
+
+		
 		// the URI used here, doesn't really matter, it should just be unique
 		this.coreResponseGeneratorOutboundPort = new CoreResponseGeneratorOutboundPort(
 				"core-resp-rgop-" + java.util.UUID.randomUUID(), this);
@@ -166,11 +185,15 @@ extends		AbstractComponent
 			p.publishPort() ;
 			controlPort.publishPort() ;
 			coreResponseGeneratorOutboundPort.publishPort();
+			core2CpuOutboundPort.publishPort();
 		} else {
 			p.localPublishPort() ;
 			controlPort.localPublishPort();
 			coreResponseGeneratorOutboundPort.localPublishPort();
+			core2CpuOutboundPort.localPublishPort();
 		}
+		
+		this.cpuControlInboundPortURI = cpuControlInboundPortURI;
 		
 		System.out.println(logId + " Core " + this.clockSpeed + " / "
 				+ this.maxClockSpeed + " GHz (id " + coreId + ") created");
@@ -210,6 +233,9 @@ extends		AbstractComponent
 		try {
 			if (this.coreResponseGeneratorOutboundPort.connected()) {
 				this.coreResponseGeneratorOutboundPort.doDisconnection();
+			}
+			if (this.core2CpuOutboundPort.connected()) {
+				this.core2CpuOutboundPort.doDisconnection();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -291,6 +317,30 @@ extends		AbstractComponent
 		return true;
 	}
 	
+	
+	public boolean		updateClockSpeedPlease(Double clockSpeed) throws Exception
+	{
+		// if the core was not connected to the cpu yet, we connect it
+		if(!this.core2CpuOutboundPort.connected()){
+			this.core2CpuOutboundPort.doConnection(this.cpuControlInboundPortURI, Core2CpuServiceConnector.class.getCanonicalName());
+		}
+		
+		// safe check
+		if (clockSpeed <= 0 || clockSpeed > maxClockSpeed) {
+			return false;
+		}
+
+		
+		System.out.println(logId + " Ask the core to update his clock speed");
+		Boolean updated = this.core2CpuOutboundPort.acceptUpdateClockspeedRequest(clockSpeed, this.coreId);
+		if(updated){
+			System.out.println(logId + " Core clockspeed's update request granted");
+		}else{
+			System.out.println(logId + " Core clockspeed's update request revoked");
+		}
+		assert this.clockSpeed > 0;
+		return true;
+	}
 	
 	/**
 	 * process a begin servicing event, e.g. schedule a end servicing event

@@ -65,6 +65,14 @@ implements	ControlRequestArrivalI
 	}
 	
 	/**
+	 * ask the core to update his clockspeed, shall the cpu be ok with that
+	 */
+	@Override
+	public boolean updateClockSpeedPlease(Double clockSpeed) throws Exception {
+		return ((ControlRequestArrivalI)this.connector).updateClockSpeedPlease(clockSpeed);
+	}
+	
+	/**
 	 * return the list of uri of inbound port to each cores
 	 */
 	@Override
@@ -83,6 +91,8 @@ implements	ControlRequestArrivalI
 	public Double getClockSpeed() throws Exception {
 		return ((ControlRequestArrivalI)this.connector).getClockSpeed();
 	}
+
+
 
 
 }

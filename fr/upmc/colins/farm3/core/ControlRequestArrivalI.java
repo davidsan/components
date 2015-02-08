@@ -30,6 +30,14 @@ extends		TwoWayI
 	boolean				updateClockSpeed(Double clockSpeed) throws Exception ;
 
 	/**
+	 * ask for an update of the clock speed
+	 * @param clockSpeed new clock speed
+	 * @return true if the request was granted, else false
+	 * @throws Exception
+	 */
+	boolean 			updateClockSpeedPlease(Double clockSpeed) throws Exception;
+	
+	/**
 	 * return inbound core uri (raip)
 	 * @return the list of the inbound port uri of the cores
 	 * @throws Exception
@@ -50,5 +58,6 @@ extends		TwoWayI
 	 * @throws Exception
 	 */
 	Double getClockSpeed() throws Exception;
+
 	
 }

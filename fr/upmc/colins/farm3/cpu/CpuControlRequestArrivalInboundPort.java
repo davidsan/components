@@ -62,6 +62,14 @@ implements	ControlRequestArrivalI
 		return fc.updateClockSpeed(fcs);
 	}
 
+	/**
+	 * this won't get called, but if it is, then call the updateClockSpeed method
+	 */
+	@Override
+	public boolean updateClockSpeedPlease(Double clockSpeed) throws Exception {
+		final Cpu fc = (Cpu) this.owner;
+		return fc.updateClockSpeed(clockSpeed);
+	}
 
 	@Override
 	public ArrayList<String> getCoresRequestArrivalInboundPortUris() throws Exception {
@@ -99,5 +107,7 @@ implements	ControlRequestArrivalI
 		final Cpu fc = (Cpu) this.owner;
 		return fc.clockSpeed;
 	}
+
+
 
 }

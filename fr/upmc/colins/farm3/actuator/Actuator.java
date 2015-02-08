@@ -36,7 +36,7 @@ extends		AbstractComponent
 	protected String logId;
     
 	/** step value of frequency when changing the frequency					*/
-	protected static final double BOOST_STEP = 0.1;
+	protected static final double BOOST_STEP = 0.6;
 
 	/** goal time in milliseconds											*/
 	protected static final int GOAL_TIME = 1000;
@@ -139,6 +139,15 @@ extends		AbstractComponent
 	@Override
 	public void			shutdown() throws ComponentShutdownException
 	{
+		try {
+			for (ControlRequestGeneratorOutboundPort controlRequestGeneratorOutboundPort : crgops) {
+				if (controlRequestGeneratorOutboundPort.connected()) {
+					controlRequestGeneratorOutboundPort.doDisconnection();
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		super.shutdown();
 	}
 
@@ -157,7 +166,7 @@ extends		AbstractComponent
 		System.out.println(logId + " Received a new mean time from his request dispatcher of " + response.getDuration());
 		if (response.getDuration() < GOAL_TIME) {
 			for (ControlRequestGeneratorOutboundPort port : crgops) {
-				port.updateClockSpeed(port.getClockSpeed() + BOOST_STEP);
+				port.updateClockSpeedPlease(port.getClockSpeed() + BOOST_STEP);
 			}
 		}
 	}

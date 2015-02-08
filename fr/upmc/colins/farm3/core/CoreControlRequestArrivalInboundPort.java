@@ -61,6 +61,16 @@ implements	ControlRequestArrivalI
 		final Double fcs = cs ;
 		return sp.updateClockSpeed(fcs);
 	}
+	
+
+	@Override
+	public boolean updateClockSpeedPlease(Double cs) 
+			throws Exception 
+	{
+		final Core sp = (Core) this.owner ;
+		final Double fcs = cs ;
+		return sp.updateClockSpeedPlease(fcs);
+	}
 
 
 	@Override

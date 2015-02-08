@@ -57,5 +57,10 @@ implements	ControlRequestArrivalI,	Serializable
 		return ((ControlRequestArrivalI)this.offering).getClockSpeed();
 	}
 
+	@Override
+	public boolean updateClockSpeedPlease(Double clockSpeed) throws Exception {
+		return ((ControlRequestArrivalI)this.offering).updateClockSpeedPlease(clockSpeed);
+	}
+
 
 }

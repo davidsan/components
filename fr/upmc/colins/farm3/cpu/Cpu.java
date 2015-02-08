@@ -3,9 +3,12 @@ package fr.upmc.colins.farm3.cpu;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 
+import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
+
 import fr.upmc.colins.farm3.connectors.ControlRequestServiceConnector;
 import fr.upmc.colins.farm3.core.ControlRequestArrivalI;
 import fr.upmc.colins.farm3.core.Core;
+import fr.upmc.colins.farm3.core.Core2CpuI;
 import fr.upmc.colins.farm3.generator.RequestGeneratorOutboundPort;
 import fr.upmc.components.AbstractComponent;
 import fr.upmc.components.cvm.AbstractCVM;
@@ -41,6 +44,7 @@ public class Cpu extends AbstractComponent {
 	protected static final String CPU_CRGOP_PREFIX = "-crgop-";
 	protected static final String CORE_RAIP_PREFIX = "-core-raip-";
 	protected static final String CORE_CRAIP_PREFIX = "-core-craip-";
+	protected static final String CPU_CRAIP_PREFIX = "-cpu-craip-";
 	
 	// -------------------------------------------------------------------------
 	// Constructors and instance variables
@@ -55,7 +59,7 @@ public class Cpu extends AbstractComponent {
 	/**	default maximum clock speed of the cores 								*/
 	protected Double 		maxClockSpeed;
 	/**	default maximum gap in clock speed for all cores						*/
-	protected Double 		maxGapClockSpeed = 0.5;
+	protected Double 		maxGapClockSpeed;
 	
 	/** list of outboundports of the cpu to each cores							*/
 	protected ArrayList<RequestGeneratorOutboundPort> cpuRequestGeneratorOutboundPorts;	
@@ -92,6 +96,7 @@ public class Cpu extends AbstractComponent {
 			Long nrofCores, 
 			Double clockSpeed,
 			Double maxClockSpeed,
+			Double maxGapClockSpeed,
 			String controlInboundPortURI,
 			AbstractCVM cvm
 			) throws Exception 
@@ -106,23 +111,27 @@ public class Cpu extends AbstractComponent {
 		this.nrofCores = nrofCores;
 		this.clockSpeed = clockSpeed;
 		this.maxClockSpeed = maxClockSpeed;
+		this.maxGapClockSpeed = maxGapClockSpeed;
 		this.coreRequestArrivalInboundPortUris = new ArrayList<>();
 		this.coreControlRequestArrivalInboundPortUris = new ArrayList<>();
 		
 		this.addRequiredInterface(ControlRequestArrivalI.class);
 		this.addOfferedInterface(ControlRequestArrivalI.class);
+		this.addOfferedInterface(Core2CpuI.class);
 		this.controlRequestGeneratorOutboundPorts = new ArrayList<>();
 		for (int i = 0; i < this.nrofCores; i++) {
 			String crgopCpuUri = CPU_PREFIX + cpuId + CPU_CRGOP_PREFIX + i;
 			String raipCoreUri= CPU_PREFIX + cpuId + CORE_RAIP_PREFIX + i;
 			String craipCoreUri = CPU_PREFIX + cpuId + CORE_CRAIP_PREFIX + i;
+			String craipCpuUri =  CPU_PREFIX + cpuId + CPU_CRAIP_PREFIX + i ;
 			// build the core
 			Core core = new Core(
 				i,
 				clockSpeed,
 				maxClockSpeed,
 				raipCoreUri,
-				craipCoreUri	
+				craipCoreUri,
+				craipCpuUri 
 			);
 			cvm.addDeployedComponent(core);
 			
@@ -138,6 +147,14 @@ public class Cpu extends AbstractComponent {
 			}
 			crgop.doConnection(craipCoreUri, 
 					ControlRequestServiceConnector.class.getCanonicalName());
+			
+			Core2CpuInboundPort c2cip = new Core2CpuInboundPort(craipCpuUri, this);
+			if (AbstractCVM.isDistributed) {
+				c2cip.publishPort();
+			} else {
+				c2cip.localPublishPort();
+			}
+			
 			
 		}
 		
@@ -239,6 +256,55 @@ public class Cpu extends AbstractComponent {
 	public ArrayList<String> getCoresControlRequestArrivalInboundPortUris() {
 		return coreControlRequestArrivalInboundPortUris;
 
+	}
+
+	public Boolean acceptUpdateClockspeedRequest(Double clockspeed,
+			Integer coreId) throws Exception {
+
+		if (clockspeed > maxClockSpeed) {
+			return false;
+		}
+
+		System.out.println(logId
+				+ " Received a request to update clockspeed of core " + coreId
+				+ " to " + clockspeed + " GHz");
+		int coreIndex = coreId - 1;
+
+		DescriptiveStatistics stats = new DescriptiveStatistics();
+		// this method should not be called asynchronously
+		for (int i = 0; i < controlRequestGeneratorOutboundPorts.size(); i++) {
+			if (i == coreIndex) {
+				continue;
+			}
+			stats.addValue(controlRequestGeneratorOutboundPorts.get(i)
+					.getClockSpeed());
+		}
+
+		if (clockspeed > stats.getMax()) {
+			// allow and make the necessary overclocking
+			System.out.println(logId + " Might overclock some cores.");
+			for (int i = 0; i < controlRequestGeneratorOutboundPorts.size(); i++) {
+				if (i == coreIndex) {
+					continue;
+				}
+				ControlRequestGeneratorOutboundPort crgop = this.controlRequestGeneratorOutboundPorts
+						.get(coreIndex);
+				if (clockspeed - crgop.getClockSpeed() > maxGapClockSpeed) {
+					crgop.updateClockSpeed(clockspeed);
+				}
+			}
+		} else if (clockspeed < stats.getMin()) {
+			// allow only if we can make the changes without underclocking the
+			// others
+			for (Double freq : stats.getValues()) {
+				if (freq - clockspeed > maxGapClockSpeed) {
+					return false;
+				}
+			}
+		}
+		this.controlRequestGeneratorOutboundPorts.get(coreIndex)
+				.updateClockSpeed(clockspeed);
+		return true;
 	}
 	
 }
