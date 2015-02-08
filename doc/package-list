@@ -1,0 +1,14 @@
+fr.upmc.colins.farm3
+fr.upmc.colins.farm3.actuator
+fr.upmc.colins.farm3.actuator.dynamic
+fr.upmc.colins.farm3.admission
+fr.upmc.colins.farm3.connectors
+fr.upmc.colins.farm3.core
+fr.upmc.colins.farm3.cpu
+fr.upmc.colins.farm3.dispatcher
+fr.upmc.colins.farm3.dispatcher.dynamic
+fr.upmc.colins.farm3.generator
+fr.upmc.colins.farm3.objects
+fr.upmc.colins.farm3.utils
+fr.upmc.colins.farm3.vm
+fr.upmc.colins.farm3.vm.dynamic
