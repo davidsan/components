@@ -8,11 +8,9 @@ public class DynamicActuator extends Actuator{
 
 	public DynamicActuator(Integer id, 
 			String actuatorResponseArrivalInboundPortUri,
-			ArrayList<String> usedCoreControlInboundPortUris,
 			ArrayList<String> outboundCoreControlPortURIs) throws Exception {
 		super(id,
 				actuatorResponseArrivalInboundPortUri,
-				usedCoreControlInboundPortUris,
 				outboundCoreControlPortURIs);
 	}
 

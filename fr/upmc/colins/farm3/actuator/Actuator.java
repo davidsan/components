@@ -74,7 +74,6 @@ extends		AbstractComponent
 	public				Actuator(
 		Integer id, 
 		String actuatorResponseArrivalInboundPortUri,
-		 ArrayList<String> usedCoreControlInboundPortUris,
 		 ArrayList<String> outboundCoreControlPortURIs
 		) throws Exception
 	{
@@ -98,9 +97,9 @@ extends		AbstractComponent
 		accops=new ArrayList<ActuatorControlCoreOutboundPort>();
 		// outbound port for control (into a core)
 		this.addRequiredInterface(ControlRequestArrivalI.class);
-		for (int i = 0; i < usedCoreControlInboundPortUris.size(); i++) {
+		for (int i = 0; i < outboundCoreControlPortURIs.size(); i++) {
 			
-			String outboundCoreControlPortURI = usedCoreControlInboundPortUris.get(i);
+			String outboundCoreControlPortURI = outboundCoreControlPortURIs.get(i);
 			 ActuatorControlCoreOutboundPort acco = new ActuatorControlCoreOutboundPort(outboundCoreControlPortURI, this);
 			 this.accops.add(acco);
 			 this.addPort(acco);
@@ -110,7 +109,7 @@ extends		AbstractComponent
 			 else {
 				 acco.localPublishPort();
 			 }
-			 acco.doConnection(usedCoreControlInboundPortUris.get(i),
+			 acco.doConnection(outboundCoreControlPortURIs.get(i),
 					 ActuatorControlCpuConnector.class.getCanonicalName());
 			 System.out.println(logId + " Connect the actuator to a core control port (via "
 					 + acco.getPortURI() + ")");

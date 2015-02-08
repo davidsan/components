@@ -81,12 +81,10 @@ public class AdmissionControl extends AbstractComponent {
 
 	
 	 /** list of the used uris of the core control inbound port */
-	 protected ArrayList<String> usedCoreControlInboundPortUris;
-	 
-	 ArrayList<String> actuatorCoreControlOutboundPortUris ;
+	 protected ArrayList<String> actuatorCoreControlOutboundPortUris ;
 	 
 		/** list of the uris of the core controlrequest arrival inbound port 			*/
-		protected List<String> coreControlInboundPortUris;
+		protected ArrayList<String> coreControlInboundPortUris;
 	
 	/**
 	 * Constructor
@@ -153,7 +151,7 @@ public class AdmissionControl extends AbstractComponent {
 		
 		this.coreRequestArrivalInboundPortUris = coreRequestArrivalInboundPortUris;
 		this.usedCoreRequestArrivalInboundPortUris = new ArrayList<>();
-		this.usedCoreControlInboundPortUris=new ArrayList<>();
+
 		// for the dynamic stuff below
 		this.addRequiredInterface(DynamicComponentCreationI.class) ;
 		this.addRequiredInterface(DynamicallyConnectableComponentI.class) ;
@@ -196,7 +194,7 @@ public class AdmissionControl extends AbstractComponent {
 				
 				this.usedCoreRequestArrivalInboundPortUris.add(uri);
 				String uriCore = this.coreControlInboundPortUris.remove(0);			
-				this.usedCoreControlInboundPortUris.add(uriCore);
+				this.actuatorCoreControlOutboundPortUris.add(uriCore);
 
 			}
 			
@@ -226,8 +224,7 @@ public class AdmissionControl extends AbstractComponent {
 				new Object[]{ 
 					a.getUri(),
 					actuatorResponseArrivalInboundPortUri,
-					 usedCoreControlInboundPortUris,
-					 actuatorCoreControlOutboundPortUris
+					actuatorCoreControlOutboundPortUris
 				}
 			);
 		
