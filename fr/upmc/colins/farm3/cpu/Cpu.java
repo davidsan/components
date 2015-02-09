@@ -294,9 +294,10 @@ public class Cpu extends AbstractComponent {
 				if (i == coreIndex) {
 					continue;
 				}
-				
-				if (newClockSpeed - crgop.getClockSpeed() > maxGapClockSpeed) {
-					controlRequestGeneratorOutboundPorts.get(i).updateClockSpeed(Math.max(crgop.getClockSpeed(),
+				ControlRequestGeneratorOutboundPort p = this.controlRequestGeneratorOutboundPorts
+						.get(i);
+				if (newClockSpeed - p.getClockSpeed() > maxGapClockSpeed) {
+					p.updateClockSpeed(Math.max(p.getClockSpeed(),
 							newClockSpeed - this.maxGapClockSpeed));
 				}
 			}
