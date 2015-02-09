@@ -34,20 +34,20 @@ import fr.upmc.components.ports.PortI;
  * @version $Name$ -- $Revision$ -- $Date$
  */
 
-public class CVMXeonE5 extends AbstractCVM {
+public class Demo1 extends AbstractCVM {
 
 	protected static final String 		logId = "[    CVM     ]";
 	// Settings
 	/** the main sleep's duration										*/
 	protected static final long 		MAIN_SLEEPING_DURATION = 500000L;
 	/** the default clock speed											*/
-	protected static final Double 		CLOCK_SPEED = 1.0;
+	protected static final Double 		CLOCK_SPEED = 2.0;
 	/** the maximum clock speed											*/
 	protected static final Double 		MAX_CLOCK_SPEED = 3.0;
 	/** the maximum clock speed	gap										*/
 	protected static final Double 		MAX_CLOCK_SPEED_GAP = 0.5;
 	/** the number of cpu in the cluster								*/
-	protected static final Long 		NROF_CPU = 1L;
+	protected static final int 			NROF_CPU = 1;
 	/** the number of cores	in the cluster								*/
 	protected static final Long 		NROF_CORES_PER_CPU = 10L;
 	/** the number of applications to be submitted by the consumer		*/
@@ -62,6 +62,15 @@ public class CVMXeonE5 extends AbstractCVM {
 	protected static final double 		STANDARD_DEVIATION = 100.0;
 	/** the mean number of instructions 								*/
 	protected static final double 		MEAN_NROF_INSTRUCTIONS = 1000.0;
+	
+
+	/** the step value of frequency when changing the frequency			*/
+	protected static final double 		BOOST_STEP = 0.6;
+	/** the target service time in milliseconds							*/
+	protected static final int 			TARGET_SERVICE_TIME = 500;
+	/** the flex time for target service time in milliseconds			*/
+	protected static final int 			FLEX_SERVICE_TIME = 200;
+	
 	
 	// Components' URIs
 	protected static final String RG_ARGOP = "rg-argop";
@@ -108,6 +117,7 @@ public class CVMXeonE5 extends AbstractCVM {
 		// Create the cpu
 		mCpus = new ArrayList<Cpu>();
 		for (int i = 0; i < NROF_CPU; i++) {
+			System.out.println("fucks");
 			Cpu cpu = new Cpu(
 					i, 
 					NROF_CORES_PER_CPU, 
@@ -142,6 +152,9 @@ public class CVMXeonE5 extends AbstractCVM {
 				MEAN_INTER_ARRIVAL_TIME, 
 				MEAN_NROF_INSTRUCTIONS, 
 				STANDARD_DEVIATION, 
+				BOOST_STEP,
+				TARGET_SERVICE_TIME,
+				FLEX_SERVICE_TIME,
 				RG_RGOP_PREFIX, 
 				RG_ARGOP
 				);
@@ -209,7 +222,7 @@ public class CVMXeonE5 extends AbstractCVM {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		CVMXeonE5 a = new CVMXeonE5();
+		Demo1 a = new Demo1();
 		try {
 			a.deploy();
 			System.out.println(logId + " Starting...");

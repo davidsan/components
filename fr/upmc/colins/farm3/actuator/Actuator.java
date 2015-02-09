@@ -42,13 +42,13 @@ extends		AbstractComponent
 	protected String logId;
     
 	/** step value of frequency when changing the frequency					*/
-	protected static final double BOOST_STEP = 0.6;
+	protected double boostStep;
 
 	/** target service time in milliseconds									*/
-	protected static final int TARGET_SERVICE_TIME = 400;
+	protected long targetServiceTime;
 
 	/** flex time for target service time in milliseconds					*/
-	private static final int FLEX_TIME = 100;
+	private long flexServiceTime;
 
 	
 	// -------------------------------------------------------------------------
@@ -79,10 +79,23 @@ extends		AbstractComponent
 	 *
 	 * @param id					
 	 * 				identifier of the actuator
+	 * @param boostStep
+	 * 				step value of frequency change (increase or decrease)
+	 * @param targetServiceTime
+	 * 				target service time (milliseconds)
+	 * @param flexServiceTime
+	 * 				flex service time (milliseconds)
+	 * @param actuatorResponseArrivalInboundPortUri
+	 * 				inbound port of the component for response arrival
+	 * @param assignedCoreControlRequestArrivalInboundPortUris
+	 * 				inbound port of the cores for updating the frequency
 	 * @throws Exception
 	 */
 	public				Actuator(
 		Integer id, 
+		Double boostStep,
+		Long targetServiceTime,
+		Long flexServiceTime,
 		String actuatorResponseArrivalInboundPortUri,
 		ArrayList<String> assignedCoreControlRequestArrivalInboundPortUris
 		) throws Exception
@@ -93,6 +106,9 @@ extends		AbstractComponent
 		
 		this.logId = MessageFormat.format("[ ACTT {0}  ]", String.format("%04d", id));
 		this.id = id ;
+		this.boostStep = boostStep;
+		this.targetServiceTime = targetServiceTime;
+		this.flexServiceTime = flexServiceTime;
 		
 		// inbound port for request arrival
 		this.addOfferedInterface(ResponseArrivalI.class) ;
@@ -176,20 +192,20 @@ extends		AbstractComponent
 			System.out.println(logId + " Received a new mean time from his request dispatcher of " + response.getDuration());
 		
 		// check if too slow
-		if (response.getDuration() > TARGET_SERVICE_TIME + FLEX_TIME) {
+		if (response.getDuration() > targetServiceTime + flexServiceTime) {
 			if(VerboseSettings.VERBOSE_ACTUATOR)
 				System.out.println(logId + " Will try to increase the clockspeed");
 			for (ControlRequestGeneratorOutboundPort port : crgops) {
-				port.updateClockSpeedPlease(port.getClockSpeed() + BOOST_STEP);
+				port.updateClockSpeedPlease(port.getClockSpeed() + boostStep);
 			}
 		}
 		
 		// check if too fast
-		if (response.getDuration() < TARGET_SERVICE_TIME - FLEX_TIME) {
+		if (response.getDuration() < targetServiceTime - flexServiceTime) {
 			if(VerboseSettings.VERBOSE_ACTUATOR)
 				System.out.println(logId + " Will try to decrease the clockspeed");
 			for (ControlRequestGeneratorOutboundPort port : crgops) {
-				port.updateClockSpeedPlease(port.getClockSpeed() - BOOST_STEP);
+				port.updateClockSpeedPlease(port.getClockSpeed() - boostStep);
 			}
 		}		
 	}

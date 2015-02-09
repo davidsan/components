@@ -99,7 +99,7 @@ public class AdmissionControl extends AbstractComponent {
 	public AdmissionControl(
 			Long nrofCores, 
 			Integer nrofCoresPerVM,
-			Integer nrofVMPerDispatcher,
+			Integer nrofVMPerDispatcher,	
 			String outboundPortUri,
 			String inboundPortUri, 
 			ArrayList<String> coreRequestArrivalInboundPortUris,
@@ -217,6 +217,9 @@ public class AdmissionControl extends AbstractComponent {
 				DynamicActuator.class.getCanonicalName(),
 				new Object[]{ 
 					a.getUri(),
+					a.getBoostStep(),
+					a.getTargetServiceTime(),
+					a.getFlexServiceTime(),		
 					actuatorResponseArrivalInboundPortUri,
 					assignedCoreControlRequestArrivalInboundPortUris 
 				}

@@ -84,7 +84,12 @@ public class RequestGenerator extends AbstractComponent {
 	/** count of application deployed 											*/
 	protected int appCount;
 
-
+	/** step value of frequency when changing the frequency					*/
+	protected double boostStep;
+	/** target service time in milliseconds									*/
+	protected int targetServiceTime;
+	/** flex time for target service time in milliseconds					*/
+	protected int flexServiceTime;
 	
 
 	/**
@@ -118,6 +123,9 @@ public class RequestGenerator extends AbstractComponent {
 			double meanInterArrivalTime,
 			double meanNrofInstructions, 
 			double standardDeviation,
+			double boostStep,
+			int targetServiceTime,
+			int flexServiceTime,
 			String requestOutboundPortPrefix, 
 			String appRequestOutboundPortURI
 			) throws Exception {
@@ -134,6 +142,9 @@ public class RequestGenerator extends AbstractComponent {
 		this.rng = new RandomDataGenerator();
 		this.rng.reSeed();
 		this.nextRequestTaskFuture = null;
+		this.boostStep = boostStep;
+		this.targetServiceTime = targetServiceTime;
+		this.flexServiceTime = flexServiceTime;
 
 		this.rgops = new ArrayList<>();
 		// Component management
@@ -221,7 +232,10 @@ public class RequestGenerator extends AbstractComponent {
 					new Application(
 							appCount,
 							this.meanNrofInstructions,
-							this.standardDeviation
+							this.standardDeviation,
+							this.boostStep,
+							this.targetServiceTime,
+							this.flexServiceTime
 							));
 
 			if(VerboseSettings.VERBOSE_GENERATOR)

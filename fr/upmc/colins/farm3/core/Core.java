@@ -103,16 +103,16 @@ extends		AbstractComponent
 	protected CoreResponseGeneratorOutboundPort coreResponseGeneratorOutboundPort;
 
 	/** uri of the core inbound port for request 							*/
-	protected String inboundPortURI;
+	protected String 					inboundPortURI;
 
 	/** uri of the core inbound control port								*/
-	protected String controlInboundPortURI;
+	protected String 					controlInboundPortURI;
 
 	/** outbound port to send request of clock update to the cpu 			*/
-	protected Core2CpuOutboundPort core2CpuOutboundPort;
+	protected Core2CpuOutboundPort 		core2CpuOutboundPort;
 
 	/** uri of the cpu inbound port for control								*/
-	private String cpuControlInboundPortURI;
+	private String 						cpuControlInboundPortURI;
 
 	/**
 	 * create a service provider.
@@ -331,9 +331,12 @@ extends		AbstractComponent
 			this.core2CpuOutboundPort.doConnection(this.cpuControlInboundPortURI, Core2CpuServiceConnector.class.getCanonicalName());
 		}
 		
-		// safe check
-		if (clockSpeed <= 0 || clockSpeed > maxClockSpeed) {
-			return false;
+		// clockspeed correction
+		if (clockSpeed <= 0) {
+			clockSpeed = 0.1;
+		}	
+		if (clockSpeed > this.maxClockSpeed) {
+			clockSpeed = maxClockSpeed;
 		}
 
 		if(VerboseSettings.VERBOSE_CORE)
