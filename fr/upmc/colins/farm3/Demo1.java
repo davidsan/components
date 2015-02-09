@@ -117,7 +117,6 @@ public class Demo1 extends AbstractCVM {
 		// Create the cpu
 		mCpus = new ArrayList<Cpu>();
 		for (int i = 0; i < NROF_CPU; i++) {
-			System.out.println("fucks");
 			Cpu cpu = new Cpu(
 					i, 
 					NROF_CORES_PER_CPU, 
