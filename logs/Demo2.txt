@@ -1,0 +1,2425 @@
+[ Core 0000  ] Core 1.0 / 3.0 GHz (id 0) created
+[ Core 0001  ] Core 1.0 / 3.0 GHz (id 1) created
+[  Cpu 0000  ] Central Processing Unit 1.0 / 3.0 GHz (id 0) created
+[ AdmControl ] Admission control created
+[ RequestGen ] Request generator created
+[    CVM     ] Starting...
+[    CVM     ] Kick start request at 21:17:51:54
+[ RequestGen ] Submit a new app (id 0)
+[ AdmControl ] Begin creation of application 0
+[   VM 0000  ] Connect the virtual machine to the core (via vm-rgop-00)
+[   VM 0000  ] Virtual machine (id 0) created
+[ ACTT 0000  ] Actuator (id 0) created for app 0
+[   RD 0000  ] Connect the request dispatcher to the virtual machine (via rd-rgop-00)
+[   RD 0000  ] Request dispatcher (id 0) created
+[ AdmControl ] End creation of application 0
+[ AdmControl ] Deployed application 0 is available from rd-raip-0
+[ RequestGen ] Connect to the request dispatcher for the requested app (via rd-raip-0)
+[   VM 0000  ] Connect the response connection to the request dispatcher
+[ RequestGen ] Scheduling request app 0  at 21:17:52:63
+[   VM 0000  ] Dispatching request     0 at 21:17:51:98
+[ Core 0000  ] Connect the response connection to the VM
+[ Core 0000  ] Accepting request       0 at 21:17:51:99
+[ RequestGen ] Submit a new app (id 1)
+[ AdmControl ] Begin creation of application 1
+[   VM 0001  ] Connect the virtual machine to the core (via vm-rgop-10)
+[   VM 0001  ] Virtual machine (id 1) created
+[ ACTT 0001  ] Actuator (id 1) created for app 1
+[   RD 0001  ] Connect the request dispatcher to the virtual machine (via rd-rgop-10)
+[   RD 0001  ] Request dispatcher (id 1) created
+[ AdmControl ] End creation of application 1
+[ AdmControl ] Deployed application 1 is available from rd-raip-1
+[ RequestGen ] Connect to the request dispatcher for the requested app (via rd-raip-1)
+[ RequestGen ] Scheduling request app 0  at 21:17:52:100
+[   VM 0000  ] Dispatching request     1 at 21:17:52:69
+[ Core 0000  ] Accepting request       1 at 21:17:52:69
+[ Core 0000  ] Queueing request        1
+[ RequestGen ] Scheduling request app 0  at 21:17:57:727
+[   VM 0000  ] Dispatching request     2 at 21:17:52:102
+[ Core 0000  ] Accepting request       2 at 21:17:52:102
+[ Core 0000  ] Queueing request        2
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 1088.0
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.0 to 1.1 GHz
+[ Core 0000  ] Updating clock speed : 1.0 -> 1.1
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 976
+[  Cpu 0000  ] [ 1.1 GHz | 1.0 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 1050.5
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.1 to 1.2000000000000002 GHz
+[ Core 0000  ] Updating clock speed : 1.1 -> 1.2000000000000002
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 975
+[  Cpu 0000  ] [ 1.2 GHz | 1.0 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 1298.6666666666667
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.2 to 1.3 GHz
+[ Core 0000  ] Updating clock speed : 1.2 -> 1.3
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.3 GHz | 1.0 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:17:58:604
+[   VM 0000  ] Dispatching request     3 at 21:17:57:732
+[ Core 0000  ] Accepting request       3 at 21:17:57:732
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 1186.0
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.3 to 1.4000000000000001 GHz
+[ Core 0000  ] Updating clock speed : 1.3 -> 1.4000000000000001
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.4 GHz | 1.0 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:17:59:45
+[   VM 0000  ] Dispatching request     4 at 21:17:58:608
+[ Core 0000  ] Accepting request       4 at 21:17:58:608
+[ RequestGen ] Scheduling request app 0  at 21:17:59:243
+[   VM 0000  ] Dispatching request     5 at 21:17:59:46
+[ Core 0000  ] Accepting request       5 at 21:17:59:46
+[ Core 0000  ] Queueing request        5
+[ RequestGen ] Scheduling request app 0  at 21:18:2:210
+[   VM 0000  ] Dispatching request     6 at 21:17:59:244
+[ Core 0000  ] Accepting request       6 at 21:17:59:244
+[ Core 0000  ] Queueing request        6
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 1116.6
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.4 to 1.5 GHz
+[ Core 0000  ] Updating clock speed : 1.4 -> 1.5
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 1020
+[  Cpu 0000  ] [ 1.5 GHz | 1.0 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 1111.5
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.5 to 1.6 GHz
+[ Core 0001  ] Updating clock speed : 1.0 -> 1.1
+[ Core 0001  ] Clock speed updated
+[ Core 0000  ] Updating clock speed : 1.5 -> 1.6
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 941
+[  Cpu 0000  ] [ 1.6 GHz | 1.1 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 1164.4285714285713
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.6 to 1.7000000000000002 GHz
+[ Core 0001  ] Updating clock speed : 1.1 -> 1.2000000000000002
+[ Core 0001  ] Clock speed updated
+[ Core 0000  ] Updating clock speed : 1.6 -> 1.7000000000000002
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.7 GHz | 1.2 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:2:721
+[   VM 0000  ] Dispatching request     7 at 21:18:2:210
+[ Core 0000  ] Accepting request       7 at 21:18:2:210
+[ RequestGen ] Scheduling request app 0  at 21:18:7:385
+[   VM 0000  ] Dispatching request     8 at 21:18:2:726
+[ Core 0000  ] Accepting request       8 at 21:18:2:726
+[ Core 0000  ] Queueing request        8
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 1102.125
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.7 to 1.8 GHz
+[ Core 0001  ] Updating clock speed : 1.2 -> 1.3
+[ Core 0001  ] Clock speed updated
+[ Core 0000  ] Updating clock speed : 1.7 -> 1.8
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 764
+[  Cpu 0000  ] [ 1.8 GHz | 1.3 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 1043.7777777777778
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.8 to 1.9000000000000001 GHz
+[ Core 0001  ] Updating clock speed : 1.3 -> 1.4000000000000001
+[ Core 0001  ] Clock speed updated
+[ Core 0000  ] Updating clock speed : 1.8 -> 1.9000000000000001
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:7:607
+[   VM 0000  ] Dispatching request     9 at 21:18:7:391
+[ Core 0000  ] Accepting request       9 at 21:18:7:391
+[ RequestGen ] Scheduling request app 0  at 21:18:7:738
+[   VM 0000  ] Dispatching request     10 at 21:18:7:611
+[ Core 0000  ] Accepting request       10 at 21:18:7:611
+[ Core 0000  ] Queueing request        10
+[ RequestGen ] Scheduling request app 1  at 21:18:7:767
+[   VM 0001  ] Connect the response connection to the request dispatcher
+[   VM 0001  ] Dispatching request     11 at 21:18:7:742
+[ Core 0001  ] Connect the response connection to the VM
+[ Core 0001  ] Accepting request       11 at 21:18:7:742
+[ RequestGen ] Scheduling request app 0  at 21:18:8:333
+[   VM 0000  ] Dispatching request     12 at 21:18:7:768
+[ Core 0000  ] Accepting request       12 at 21:18:7:768
+[ Core 0000  ] Queueing request        12
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 986.0
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.9 to 2.0 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.5
+[ Core 0001  ] Clock speed updated
+[ Core 0001  ] Reschedule currently served task
+[ Core 0001  ] Remaining instructions : 818
+[ Core 0000  ] Updating clock speed : 1.9 -> 2.0
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 735
+[  Cpu 0000  ] [ 2.0 GHz | 1.5 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 952.4545454545455
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.0 to 2.1 GHz
+[ Core 0001  ] Updating clock speed : 1.5 -> 1.6
+[ Core 0001  ] Clock speed updated
+[ Core 0001  ] Reschedule currently served task
+[ Core 0001  ] Remaining instructions : 262
+[ Core 0000  ] Updating clock speed : 2.0 -> 2.1
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 1041
+[  Cpu 0000  ] [ 2.1 GHz | 1.6 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:8:767
+[   VM 0000  ] Dispatching request     13 at 21:18:8:338
+[ Core 0000  ] Accepting request       13 at 21:18:8:338
+[ Core 0000  ] Queueing request        13
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 652.0
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.6 to 1.5 GHz
+[ Core 0001  ] Updating clock speed : 1.6 -> 1.6
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 2.1 GHz | 1.6 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 952.9166666666666
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.1 to 2.2 GHz
+[ Core 0001  ] Updating clock speed : 1.6 -> 1.7000000000000002
+[ Core 0001  ] Clock speed updated
+[ Core 0000  ] Updating clock speed : 2.1 -> 2.2
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 1162
+[  Cpu 0000  ] [ 2.2 GHz | 1.7 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:8:802
+[   VM 0000  ] Dispatching request     14 at 21:18:8:768
+[ Core 0000  ] Accepting request       14 at 21:18:8:768
+[ Core 0000  ] Queueing request        14
+[ RequestGen ] Scheduling request app 0  at 21:18:9:19
+[   VM 0000  ] Dispatching request     15 at 21:18:8:804
+[ Core 0000  ] Accepting request       15 at 21:18:8:804
+[ Core 0000  ] Queueing request        15
+[ RequestGen ] Scheduling request app 0  at 21:18:9:327
+[   VM 0000  ] Dispatching request     16 at 21:18:9:24
+[ Core 0000  ] Accepting request       16 at 21:18:9:24
+[ Core 0000  ] Queueing request        16
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 950.4615384615385
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.2 to 2.3000000000000003 GHz
+[ Core 0001  ] Updating clock speed : 1.7 -> 1.8000000000000003
+[ Core 0001  ] Clock speed updated
+[ Core 0000  ] Updating clock speed : 2.2 -> 2.3000000000000003
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 895
+[  Cpu 0000  ] [ 2.3 GHz | 1.8 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:9:518
+[   VM 0000  ] Dispatching request     17 at 21:18:9:330
+[ Core 0000  ] Accepting request       17 at 21:18:9:330
+[ Core 0000  ] Queueing request        17
+[ RequestGen ] Scheduling request app 1  at 21:18:10:56
+[   VM 0001  ] Dispatching request     18 at 21:18:9:522
+[ Core 0001  ] Accepting request       18 at 21:18:9:522
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 945.6428571428571
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.3 to 2.4 GHz
+[ Core 0001  ] Updating clock speed : 1.8 -> 1.9
+[ Core 0001  ] Clock speed updated
+[ Core 0001  ] Reschedule currently served task
+[ Core 0001  ] Remaining instructions : 666
+[ Core 0000  ] Updating clock speed : 2.3 -> 2.4
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 1051
+[  Cpu 0000  ] [ 2.4 GHz | 1.9 GHz | ]
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 566.5
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.9 to 1.7999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.9 -> 1.9
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 2.4 GHz | 1.9 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:12:907
+[   VM 0000  ] Dispatching request     19 at 21:18:10:60
+[ Core 0000  ] Accepting request       19 at 21:18:10:60
+[ Core 0000  ] Queueing request        19
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 968.2666666666667
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.4 to 2.5 GHz
+[ Core 0001  ] Updating clock speed : 1.9 -> 2.0
+[ Core 0001  ] Clock speed updated
+[ Core 0000  ] Updating clock speed : 2.4 -> 2.5
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 1099
+[  Cpu 0000  ] [ 2.5 GHz | 2.0 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 1001.875
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.5 to 2.6 GHz
+[ Core 0001  ] Updating clock speed : 2.0 -> 2.1
+[ Core 0001  ] Clock speed updated
+[ Core 0000  ] Updating clock speed : 2.5 -> 2.6
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 1098
+[  Cpu 0000  ] [ 2.6 GHz | 2.1 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 1038.4705882352941
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.6 to 2.7 GHz
+[ Core 0001  ] Updating clock speed : 2.1 -> 2.2
+[ Core 0001  ] Clock speed updated
+[ Core 0000  ] Updating clock speed : 2.6 -> 2.7
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 985
+[  Cpu 0000  ] [ 2.7 GHz | 2.2 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 1050.9444444444443
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.7 to 2.8000000000000003 GHz
+[ Core 0001  ] Updating clock speed : 2.2 -> 2.3000000000000003
+[ Core 0001  ] Clock speed updated
+[ Core 0000  ] Updating clock speed : 2.7 -> 2.8000000000000003
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 2.8 GHz | 2.3 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:14:249
+[   VM 0000  ] Dispatching request     20 at 21:18:12:907
+[ Core 0000  ] Accepting request       20 at 21:18:12:907
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 1012.8421052631579
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.8 to 2.9 GHz
+[ Core 0001  ] Updating clock speed : 2.3 -> 2.4
+[ Core 0001  ] Clock speed updated
+[ Core 0000  ] Updating clock speed : 2.8 -> 2.9
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 2.9 GHz | 2.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:14:863
+[   VM 0000  ] Dispatching request     21 at 21:18:14:254
+[ Core 0000  ] Accepting request       21 at 21:18:14:254
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 978.75
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.9 to 3.0 GHz
+[ Core 0001  ] Updating clock speed : 2.4 -> 2.5
+[ Core 0001  ] Clock speed updated
+[ Core 0000  ] Updating clock speed : 2.9 -> 3.0
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 3.0 GHz | 2.5 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:15:230
+[   VM 0000  ] Dispatching request     22 at 21:18:14:867
+[ Core 0000  ] Accepting request       22 at 21:18:14:867
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 947.8571428571429
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 3.0 to 3.0 GHz
+[ Core 0000  ] Updating clock speed : 3.0 -> 3.0
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 3.0 GHz | 2.5 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:16:255
+[   VM 0000  ] Dispatching request     23 at 21:18:15:233
+[ Core 0000  ] Accepting request       23 at 21:18:15:233
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 919.9090909090909
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 3.0 to 3.0 GHz
+[ Core 0000  ] Updating clock speed : 3.0 -> 3.0
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 3.0 GHz | 2.5 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:17:290
+[   VM 0000  ] Dispatching request     24 at 21:18:16:258
+[ Core 0000  ] Accepting request       24 at 21:18:16:258
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 895.6086956521739
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 3.0 to 3.0 GHz
+[ Core 0000  ] Updating clock speed : 3.0 -> 3.0
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 3.0 GHz | 2.5 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:17:577
+[   VM 0000  ] Dispatching request     25 at 21:18:17:291
+[ Core 0000  ] Accepting request       25 at 21:18:17:291
+[ RequestGen ] Scheduling request app 0  at 21:18:19:161
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 870.2916666666667
+[ ACTT 0000  ] Will try to increase the clockspeed
+[   VM 0000  ] Dispatching request     26 at 21:18:17:580
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 3.0 to 3.0 GHz
+[ Core 0000  ] Updating clock speed : 3.0 -> 3.0
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Accepting request       26 at 21:18:17:580
+[  Cpu 0000  ] [ 3.0 GHz | 2.5 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 849.3199999999999
+[ RequestGen ] Scheduling request app 0  at 21:18:19:279
+[   VM 0000  ] Dispatching request     27 at 21:18:19:165
+[ Core 0000  ] Accepting request       27 at 21:18:19:165
+[ RequestGen ] Scheduling request app 0  at 21:18:19:639
+[   VM 0000  ] Dispatching request     28 at 21:18:19:283
+[ Core 0000  ] Accepting request       28 at 21:18:19:284
+[ Core 0000  ] Queueing request        28
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 829.0769230769231
+[ RequestGen ] Scheduling request app 0  at 21:18:20:95
+[   VM 0000  ] Dispatching request     29 at 21:18:19:644
+[ Core 0000  ] Accepting request       29 at 21:18:19:644
+[ Core 0000  ] Queueing request        29
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 818.5555555555555
+[ RequestGen ] Scheduling request app 0  at 21:18:21:431
+[   VM 0000  ] Dispatching request     30 at 21:18:20:101
+[ Core 0000  ] Accepting request       30 at 21:18:20:101
+[ Core 0000  ] Queueing request        30
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 809.2142857142857
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 796.8275862068965
+[ RequestGen ] Scheduling request app 0  at 21:18:22:464
+[   VM 0000  ] Dispatching request     31 at 21:18:21:435
+[ Core 0000  ] Accepting request       31 at 21:18:21:435
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 780.1666666666667
+[ RequestGen ] Scheduling request app 0  at 21:18:24:635
+[   VM 0000  ] Dispatching request     32 at 21:18:22:468
+[ Core 0000  ] Accepting request       32 at 21:18:22:468
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 764.3548387096773
+[ RequestGen ] Scheduling request app 1  at 21:18:26:56
+[   VM 0001  ] Dispatching request     33 at 21:18:24:639
+[ Core 0001  ] Accepting request       33 at 21:18:24:639
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 518.6666666666666
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 2.5 to 2.4 GHz
+[ Core 0001  ] Updating clock speed : 2.5 -> 2.5
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 3.0 GHz | 2.5 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:26:157
+[   VM 0000  ] Dispatching request     34 at 21:18:26:61
+[ Core 0000  ] Accepting request       34 at 21:18:26:61
+[ RequestGen ] Scheduling request app 0  at 21:18:27:416
+[   VM 0000  ] Dispatching request     35 at 21:18:26:158
+[ Core 0000  ] Accepting request       35 at 21:18:26:159
+[ Core 0000  ] Queueing request        35
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 751.71875
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 746.030303030303
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 3.0 to 2.9 GHz
+[ Core 0000  ] Updating clock speed : 3.0 -> 2.9
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 2.9 GHz | 2.5 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:29:107
+[   VM 0000  ] Dispatching request     36 at 21:18:27:418
+[ Core 0000  ] Accepting request       36 at 21:18:27:418
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 734.4705882352941
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.9 to 2.8 GHz
+[ Core 0000  ] Updating clock speed : 2.9 -> 2.8
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 2.8 GHz | 2.5 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:29:112
+[   VM 0000  ] Dispatching request     37 at 21:18:29:112
+[ RequestGen ] Scheduling request app 0  at 21:18:30:2
+[ Core 0000  ] Accepting request       37 at 21:18:29:113
+[   VM 0000  ] Dispatching request     38 at 21:18:29:113
+[ Core 0000  ] Accepting request       38 at 21:18:29:113
+[ Core 0000  ] Queueing request        38
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 723.8285714285715
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.8 to 2.6999999999999997 GHz
+[ Core 0000  ] Updating clock speed : 2.8 -> 2.6999999999999997
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 942
+[  Cpu 0000  ] [ 2.7 GHz | 2.5 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 723.5277777777778
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.7 to 2.6 GHz
+[ Core 0000  ] Updating clock speed : 2.7 -> 2.6
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 2.6 GHz | 2.5 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:30:829
+[   VM 0000  ] Dispatching request     39 at 21:18:30:4
+[ Core 0000  ] Accepting request       39 at 21:18:30:5
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 714.5405405405405
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.6 to 2.5 GHz
+[ Core 0000  ] Updating clock speed : 2.6 -> 2.5
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 2.5 GHz | 2.5 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:32:432
+[   VM 0000  ] Dispatching request     40 at 21:18:30:833
+[ Core 0000  ] Accepting request       40 at 21:18:30:833
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 706.763157894737
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.5 to 2.4 GHz
+[ Core 0000  ] Updating clock speed : 2.5 -> 2.4
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 2.4 GHz | 2.5 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:35:178
+[   VM 0000  ] Dispatching request     41 at 21:18:32:434
+[ Core 0000  ] Accepting request       41 at 21:18:32:434
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 699.3333333333334
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.4 to 2.3 GHz
+[ Core 0000  ] Updating clock speed : 2.4 -> 2.3
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 2.3 GHz | 2.5 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:38:189
+[   VM 0000  ] Dispatching request     42 at 21:18:35:184
+[ Core 0000  ] Accepting request       42 at 21:18:35:184
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 692.2000000000002
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.3 to 2.1999999999999997 GHz
+[ Core 0000  ] Updating clock speed : 2.3 -> 2.1999999999999997
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 2.2 GHz | 2.5 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:40:632
+[   VM 0000  ] Dispatching request     43 at 21:18:38:194
+[ Core 0000  ] Accepting request       43 at 21:18:38:194
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 689.1463414634147
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.2 to 2.1 GHz
+[ Core 0000  ] Updating clock speed : 2.2 -> 2.1
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 2.1 GHz | 2.5 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:41:186
+[   VM 0000  ] Dispatching request     44 at 21:18:40:634
+[ Core 0000  ] Accepting request       44 at 21:18:40:634
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 684.3809523809524
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.1 to 2.0 GHz
+[ Core 0000  ] Updating clock speed : 2.1 -> 2.0
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 2.0 GHz | 2.5 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:43:125
+[   VM 0000  ] Dispatching request     45 at 21:18:41:188
+[ Core 0000  ] Accepting request       45 at 21:18:41:188
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 681.4186046511628
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.0 to 1.9 GHz
+[ Core 0000  ] Updating clock speed : 2.0 -> 2.0
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 2.0 GHz | 2.5 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:43:407
+[   VM 0000  ] Dispatching request     46 at 21:18:43:128
+[ Core 0000  ] Accepting request       46 at 21:18:43:128
+[ RequestGen ] Scheduling request app 1  at 21:18:45:900
+[   VM 0001  ] Dispatching request     47 at 21:18:43:408
+[ Core 0001  ] Accepting request       47 at 21:18:43:408
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 678.2045454545454
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.0 to 1.9 GHz
+[ Core 0000  ] Updating clock speed : 2.0 -> 2.0
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 2.0 GHz | 2.5 GHz | ]
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 495.5
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 2.5 to 2.4 GHz
+[ Core 0001  ] Updating clock speed : 2.5 -> 2.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 2.0 GHz | 2.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:47:617
+[   VM 0000  ] Dispatching request     48 at 21:18:45:903
+[ Core 0000  ] Accepting request       48 at 21:18:45:903
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 671.8222222222223
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 2.0 to 1.9 GHz
+[ Core 0000  ] Updating clock speed : 2.0 -> 1.9
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 2.4 GHz | ]
+[ RequestGen ] Scheduling request app 1  at 21:18:55:66
+[   VM 0001  ] Dispatching request     49 at 21:18:47:621
+[ Core 0001  ] Accepting request       49 at 21:18:47:621
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 478.0
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 2.4 to 2.3 GHz
+[ Core 0001  ] Updating clock speed : 2.4 -> 2.3
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 2.3 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:55:180
+[   VM 0000  ] Dispatching request     50 at 21:18:55:69
+[ Core 0000  ] Accepting request       50 at 21:18:55:69
+[ RequestGen ] Scheduling request app 1  at 21:18:56:159
+[   VM 0001  ] Dispatching request     51 at 21:18:55:184
+[ Core 0001  ] Accepting request       51 at 21:18:55:184
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 470.0
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 2.3 to 2.1999999999999997 GHz
+[ Core 0001  ] Updating clock speed : 2.3 -> 2.1999999999999997
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 2.2 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 669.3478260869566
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.9 to 1.7999999999999998 GHz
+[ Core 0000  ] Updating clock speed : 1.9 -> 1.7999999999999998
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.8 GHz | 2.2 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:57:701
+[   VM 0000  ] Dispatching request     52 at 21:18:56:163
+[ Core 0000  ] Accepting request       52 at 21:18:56:163
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 667.2340425531916
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.8 to 1.7 GHz
+[ Core 0000  ] Updating clock speed : 1.8 -> 1.7000000000000002
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.7 GHz | 2.2 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:18:59:516
+[   VM 0000  ] Dispatching request     53 at 21:18:57:705
+[ Core 0000  ] Accepting request       53 at 21:18:57:705
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 665.8125
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.7 to 1.5999999999999999 GHz
+[ Core 0000  ] Updating clock speed : 1.7 -> 1.7000000000000002
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.7 GHz | 2.2 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:1:967
+[   VM 0000  ] Dispatching request     54 at 21:18:59:517
+[ Core 0000  ] Accepting request       54 at 21:18:59:517
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 663.938775510204
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.7 to 1.5999999999999999 GHz
+[ Core 0000  ] Updating clock speed : 1.7 -> 1.7000000000000002
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.7 GHz | 2.2 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:3:769
+[   VM 0000  ] Dispatching request     55 at 21:19:1:969
+[ Core 0000  ] Accepting request       55 at 21:19:1:970
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 661.2400000000001
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.7 to 1.5999999999999999 GHz
+[ Core 0000  ] Updating clock speed : 1.7 -> 1.7000000000000002
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.7 GHz | 2.2 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:4:978
+[   VM 0000  ] Dispatching request     56 at 21:19:3:770
+[ Core 0000  ] Accepting request       56 at 21:19:3:770
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 658.705882352941
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.7 to 1.5999999999999999 GHz
+[ Core 0000  ] Updating clock speed : 1.7 -> 1.7000000000000002
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.7 GHz | 2.2 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:6:69
+[   VM 0000  ] Dispatching request     57 at 21:19:4:980
+[ Core 0000  ] Accepting request       57 at 21:19:4:980
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 658.8846153846155
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.7 to 1.5999999999999999 GHz
+[ Core 0000  ] Updating clock speed : 1.7 -> 1.7000000000000002
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.7 GHz | 2.2 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:8:279
+[   VM 0000  ] Dispatching request     58 at 21:19:6:70
+[ Core 0000  ] Accepting request       58 at 21:19:6:70
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 656.7169811320755
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.7 to 1.5999999999999999 GHz
+[ Core 0000  ] Updating clock speed : 1.7 -> 1.7000000000000002
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.7 GHz | 2.2 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:9:759
+[   VM 0000  ] Dispatching request     59 at 21:19:8:284
+[ Core 0000  ] Accepting request       59 at 21:19:8:284
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 655.0740740740741
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.7 to 1.5999999999999999 GHz
+[ Core 0000  ] Updating clock speed : 1.7 -> 1.7000000000000002
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.7 GHz | 2.2 GHz | ]
+[ RequestGen ] Scheduling request app 1  at 21:19:10:802
+[   VM 0001  ] Dispatching request     60 at 21:19:9:764
+[ Core 0001  ] Accepting request       60 at 21:19:9:764
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 476.14285714285717
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 2.2 to 2.1 GHz
+[ Core 0001  ] Updating clock speed : 2.2 -> 2.1
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.7 GHz | 2.1 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:14:93
+[   VM 0000  ] Dispatching request     61 at 21:19:10:802
+[ Core 0000  ] Accepting request       61 at 21:19:10:802
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 652.7272727272726
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.7 to 1.5999999999999999 GHz
+[ Core 0000  ] Updating clock speed : 1.7 -> 1.6
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.6 GHz | 2.1 GHz | ]
+[ RequestGen ] Scheduling request app 1  at 21:19:16:790
+[   VM 0001  ] Dispatching request     62 at 21:19:14:95
+[ Core 0001  ] Accepting request       62 at 21:19:14:95
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 471.625
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 2.1 to 2.0 GHz
+[ Core 0001  ] Updating clock speed : 2.1 -> 2.0
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.6 GHz | 2.0 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:17:96
+[   VM 0000  ] Dispatching request     63 at 21:19:16:794
+[ Core 0000  ] Accepting request       63 at 21:19:16:794
+[ RequestGen ] Scheduling request app 0  at 21:19:19:70
+[   VM 0000  ] Dispatching request     64 at 21:19:17:101
+[ Core 0000  ] Accepting request       64 at 21:19:17:101
+[ Core 0000  ] Queueing request        64
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 652.0892857142858
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.6 to 1.5 GHz
+[ Core 0000  ] Updating clock speed : 1.6 -> 1.5
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 1022
+[  Cpu 0000  ] [ 1.5 GHz | 2.0 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 658.0526315789473
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.5 to 1.4 GHz
+[ Core 0000  ] Updating clock speed : 1.5 -> 1.5
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.5 GHz | 2.0 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:19:128
+[   VM 0000  ] Dispatching request     65 at 21:19:19:72
+[ Core 0000  ] Accepting request       65 at 21:19:19:73
+[ RequestGen ] Scheduling request app 0  at 21:19:19:468
+[   VM 0000  ] Dispatching request     66 at 21:19:19:129
+[ Core 0000  ] Accepting request       66 at 21:19:19:129
+[ Core 0000  ] Queueing request        66
+[ RequestGen ] Scheduling request app 0  at 21:19:22:16
+[   VM 0000  ] Dispatching request     67 at 21:19:19:469
+[ Core 0000  ] Accepting request       67 at 21:19:19:469
+[ Core 0000  ] Queueing request        67
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 656.8793103448276
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.5 to 1.4 GHz
+[ Core 0000  ] Updating clock speed : 1.5 -> 1.5
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 1155
+[  Cpu 0000  ] [ 1.5 GHz | 2.0 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 667.8813559322034
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.5 to 1.4 GHz
+[ Core 0000  ] Updating clock speed : 1.5 -> 1.5
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 1161
+[  Cpu 0000  ] [ 1.5 GHz | 2.0 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 685.7666666666668
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.5 to 1.4 GHz
+[ Core 0000  ] Updating clock speed : 1.5 -> 1.5
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.5 GHz | 2.0 GHz | ]
+[ RequestGen ] Scheduling request app 1  at 21:19:22:241
+[   VM 0001  ] Dispatching request     68 at 21:19:22:18
+[ Core 0001  ] Accepting request       68 at 21:19:22:18
+[ RequestGen ] Scheduling request app 1  at 21:19:22:636
+[   VM 0001  ] Dispatching request     69 at 21:19:22:244
+[ Core 0001  ] Accepting request       69 at 21:19:22:244
+[ Core 0001  ] Queueing request        69
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 471.44444444444446
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 2.0 to 1.9 GHz
+[ Core 0001  ] Updating clock speed : 2.0 -> 1.9
+[ Core 0001  ] Clock speed updated
+[ Core 0001  ] Reschedule currently served task
+[ Core 0001  ] Remaining instructions : 1190
+[  Cpu 0000  ] [ 1.5 GHz | 1.9 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:23:24
+[   VM 0000  ] Dispatching request     70 at 21:19:22:639
+[ Core 0000  ] Accepting request       70 at 21:19:22:639
+[ RequestGen ] Scheduling request app 0  at 21:19:24:952
+[   VM 0000  ] Dispatching request     71 at 21:19:23:29
+[ Core 0000  ] Accepting request       71 at 21:19:23:29
+[ Core 0000  ] Queueing request        71
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 511.8
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.9 to 1.7999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.9 -> 1.7999999999999998
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.5 GHz | 1.8 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 683.5245901639344
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.5 to 1.4 GHz
+[ Core 0000  ] Updating clock speed : 1.5 -> 1.4
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 1074
+[  Cpu 0000  ] [ 1.4 GHz | 1.8 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 687.5
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.4 to 1.2999999999999998 GHz
+[ Core 0000  ] Updating clock speed : 1.4 -> 1.3
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.3 GHz | 1.8 GHz | ]
+[ RequestGen ] Scheduling request app 1  at 21:19:31:75
+[   VM 0001  ] Dispatching request     72 at 21:19:24:957
+[ Core 0001  ] Accepting request       72 at 21:19:24:957
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 508.27272727272725
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.8 to 1.7 GHz
+[ Core 0001  ] Updating clock speed : 1.8 -> 1.7
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.3 GHz | 1.7 GHz | ]
+[ RequestGen ] Scheduling request app 1  at 21:19:32:280
+[   VM 0001  ] Dispatching request     73 at 21:19:31:81
+[ Core 0001  ] Accepting request       73 at 21:19:31:81
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 517.25
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.7 to 1.5999999999999999 GHz
+[ Core 0001  ] Updating clock speed : 1.7 -> 1.5999999999999999
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.3 GHz | 1.6 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:34:855
+[   VM 0000  ] Dispatching request     74 at 21:19:32:285
+[ Core 0000  ] Accepting request       74 at 21:19:32:285
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 688.8412698412698
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.3 to 1.2 GHz
+[ Core 0000  ] Updating clock speed : 1.3 -> 1.2
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.2 GHz | 1.6 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:34:996
+[   VM 0000  ] Dispatching request     75 at 21:19:34:859
+[ Core 0000  ] Accepting request       75 at 21:19:34:859
+[ RequestGen ] Scheduling request app 0  at 21:19:36:861
+[   VM 0000  ] Dispatching request     76 at 21:19:35:1
+[ Core 0000  ] Accepting request       76 at 21:19:35:1
+[ Core 0000  ] Queueing request        76
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 692.921875
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.2 to 1.0999999999999999 GHz
+[ Core 0000  ] Updating clock speed : 1.2 -> 1.1
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 1212
+[  Cpu 0000  ] [ 1.1 GHz | 1.6 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:38:747
+[   VM 0000  ] Dispatching request     77 at 21:19:36:866
+[ Core 0000  ] Accepting request       77 at 21:19:36:866
+[ Core 0000  ] Queueing request        77
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 711.6615384615385
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.1 to 1.0 GHz
+[ Core 0000  ] Updating clock speed : 1.1 -> 1.1
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 934
+[  Cpu 0000  ] [ 1.1 GHz | 1.6 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 714.5151515151515
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.1 to 1.0 GHz
+[ Core 0000  ] Updating clock speed : 1.1 -> 1.1
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.1 GHz | 1.6 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:38:797
+[   VM 0000  ] Dispatching request     78 at 21:19:38:749
+[ Core 0000  ] Accepting request       78 at 21:19:38:749
+[ RequestGen ] Scheduling request app 0  at 21:19:41:410
+[   VM 0000  ] Dispatching request     79 at 21:19:38:802
+[ Core 0000  ] Accepting request       79 at 21:19:38:802
+[ Core 0000  ] Queueing request        79
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 714.3731343283583
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.1 to 1.0 GHz
+[ Core 0000  ] Updating clock speed : 1.1 -> 1.1
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 786
+[  Cpu 0000  ] [ 1.1 GHz | 1.6 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 723.9705882352941
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.1 to 1.0 GHz
+[ Core 0000  ] Updating clock speed : 1.1 -> 1.1
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.1 GHz | 1.6 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:43:324
+[   VM 0000  ] Dispatching request     80 at 21:19:41:415
+[ Core 0000  ] Accepting request       80 at 21:19:41:415
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 729.9420289855074
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.1 to 1.0 GHz
+[ Core 0000  ] Updating clock speed : 1.1 -> 1.1
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.1 GHz | 1.6 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:44:8
+[   VM 0000  ] Dispatching request     81 at 21:19:43:329
+[ Core 0000  ] Accepting request       81 at 21:19:43:329
+[ RequestGen ] Scheduling request app 0  at 21:19:45:792
+[   VM 0000  ] Dispatching request     82 at 21:19:44:14
+[ Core 0000  ] Accepting request       82 at 21:19:44:14
+[ Core 0000  ] Queueing request        82
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 731.9285714285713
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.1 to 1.0 GHz
+[ Core 0000  ] Updating clock speed : 1.1 -> 1.1
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 943
+[  Cpu 0000  ] [ 1.1 GHz | 1.6 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 736.3239436619718
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.1 to 1.0 GHz
+[ Core 0000  ] Updating clock speed : 1.1 -> 1.1
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.1 GHz | 1.6 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:45:872
+[   VM 0000  ] Dispatching request     83 at 21:19:45:797
+[ Core 0000  ] Accepting request       83 at 21:19:45:798
+[ RequestGen ] Scheduling request app 0  at 21:19:46:698
+[   VM 0000  ] Dispatching request     84 at 21:19:45:873
+[ Core 0000  ] Accepting request       84 at 21:19:45:873
+[ Core 0000  ] Queueing request        84
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 738.5694444444446
+[ ACTT 0000  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.1 to 1.0 GHz
+[ Core 0000  ] Updating clock speed : 1.1 -> 1.1
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 1062
+[  Cpu 0000  ] [ 1.1 GHz | 1.6 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:47:387
+[   VM 0000  ] Dispatching request     85 at 21:19:46:701
+[ Core 0000  ] Accepting request       85 at 21:19:46:701
+[ Core 0000  ] Queueing request        85
+[ RequestGen ] Scheduling request app 0  at 21:19:48:709
+[   VM 0000  ] Dispatching request     86 at 21:19:47:389
+[ Core 0000  ] Accepting request       86 at 21:19:47:389
+[ Core 0000  ] Queueing request        86
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 753.0136986301371
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 768.3243243243245
+[ RequestGen ] Scheduling request app 0  at 21:19:50:768
+[   VM 0000  ] Dispatching request     87 at 21:19:48:713
+[ Core 0000  ] Accepting request       87 at 21:19:48:713
+[ Core 0000  ] Queueing request        87
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 785.0133333333333
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 794.6052631578947
+[ RequestGen ] Scheduling request app 0  at 21:19:52:14
+[   VM 0000  ] Dispatching request     88 at 21:19:50:769
+[ Core 0000  ] Accepting request       88 at 21:19:50:769
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 799.194805194805
+[ RequestGen ] Scheduling request app 0  at 21:19:52:316
+[   VM 0000  ] Dispatching request     89 at 21:19:52:14
+[ Core 0000  ] Accepting request       89 at 21:19:52:14
+[ RequestGen ] Scheduling request app 0  at 21:19:52:553
+[   VM 0000  ] Dispatching request     90 at 21:19:52:318
+[ Core 0000  ] Accepting request       90 at 21:19:52:318
+[ Core 0000  ] Queueing request        90
+[ RequestGen ] Scheduling request app 0  at 21:19:54:741
+[   VM 0000  ] Dispatching request     91 at 21:19:52:559
+[ Core 0000  ] Accepting request       91 at 21:19:52:559
+[ Core 0000  ] Queueing request        91
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 800.948717948718
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 809.3670886075948
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 824.075
+[ RequestGen ] Scheduling request app 0  at 21:19:54:845
+[   VM 0000  ] Dispatching request     92 at 21:19:54:746
+[ Core 0000  ] Accepting request       92 at 21:19:54:746
+[ RequestGen ] Scheduling request app 0  at 21:19:55:414
+[   VM 0000  ] Dispatching request     93 at 21:19:54:845
+[ Core 0000  ] Accepting request       93 at 21:19:54:845
+[ Core 0000  ] Queueing request        93
+[ RequestGen ] Scheduling request app 0  at 21:19:56:911
+[   VM 0000  ] Dispatching request     94 at 21:19:55:417
+[ Core 0000  ] Accepting request       94 at 21:19:55:417
+[ Core 0000  ] Queueing request        94
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 825.0987654320988
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 837.0365853658539
+[ RequestGen ] Scheduling request app 0  at 21:19:57:922
+[   VM 0000  ] Dispatching request     95 at 21:19:56:912
+[ Core 0000  ] Accepting request       95 at 21:19:56:912
+[ Core 0000  ] Queueing request        95
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 852.0722891566268
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.1 to 1.2000000000000002 GHz
+[ Core 0000  ] Updating clock speed : 1.1 -> 1.2000000000000002
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 958
+[  Cpu 0000  ] [ 1.2 GHz | 1.6 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:19:59:985
+[   VM 0000  ] Dispatching request     96 at 21:19:57:927
+[ Core 0000  ] Accepting request       96 at 21:19:57:927
+[ Core 0000  ] Queueing request        96
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 858.5119047619049
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.2 to 1.3 GHz
+[ Core 0000  ] Updating clock speed : 1.2 -> 1.3
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 890
+[  Cpu 0000  ] [ 1.3 GHz | 1.6 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 860.9647058823526
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.3 to 1.4000000000000001 GHz
+[ Core 0000  ] Updating clock speed : 1.3 -> 1.4000000000000001
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.4 GHz | 1.6 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:20:0:365
+[   VM 0000  ] Dispatching request     97 at 21:19:59:989
+[ Core 0000  ] Accepting request       97 at 21:19:59:990
+[ RequestGen ] Scheduling request app 0  at 21:20:1:664
+[   VM 0000  ] Dispatching request     98 at 21:20:0:368
+[ Core 0000  ] Accepting request       98 at 21:20:0:368
+[ Core 0000  ] Queueing request        98
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 859.5348837209305
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.4 to 1.5 GHz
+[ Core 0000  ] Updating clock speed : 1.4 -> 1.5
+[ Core 0000  ] Clock speed updated
+[ Core 0000  ] Reschedule currently served task
+[ Core 0000  ] Remaining instructions : 1017
+[  Cpu 0000  ] [ 1.5 GHz | 1.6 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 861.6206896551726
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.5 to 1.6 GHz
+[ Core 0000  ] Updating clock speed : 1.5 -> 1.6
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.6 GHz | 1.6 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:20:2:598
+[   VM 0000  ] Dispatching request     99 at 21:20:1:669
+[ Core 0000  ] Accepting request       99 at 21:20:1:670
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 858.75
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.6 to 1.7000000000000002 GHz
+[ Core 0000  ] Updating clock speed : 1.6 -> 1.7000000000000002
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.7 GHz | 1.6 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:20:4:785
+[   VM 0000  ] Dispatching request     100 at 21:20:2:602
+[ Core 0000  ] Accepting request       100 at 21:20:2:602
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 856.2808988764045
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.7 to 1.8 GHz
+[ Core 0000  ] Updating clock speed : 1.7 -> 1.8
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.8 GHz | 1.6 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:20:7:75
+[   VM 0000  ] Dispatching request     101 at 21:20:4:790
+[ Core 0000  ] Accepting request       101 at 21:20:4:790
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 851.2555555555556
+[ ACTT 0000  ] Will try to increase the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 0 from 1.8 to 1.9000000000000001 GHz
+[ Core 0000  ] Updating clock speed : 1.8 -> 1.9000000000000001
+[ Core 0000  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.6 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:20:11:934
+[   VM 0000  ] Dispatching request     102 at 21:20:7:78
+[ Core 0000  ] Accepting request       102 at 21:20:7:78
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 848.3956043956046
+[ RequestGen ] Scheduling request app 0  at 21:20:16:399
+[   VM 0000  ] Dispatching request     103 at 21:20:11:938
+[ Core 0000  ] Accepting request       103 at 21:20:11:938
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 844.8152173913045
+[ RequestGen ] Scheduling request app 0  at 21:20:17:391
+[   VM 0000  ] Dispatching request     104 at 21:20:16:403
+[ Core 0000  ] Accepting request       104 at 21:20:16:404
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 841.5053763440858
+[ RequestGen ] Scheduling request app 0  at 21:20:19:686
+[   VM 0000  ] Dispatching request     105 at 21:20:17:393
+[ Core 0000  ] Accepting request       105 at 21:20:17:393
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 838.5
+[ RequestGen ] Scheduling request app 0  at 21:20:19:902
+[   VM 0000  ] Dispatching request     106 at 21:20:19:690
+[ Core 0000  ] Accepting request       106 at 21:20:19:690
+[ RequestGen ] Scheduling request app 0  at 21:20:23:384
+[   VM 0000  ] Dispatching request     107 at 21:20:19:902
+[ Core 0000  ] Accepting request       107 at 21:20:19:903
+[ Core 0000  ] Queueing request        107
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 834.2736842105264
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 833.6458333333333
+[ RequestGen ] Scheduling request app 0  at 21:20:23:533
+[   VM 0000  ] Dispatching request     108 at 21:20:23:389
+[ Core 0000  ] Accepting request       108 at 21:20:23:389
+[ RequestGen ] Scheduling request app 0  at 21:20:24:209
+[   VM 0000  ] Dispatching request     109 at 21:20:23:538
+[ Core 0000  ] Accepting request       109 at 21:20:23:538
+[ Core 0000  ] Queueing request        109
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 830.3195876288657
+[ RequestGen ] Scheduling request app 0  at 21:20:24:634
+[   VM 0000  ] Dispatching request     110 at 21:20:24:214
+[ Core 0000  ] Accepting request       110 at 21:20:24:215
+[ Core 0000  ] Queueing request        110
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 831.6122448979593
+[ RequestGen ] Scheduling request app 1  at 21:20:25:52
+[   VM 0001  ] Dispatching request     111 at 21:20:24:637
+[ Core 0001  ] Accepting request       111 at 21:20:24:638
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 831.1515151515151
+[ RequestGen ] Scheduling request app 0  at 21:20:26:295
+[   VM 0000  ] Dispatching request     112 at 21:20:25:55
+[ Core 0000  ] Accepting request       112 at 21:20:25:56
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 528.2307692307693
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.6 to 1.5 GHz
+[ Core 0001  ] Updating clock speed : 1.6 -> 1.5
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.5 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 828.38
+[ RequestGen ] Scheduling request app 0  at 21:20:27:61
+[   VM 0000  ] Dispatching request     113 at 21:20:26:300
+[ Core 0000  ] Accepting request       113 at 21:20:26:300
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 824.5544554455446
+[ RequestGen ] Scheduling request app 0  at 21:20:28:234
+[   VM 0000  ] Dispatching request     114 at 21:20:27:65
+[ Core 0000  ] Accepting request       114 at 21:20:27:65
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 821.8137254901961
+[ RequestGen ] Scheduling request app 0  at 21:20:28:646
+[   VM 0000  ] Dispatching request     115 at 21:20:28:237
+[ Core 0000  ] Accepting request       115 at 21:20:28:237
+[ RequestGen ] Scheduling request app 0  at 21:20:29:985
+[   VM 0000  ] Dispatching request     116 at 21:20:28:646
+[ Core 0000  ] Accepting request       116 at 21:20:28:646
+[ Core 0000  ] Queueing request        116
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 819.2038834951458
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 816.8461538461537
+[ RequestGen ] Scheduling request app 0  at 21:20:30:535
+[   VM 0000  ] Dispatching request     117 at 21:20:29:990
+[ Core 0000  ] Accepting request       117 at 21:20:29:990
+[ RequestGen ] Scheduling request app 0  at 21:20:30:624
+[   VM 0000  ] Dispatching request     118 at 21:20:30:535
+[ Core 0000  ] Accepting request       118 at 21:20:30:536
+[ Core 0000  ] Queueing request        118
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 814.4190476190475
+[ RequestGen ] Scheduling request app 0  at 21:20:32:145
+[   VM 0000  ] Dispatching request     119 at 21:20:30:629
+[ Core 0000  ] Accepting request       119 at 21:20:30:629
+[ Core 0000  ] Queueing request        119
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 812.6698113207545
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 815.2056074766356
+[ RequestGen ] Scheduling request app 0  at 21:20:32:218
+[   VM 0000  ] Dispatching request     120 at 21:20:32:150
+[ Core 0000  ] Accepting request       120 at 21:20:32:150
+[ RequestGen ] Scheduling request app 0  at 21:20:32:243
+[   VM 0000  ] Dispatching request     121 at 21:20:32:221
+[ Core 0000  ] Accepting request       121 at 21:20:32:221
+[ Core 0000  ] Queueing request        121
+[ RequestGen ] Scheduling request app 0  at 21:20:32:939
+[   VM 0000  ] Dispatching request     122 at 21:20:32:244
+[ Core 0000  ] Accepting request       122 at 21:20:32:244
+[ Core 0000  ] Queueing request        122
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 812.5185185185186
+[ RequestGen ] Scheduling request app 0  at 21:20:34:317
+[   VM 0000  ] Dispatching request     123 at 21:20:32:944
+[ Core 0000  ] Accepting request       123 at 21:20:32:944
+[ Core 0000  ] Queueing request        123
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 812.6605504587155
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 817.009090909091
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 819.1891891891892
+[ RequestGen ] Scheduling request app 0  at 21:20:35:251
+[   VM 0000  ] Dispatching request     124 at 21:20:34:318
+[ Core 0000  ] Accepting request       124 at 21:20:34:318
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 817.5089285714286
+[ RequestGen ] Scheduling request app 0  at 21:20:35:432
+[   VM 0000  ] Dispatching request     125 at 21:20:35:255
+[ Core 0000  ] Accepting request       125 at 21:20:35:255
+[ RequestGen ] Scheduling request app 0  at 21:20:37:245
+[   VM 0000  ] Dispatching request     126 at 21:20:35:435
+[ Core 0000  ] Accepting request       126 at 21:20:35:435
+[ Core 0000  ] Queueing request        126
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 815.1681415929203
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 816.6754385964912
+[ RequestGen ] Scheduling request app 0  at 21:20:37:539
+[   VM 0000  ] Dispatching request     127 at 21:20:37:250
+[ Core 0000  ] Accepting request       127 at 21:20:37:250
+[ RequestGen ] Scheduling request app 0  at 21:20:39:91
+[   VM 0000  ] Dispatching request     128 at 21:20:37:544
+[ Core 0000  ] Accepting request       128 at 21:20:37:545
+[ Core 0000  ] Queueing request        128
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 814.1652173913044
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 813.9655172413792
+[ RequestGen ] Scheduling request app 0  at 21:20:40:601
+[   VM 0000  ] Dispatching request     129 at 21:20:39:94
+[ Core 0000  ] Accepting request       129 at 21:20:39:94
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 811.7264957264956
+[ RequestGen ] Scheduling request app 0  at 21:20:40:694
+[   VM 0000  ] Dispatching request     130 at 21:20:40:606
+[ Core 0000  ] Accepting request       130 at 21:20:40:606
+[ RequestGen ] Scheduling request app 0  at 21:20:41:457
+[   VM 0000  ] Dispatching request     131 at 21:20:40:694
+[ Core 0000  ] Accepting request       131 at 21:20:40:695
+[ Core 0000  ] Queueing request        131
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 809.7457627118644
+[ RequestGen ] Scheduling request app 0  at 21:20:42:461
+[   VM 0000  ] Dispatching request     132 at 21:20:41:461
+[ Core 0000  ] Accepting request       132 at 21:20:41:462
+[ Core 0000  ] Queueing request        132
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 811.7983193277311
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 812.0583333333333
+[ RequestGen ] Scheduling request app 0  at 21:20:44:458
+[   VM 0000  ] Dispatching request     133 at 21:20:42:467
+[ Core 0000  ] Accepting request       133 at 21:20:42:467
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 809.5867768595041
+[ RequestGen ] Scheduling request app 0  at 21:20:46:472
+[   VM 0000  ] Dispatching request     134 at 21:20:44:462
+[ Core 0000  ] Accepting request       134 at 21:20:44:463
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 807.0245901639344
+[ RequestGen ] Scheduling request app 0  at 21:20:47:708
+[   VM 0000  ] Dispatching request     135 at 21:20:46:478
+[ Core 0000  ] Accepting request       135 at 21:20:46:478
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 804.4065040650407
+[ RequestGen ] Scheduling request app 0  at 21:20:47:901
+[   VM 0000  ] Dispatching request     136 at 21:20:47:713
+[ Core 0000  ] Accepting request       136 at 21:20:47:713
+[ RequestGen ] Scheduling request app 0  at 21:20:48:278
+[   VM 0000  ] Dispatching request     137 at 21:20:47:904
+[ Core 0000  ] Accepting request       137 at 21:20:47:904
+[ Core 0000  ] Queueing request        137
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 802.2580645161291
+[ RequestGen ] Scheduling request app 0  at 21:20:50:34
+[   VM 0000  ] Dispatching request     138 at 21:20:48:278
+[ Core 0000  ] Accepting request       138 at 21:20:48:279
+[ Core 0000  ] Queueing request        138
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 803.4559999999999
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 805.7142857142858
+[ RequestGen ] Scheduling request app 0  at 21:20:50:728
+[   VM 0000  ] Dispatching request     139 at 21:20:50:40
+[ Core 0000  ] Accepting request       139 at 21:20:50:40
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 803.5039370078741
+[ RequestGen ] Scheduling request app 0  at 21:20:51:256
+[   VM 0000  ] Dispatching request     140 at 21:20:50:733
+[ Core 0000  ] Accepting request       140 at 21:20:50:733
+[ RequestGen ] Scheduling request app 0  at 21:20:51:783
+[   VM 0000  ] Dispatching request     141 at 21:20:51:260
+[ Core 0000  ] Accepting request       141 at 21:20:51:260
+[ Core 0000  ] Queueing request        141
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 801.6171875
+[ RequestGen ] Scheduling request app 0  at 21:20:54:394
+[   VM 0000  ] Dispatching request     142 at 21:20:51:785
+[ Core 0000  ] Accepting request       142 at 21:20:51:785
+[ Core 0000  ] Queueing request        142
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 799.9767441860464
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 798.876923076923
+[ RequestGen ] Scheduling request app 0  at 21:20:54:551
+[   VM 0000  ] Dispatching request     143 at 21:20:54:399
+[ Core 0000  ] Accepting request       143 at 21:20:54:399
+[ RequestGen ] Scheduling request app 0  at 21:20:55:188
+[   VM 0000  ] Dispatching request     144 at 21:20:54:556
+[ Core 0000  ] Accepting request       144 at 21:20:54:556
+[ Core 0000  ] Queueing request        144
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 797.3587786259543
+[ RequestGen ] Scheduling request app 0  at 21:20:56:744
+[   VM 0000  ] Dispatching request     145 at 21:20:55:190
+[ Core 0000  ] Accepting request       145 at 21:20:55:190
+[ Core 0000  ] Queueing request        145
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 798.75
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 798.8195488721806
+[ RequestGen ] Scheduling request app 0  at 21:20:57:107
+[   VM 0000  ] Dispatching request     146 at 21:20:56:749
+[ Core 0000  ] Accepting request       146 at 21:20:56:749
+[ RequestGen ] Scheduling request app 0  at 21:20:57:394
+[   VM 0000  ] Dispatching request     147 at 21:20:57:108
+[ Core 0000  ] Accepting request       147 at 21:20:57:108
+[ Core 0000  ] Queueing request        147
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 797.1194029850745
+[ RequestGen ] Scheduling request app 0  at 21:20:58:760
+[   VM 0000  ] Dispatching request     148 at 21:20:57:399
+[ Core 0000  ] Accepting request       148 at 21:20:57:399
+[ Core 0000  ] Queueing request        148
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 796.8518518518518
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 798.25
+[ RequestGen ] Scheduling request app 0  at 21:21:0:689
+[   VM 0000  ] Dispatching request     149 at 21:20:58:761
+[ Core 0000  ] Accepting request       149 at 21:20:58:762
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 796.5693430656933
+[ RequestGen ] Scheduling request app 1  at 21:21:2:480
+[   VM 0001  ] Dispatching request     150 at 21:21:0:694
+[ Core 0001  ] Accepting request       150 at 21:21:0:694
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 534.5
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.5 to 1.4 GHz
+[ Core 0001  ] Updating clock speed : 1.5 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:21:3:254
+[   VM 0000  ] Dispatching request     151 at 21:21:2:486
+[ Core 0000  ] Accepting request       151 at 21:21:2:486
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 794.3913043478261
+[ RequestGen ] Scheduling request app 0  at 21:21:9:487
+[   VM 0000  ] Dispatching request     152 at 21:21:3:259
+[ Core 0000  ] Accepting request       152 at 21:21:3:259
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 792.043165467626
+[ RequestGen ] Scheduling request app 0  at 21:21:11:984
+[   VM 0000  ] Dispatching request     153 at 21:21:9:487
+[ Core 0000  ] Accepting request       153 at 21:21:9:487
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 790.7214285714284
+[ RequestGen ] Scheduling request app 0  at 21:21:12:965
+[   VM 0000  ] Dispatching request     154 at 21:21:11:985
+[ Core 0000  ] Accepting request       154 at 21:21:11:985
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 788.7163120567377
+[ RequestGen ] Scheduling request app 0  at 21:21:14:353
+[   VM 0000  ] Dispatching request     155 at 21:21:12:970
+[ Core 0000  ] Accepting request       155 at 21:21:12:970
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 786.6901408450705
+[ RequestGen ] Scheduling request app 0  at 21:21:15:793
+[   VM 0000  ] Dispatching request     156 at 21:21:14:358
+[ Core 0000  ] Accepting request       156 at 21:21:14:358
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 785.4895104895106
+[ RequestGen ] Scheduling request app 0  at 21:21:16:127
+[   VM 0000  ] Dispatching request     157 at 21:21:15:799
+[ Core 0000  ] Accepting request       157 at 21:21:15:799
+[ RequestGen ] Scheduling request app 0  at 21:21:17:23
+[   VM 0000  ] Dispatching request     158 at 21:21:16:131
+[ Core 0000  ] Accepting request       158 at 21:21:16:131
+[ Core 0000  ] Queueing request        158
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 783.2847222222221
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 781.7172413793103
+[ RequestGen ] Scheduling request app 0  at 21:21:19:516
+[   VM 0000  ] Dispatching request     159 at 21:21:17:28
+[ Core 0000  ] Accepting request       159 at 21:21:17:28
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 779.8150684931506
+[ RequestGen ] Scheduling request app 0  at 21:21:19:920
+[   VM 0000  ] Dispatching request     160 at 21:21:19:520
+[ Core 0000  ] Accepting request       160 at 21:21:19:520
+[ RequestGen ] Scheduling request app 0  at 21:21:21:160
+[   VM 0000  ] Dispatching request     161 at 21:21:19:920
+[ Core 0000  ] Accepting request       161 at 21:21:19:920
+[ Core 0000  ] Queueing request        161
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 777.56462585034
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 776.25
+[ RequestGen ] Scheduling request app 0  at 21:21:21:561
+[   VM 0000  ] Dispatching request     162 at 21:21:21:166
+[ Core 0000  ] Accepting request       162 at 21:21:21:166
+[ RequestGen ] Scheduling request app 0  at 21:21:22:236
+[   VM 0000  ] Dispatching request     163 at 21:21:21:567
+[ Core 0000  ] Accepting request       163 at 21:21:21:567
+[ Core 0000  ] Queueing request        163
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 773.8389261744965
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 772.3266666666666
+[ RequestGen ] Scheduling request app 1  at 21:21:23:469
+[   VM 0001  ] Dispatching request     164 at 21:21:22:241
+[ Core 0001  ] Accepting request       164 at 21:21:22:241
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 539.2666666666667
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:21:26:604
+[   VM 0000  ] Dispatching request     165 at 21:21:23:471
+[ Core 0000  ] Accepting request       165 at 21:21:23:471
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 770.6490066225165
+[ RequestGen ] Scheduling request app 0  at 21:21:27:801
+[   VM 0000  ] Dispatching request     166 at 21:21:26:606
+[ Core 0000  ] Accepting request       166 at 21:21:26:606
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 769.4539473684213
+[ RequestGen ] Scheduling request app 0  at 21:21:27:828
+[   VM 0000  ] Dispatching request     167 at 21:21:27:804
+[ Core 0000  ] Accepting request       167 at 21:21:27:804
+[ RequestGen ] Scheduling request app 0  at 21:21:28:263
+[   VM 0000  ] Dispatching request     168 at 21:21:27:833
+[ Core 0000  ] Accepting request       168 at 21:21:27:833
+[ Core 0000  ] Queueing request        168
+[ RequestGen ] Scheduling request app 0  at 21:21:29:693
+[   VM 0000  ] Dispatching request     169 at 21:21:28:268
+[ Core 0000  ] Accepting request       169 at 21:21:28:268
+[ Core 0000  ] Queueing request        169
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 767.6797385620916
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 768.2337662337663
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 769.1161290322582
+[ RequestGen ] Scheduling request app 0  at 21:21:32:871
+[   VM 0000  ] Dispatching request     170 at 21:21:29:698
+[ Core 0000  ] Accepting request       170 at 21:21:29:699
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 768.3782051282051
+[ RequestGen ] Scheduling request app 0  at 21:21:35:167
+[   VM 0000  ] Dispatching request     171 at 21:21:32:877
+[ Core 0000  ] Accepting request       171 at 21:21:32:877
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 766.7070063694268
+[ RequestGen ] Scheduling request app 0  at 21:21:40:832
+[   VM 0000  ] Dispatching request     172 at 21:21:35:169
+[ Core 0000  ] Accepting request       172 at 21:21:35:169
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 765.0253164556962
+[ RequestGen ] Scheduling request app 0  at 21:21:42:120
+[   VM 0000  ] Dispatching request     173 at 21:21:40:837
+[ Core 0000  ] Accepting request       173 at 21:21:40:837
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 763.641509433962
+[ RequestGen ] Scheduling request app 0  at 21:21:43:743
+[   VM 0000  ] Dispatching request     174 at 21:21:42:125
+[ Core 0000  ] Accepting request       174 at 21:21:42:125
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 762.3125
+[ RequestGen ] Scheduling request app 0  at 21:21:44:879
+[   VM 0000  ] Dispatching request     175 at 21:21:43:746
+[ Core 0000  ] Accepting request       175 at 21:21:43:746
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 760.6521739130433
+[ RequestGen ] Scheduling request app 0  at 21:21:45:306
+[   VM 0000  ] Dispatching request     176 at 21:21:44:882
+[ Core 0000  ] Accepting request       176 at 21:21:44:882
+[ RequestGen ] Scheduling request app 0  at 21:21:46:944
+[   VM 0000  ] Dispatching request     177 at 21:21:45:308
+[ Core 0000  ] Accepting request       177 at 21:21:45:308
+[ Core 0000  ] Queueing request        177
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 759.3209876543212
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 758.7914110429449
+[ RequestGen ] Scheduling request app 0  at 21:21:47:631
+[   VM 0000  ] Dispatching request     178 at 21:21:46:947
+[ Core 0000  ] Accepting request       178 at 21:21:46:947
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 757.3902439024391
+[ RequestGen ] Scheduling request app 0  at 21:21:48:384
+[   VM 0000  ] Dispatching request     179 at 21:21:47:633
+[ Core 0000  ] Accepting request       179 at 21:21:47:633
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 756.0242424242424
+[ RequestGen ] Scheduling request app 0  at 21:21:48:411
+[   VM 0000  ] Dispatching request     180 at 21:21:48:387
+[ Core 0000  ] Accepting request       180 at 21:21:48:387
+[ RequestGen ] Scheduling request app 0  at 21:21:48:746
+[   VM 0000  ] Dispatching request     181 at 21:21:48:416
+[ Core 0000  ] Accepting request       181 at 21:21:48:416
+[ Core 0000  ] Queueing request        181
+[ RequestGen ] Scheduling request app 0  at 21:21:49:252
+[   VM 0000  ] Dispatching request     182 at 21:21:48:750
+[ Core 0000  ] Accepting request       182 at 21:21:48:750
+[ Core 0000  ] Queueing request        182
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 754.7349397590363
+[ RequestGen ] Scheduling request app 0  at 21:21:49:311
+[   VM 0000  ] Dispatching request     183 at 21:21:49:256
+[ Core 0000  ] Accepting request       183 at 21:21:49:256
+[ Core 0000  ] Queueing request        183
+[ RequestGen ] Scheduling request app 0  at 21:21:49:380
+[   VM 0000  ] Dispatching request     184 at 21:21:49:312
+[ Core 0000  ] Accepting request       184 at 21:21:49:312
+[ Core 0000  ] Queueing request        184
+[ RequestGen ] Scheduling request app 0  at 21:21:49:814
+[   VM 0000  ] Dispatching request     185 at 21:21:49:381
+[ Core 0000  ] Accepting request       185 at 21:21:49:381
+[ Core 0000  ] Queueing request        185
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 756.1197604790418
+[ RequestGen ] Scheduling request app 0  at 21:21:49:880
+[   VM 0000  ] Dispatching request     186 at 21:21:49:819
+[ Core 0000  ] Accepting request       186 at 21:21:49:819
+[ Core 0000  ] Queueing request        186
+[ RequestGen ] Scheduling request app 0  at 21:21:50:63
+[   VM 0000  ] Dispatching request     187 at 21:21:49:881
+[ Core 0000  ] Accepting request       187 at 21:21:49:881
+[ Core 0000  ] Queueing request        187
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 758.5714285714287
+[ RequestGen ] Scheduling request app 1  at 21:21:51:706
+[   VM 0001  ] Dispatching request     188 at 21:21:50:65
+[ Core 0001  ] Accepting request       188 at 21:21:50:65
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 761.0591715976329
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 543.0625
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 766.5
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 774.7836257309943
+[ RequestGen ] Scheduling request app 0  at 21:21:52:375
+[   VM 0000  ] Dispatching request     189 at 21:21:51:710
+[ Core 0000  ] Accepting request       189 at 21:21:51:710
+[ Core 0000  ] Queueing request        189
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 783.3662790697676
+[ RequestGen ] Scheduling request app 0  at 21:21:53:192
+[   VM 0000  ] Dispatching request     190 at 21:21:52:380
+[ Core 0000  ] Accepting request       190 at 21:21:52:380
+[ Core 0000  ] Queueing request        190
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 794.2601156069363
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 797.5057471264366
+[ RequestGen ] Scheduling request app 0  at 21:21:56:587
+[   VM 0000  ] Dispatching request     191 at 21:21:53:195
+[ Core 0000  ] Accepting request       191 at 21:21:53:195
+[ Core 0000  ] Queueing request        191
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 799.0685714285713
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 798.7102272727274
+[ RequestGen ] Scheduling request app 0  at 21:21:58:61
+[   VM 0000  ] Dispatching request     192 at 21:21:56:589
+[ Core 0000  ] Accepting request       192 at 21:21:56:589
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 796.8813559322034
+[ RequestGen ] Scheduling request app 1  at 21:21:58:646
+[   VM 0001  ] Dispatching request     193 at 21:21:58:67
+[ Core 0001  ] Accepting request       193 at 21:21:58:67
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 542.8823529411765
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:21:58:931
+[   VM 0000  ] Dispatching request     194 at 21:21:58:651
+[ Core 0000  ] Accepting request       194 at 21:21:58:651
+[ RequestGen ] Scheduling request app 0  at 21:21:58:970
+[   VM 0000  ] Dispatching request     195 at 21:21:58:936
+[ Core 0000  ] Accepting request       195 at 21:21:58:936
+[ Core 0000  ] Queueing request        195
+[ RequestGen ] Scheduling request app 0  at 21:21:59:969
+[   VM 0000  ] Dispatching request     196 at 21:21:58:971
+[ Core 0000  ] Accepting request       196 at 21:21:58:971
+[ Core 0000  ] Queueing request        196
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 795.2808988764045
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 794.7877094972067
+[ RequestGen ] Scheduling request app 0  at 21:22:1:1
+[   VM 0000  ] Dispatching request     197 at 21:21:59:973
+[ Core 0000  ] Accepting request       197 at 21:21:59:973
+[ Core 0000  ] Queueing request        197
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 796.9888888888888
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 796.5690607734808
+[ RequestGen ] Scheduling request app 1  at 21:22:1:357
+[   VM 0001  ] Dispatching request     198 at 21:22:1:3
+[ Core 0001  ] Accepting request       198 at 21:22:1:3
+[ RequestGen ] Scheduling request app 0  at 21:22:2:507
+[   VM 0000  ] Dispatching request     199 at 21:22:1:362
+[ Core 0000  ] Accepting request       199 at 21:22:1:362
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 553.1111111111111
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 795.2032967032968
+[ RequestGen ] Scheduling request app 0  at 21:22:4:915
+[   VM 0000  ] Dispatching request     200 at 21:22:2:511
+[ Core 0000  ] Accepting request       200 at 21:22:2:511
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 793.8852459016392
+[ RequestGen ] Scheduling request app 0  at 21:22:6:194
+[   VM 0000  ] Dispatching request     201 at 21:22:4:919
+[ Core 0000  ] Accepting request       201 at 21:22:4:919
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 792.2989130434784
+[ RequestGen ] Scheduling request app 0  at 21:22:6:378
+[   VM 0000  ] Dispatching request     202 at 21:22:6:199
+[ Core 0000  ] Accepting request       202 at 21:22:6:199
+[ RequestGen ] Scheduling request app 0  at 21:22:7:511
+[   VM 0000  ] Dispatching request     203 at 21:22:6:381
+[ Core 0000  ] Accepting request       203 at 21:22:6:382
+[ Core 0000  ] Queueing request        203
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 790.8702702702702
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 790.9193548387098
+[ RequestGen ] Scheduling request app 1  at 21:22:7:801
+[   VM 0001  ] Dispatching request     204 at 21:22:7:517
+[ Core 0001  ] Accepting request       204 at 21:22:7:517
+[ RequestGen ] Scheduling request app 0  at 21:22:7:986
+[   VM 0000  ] Dispatching request     205 at 21:22:7:803
+[ Core 0000  ] Accepting request       205 at 21:22:7:803
+[ RequestGen ] Scheduling request app 0  at 21:22:9:794
+[   VM 0000  ] Dispatching request     206 at 21:22:7:992
+[ Core 0000  ] Accepting request       206 at 21:22:7:992
+[ Core 0000  ] Queueing request        206
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 565.0
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 790.0588235294117
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 791.2234042553191
+[ RequestGen ] Scheduling request app 0  at 21:22:11:957
+[   VM 0000  ] Dispatching request     207 at 21:22:9:799
+[ Core 0000  ] Accepting request       207 at 21:22:9:799
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 789.6984126984128
+[ RequestGen ] Scheduling request app 0  at 21:22:15:665
+[   VM 0000  ] Dispatching request     208 at 21:22:11:961
+[ Core 0000  ] Accepting request       208 at 21:22:11:962
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 788.1473684210526
+[ RequestGen ] Scheduling request app 0  at 21:22:15:685
+[   VM 0000  ] Dispatching request     209 at 21:22:15:669
+[ Core 0000  ] Accepting request       209 at 21:22:15:669
+[ RequestGen ] Scheduling request app 0  at 21:22:17:218
+[   VM 0000  ] Dispatching request     210 at 21:22:15:686
+[ Core 0000  ] Accepting request       210 at 21:22:15:686
+[ Core 0000  ] Queueing request        210
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 786.8900523560211
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 788.1614583333334
+[ RequestGen ] Scheduling request app 1  at 21:22:17:362
+[   VM 0001  ] Dispatching request     211 at 21:22:17:220
+[ Core 0001  ] Accepting request       211 at 21:22:17:220
+[ RequestGen ] Scheduling request app 0  at 21:22:17:640
+[   VM 0000  ] Dispatching request     212 at 21:22:17:363
+[ Core 0000  ] Accepting request       212 at 21:22:17:363
+[ RequestGen ] Scheduling request app 1  at 21:22:17:902
+[   VM 0001  ] Dispatching request     213 at 21:22:17:645
+[ Core 0001  ] Accepting request       213 at 21:22:17:645
+[ Core 0001  ] Queueing request        213
+[ RequestGen ] Scheduling request app 0  at 21:22:19:863
+[   VM 0000  ] Dispatching request     214 at 21:22:17:906
+[ Core 0000  ] Accepting request       214 at 21:22:17:906
+[ Core 0000  ] Queueing request        214
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 786.9170984455959
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 572.6
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[ Core 0001  ] Reschedule currently served task
+[ Core 0001  ] Remaining instructions : 1025
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 785.5927835051547
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 594.0952380952381
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:22:20:487
+[   VM 0000  ] Dispatching request     215 at 21:22:19:869
+[ Core 0000  ] Accepting request       215 at 21:22:19:869
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 784.0358974358974
+[ RequestGen ] Scheduling request app 0  at 21:22:21:893
+[   VM 0000  ] Dispatching request     216 at 21:22:20:489
+[ Core 0000  ] Accepting request       216 at 21:22:20:489
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 782.4897959183675
+[ RequestGen ] Scheduling request app 0  at 21:22:21:934
+[   VM 0000  ] Dispatching request     217 at 21:22:21:897
+[ Core 0000  ] Accepting request       217 at 21:22:21:898
+[ RequestGen ] Scheduling request app 0  at 21:22:22:51
+[   VM 0000  ] Dispatching request     218 at 21:22:21:940
+[ Core 0000  ] Accepting request       218 at 21:22:21:940
+[ Core 0000  ] Queueing request        218
+[ RequestGen ] Scheduling request app 1  at 21:22:22:289
+[   VM 0001  ] Dispatching request     219 at 21:22:22:56
+[ Core 0001  ] Accepting request       219 at 21:22:22:56
+[ RequestGen ] Scheduling request app 0  at 21:22:23:997
+[   VM 0000  ] Dispatching request     220 at 21:22:22:295
+[ Core 0000  ] Accepting request       220 at 21:22:22:295
+[ Core 0000  ] Queueing request        220
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 781.248730964467
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 599.1363636363636
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 782.6717171717171
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 785.2663316582915
+[ RequestGen ] Scheduling request app 0  at 21:22:24:223
+[   VM 0000  ] Dispatching request     221 at 21:22:24:0
+[ Core 0000  ] Accepting request       221 at 21:22:24:0
+[ RequestGen ] Scheduling request app 0  at 21:22:24:475
+[   VM 0000  ] Dispatching request     222 at 21:22:24:228
+[ Core 0000  ] Accepting request       222 at 21:22:24:229
+[ Core 0000  ] Queueing request        222
+[ RequestGen ] Scheduling request app 0  at 21:22:24:628
+[   VM 0000  ] Dispatching request     223 at 21:22:24:480
+[ Core 0000  ] Accepting request       223 at 21:22:24:480
+[ Core 0000  ] Queueing request        223
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 783.75
+[ RequestGen ] Scheduling request app 0  at 21:22:26:555
+[   VM 0000  ] Dispatching request     224 at 21:22:24:632
+[ Core 0000  ] Accepting request       224 at 21:22:24:632
+[ Core 0000  ] Queueing request        224
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 784.179104477612
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 785.8663366336635
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 789.1970443349752
+[ RequestGen ] Scheduling request app 0  at 21:22:26:672
+[   VM 0000  ] Dispatching request     225 at 21:22:26:561
+[ Core 0000  ] Accepting request       225 at 21:22:26:561
+[ RequestGen ] Scheduling request app 0  at 21:22:27:214
+[   VM 0000  ] Dispatching request     226 at 21:22:26:675
+[ Core 0000  ] Accepting request       226 at 21:22:26:675
+[ Core 0000  ] Queueing request        226
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 787.7254901960783
+[ RequestGen ] Scheduling request app 1  at 21:22:28:215
+[   VM 0001  ] Dispatching request     227 at 21:22:27:219
+[ Core 0001  ] Accepting request       227 at 21:22:27:219
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 788.0292682926829
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 602.8695652173913
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:22:29:284
+[   VM 0000  ] Dispatching request     228 at 21:22:28:220
+[ Core 0000  ] Accepting request       228 at 21:22:28:220
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 786.3106796116505
+[ RequestGen ] Scheduling request app 0  at 21:22:30:773
+[   VM 0000  ] Dispatching request     229 at 21:22:29:288
+[ Core 0000  ] Accepting request       229 at 21:22:29:288
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 785.0772946859903
+[ RequestGen ] Scheduling request app 0  at 21:22:31:414
+[   VM 0000  ] Dispatching request     230 at 21:22:30:779
+[ Core 0000  ] Accepting request       230 at 21:22:30:779
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 783.730769230769
+[ RequestGen ] Scheduling request app 1  at 21:22:31:644
+[   VM 0001  ] Dispatching request     231 at 21:22:31:419
+[ Core 0001  ] Accepting request       231 at 21:22:31:419
+[ RequestGen ] Scheduling request app 0  at 21:22:32:276
+[   VM 0000  ] Dispatching request     232 at 21:22:31:647
+[ Core 0000  ] Accepting request       232 at 21:22:31:647
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 782.4784688995217
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 612.3333333333333
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:22:32:810
+[   VM 0000  ] Dispatching request     233 at 21:22:32:276
+[ Core 0000  ] Accepting request       233 at 21:22:32:276
+[ RequestGen ] Scheduling request app 0  at 21:22:33:623
+[   VM 0000  ] Dispatching request     234 at 21:22:32:812
+[ Core 0000  ] Accepting request       234 at 21:22:32:812
+[ Core 0000  ] Queueing request        234
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 781.5857142857143
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 780.1611374407581
+[ RequestGen ] Scheduling request app 0  at 21:22:35:576
+[   VM 0000  ] Dispatching request     235 at 21:22:33:628
+[ Core 0000  ] Accepting request       235 at 21:22:33:628
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 778.8915094339621
+[ RequestGen ] Scheduling request app 0  at 21:22:44:243
+[   VM 0000  ] Dispatching request     236 at 21:22:35:579
+[ Core 0000  ] Accepting request       236 at 21:22:35:579
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 777.4553990610327
+[ RequestGen ] Scheduling request app 0  at 21:22:44:695
+[   VM 0000  ] Dispatching request     237 at 21:22:44:247
+[ Core 0000  ] Accepting request       237 at 21:22:44:247
+[ RequestGen ] Scheduling request app 1  at 21:22:45:249
+[   VM 0001  ] Dispatching request     238 at 21:22:44:696
+[ Core 0001  ] Accepting request       238 at 21:22:44:696
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 776.2383177570094
+[ RequestGen ] Scheduling request app 0  at 21:22:50:290
+[   VM 0000  ] Dispatching request     239 at 21:22:45:254
+[ Core 0000  ] Accepting request       239 at 21:22:45:254
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 612.28
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 774.6186046511626
+[ RequestGen ] Scheduling request app 0  at 21:22:50:751
+[   VM 0000  ] Dispatching request     240 at 21:22:50:292
+[ Core 0000  ] Accepting request       240 at 21:22:50:292
+[ RequestGen ] Scheduling request app 0  at 21:22:51:833
+[   VM 0000  ] Dispatching request     241 at 21:22:50:753
+[ Core 0000  ] Accepting request       241 at 21:22:50:753
+[ Core 0000  ] Queueing request        241
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 773.6990740740741
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 772.9723502304147
+[ RequestGen ] Scheduling request app 0  at 21:22:52:163
+[   VM 0000  ] Dispatching request     242 at 21:22:51:838
+[ Core 0000  ] Accepting request       242 at 21:22:51:838
+[ RequestGen ] Scheduling request app 0  at 21:22:52:826
+[   VM 0000  ] Dispatching request     243 at 21:22:52:169
+[ Core 0000  ] Accepting request       243 at 21:22:52:169
+[ Core 0000  ] Queueing request        243
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 772.1055045871558
+[ RequestGen ] Scheduling request app 1  at 21:22:55:568
+[   VM 0001  ] Dispatching request     244 at 21:22:52:827
+[ Core 0001  ] Accepting request       244 at 21:22:52:827
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 771.8219178082193
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 613.9230769230769
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:22:56:220
+[   VM 0000  ] Dispatching request     245 at 21:22:55:569
+[ Core 0000  ] Accepting request       245 at 21:22:55:569
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 770.8136363636363
+[ RequestGen ] Scheduling request app 0  at 21:22:56:739
+[   VM 0000  ] Dispatching request     246 at 21:22:56:226
+[ Core 0000  ] Accepting request       246 at 21:22:56:226
+[ RequestGen ] Scheduling request app 0  at 21:22:58:401
+[   VM 0000  ] Dispatching request     247 at 21:22:56:739
+[ Core 0000  ] Accepting request       247 at 21:22:56:740
+[ Core 0000  ] Queueing request        247
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 769.841628959276
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 769.2657657657659
+[ RequestGen ] Scheduling request app 0  at 21:22:58:512
+[   VM 0000  ] Dispatching request     248 at 21:22:58:402
+[ Core 0000  ] Accepting request       248 at 21:22:58:402
+[ RequestGen ] Scheduling request app 0  at 21:22:59:168
+[   VM 0000  ] Dispatching request     249 at 21:22:58:513
+[ Core 0000  ] Accepting request       249 at 21:22:58:514
+[ Core 0000  ] Queueing request        249
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 767.5784753363228
+[ RequestGen ] Scheduling request app 0  at 21:23:0:185
+[   VM 0000  ] Dispatching request     250 at 21:22:59:173
+[ Core 0000  ] Accepting request       250 at 21:22:59:173
+[ Core 0000  ] Queueing request        250
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 767.5669642857142
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 767.0533333333333
+[ RequestGen ] Scheduling request app 0  at 21:23:0:779
+[   VM 0000  ] Dispatching request     251 at 21:23:0:185
+[ Core 0000  ] Accepting request       251 at 21:23:0:185
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 765.9734513274337
+[ RequestGen ] Scheduling request app 0  at 21:23:1:9
+[   VM 0000  ] Dispatching request     252 at 21:23:0:785
+[ Core 0000  ] Accepting request       252 at 21:23:0:785
+[ RequestGen ] Scheduling request app 0  at 21:23:1:423
+[   VM 0000  ] Dispatching request     253 at 21:23:1:12
+[ Core 0000  ] Accepting request       253 at 21:23:1:12
+[ Core 0000  ] Queueing request        253
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 764.9911894273127
+[ RequestGen ] Scheduling request app 0  at 21:23:1:479
+[   VM 0000  ] Dispatching request     254 at 21:23:1:424
+[ Core 0000  ] Accepting request       254 at 21:23:1:424
+[ Core 0000  ] Queueing request        254
+[ RequestGen ] Scheduling request app 0  at 21:23:2:280
+[   VM 0000  ] Dispatching request     255 at 21:23:1:483
+[ Core 0000  ] Accepting request       255 at 21:23:1:483
+[ Core 0000  ] Queueing request        255
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 765.3201754385966
+[ RequestGen ] Scheduling request app 0  at 21:23:2:559
+[   VM 0000  ] Dispatching request     256 at 21:23:2:282
+[ Core 0000  ] Accepting request       256 at 21:23:2:282
+[ Core 0000  ] Queueing request        256
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 766.1572052401748
+[ RequestGen ] Scheduling request app 0  at 21:23:3:701
+[   VM 0000  ] Dispatching request     257 at 21:23:2:565
+[ Core 0000  ] Accepting request       257 at 21:23:2:565
+[ Core 0000  ] Queueing request        257
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 768.8652173913044
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 770.2900432900433
+[ RequestGen ] Scheduling request app 0  at 21:23:8:210
+[   VM 0000  ] Dispatching request     258 at 21:23:3:707
+[ Core 0000  ] Accepting request       258 at 21:23:3:707
+[ Core 0000  ] Queueing request        258
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 772.905172413793
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 772.8111587982834
+[ RequestGen ] Scheduling request app 0  at 21:23:8:388
+[   VM 0000  ] Dispatching request     259 at 21:23:8:212
+[ Core 0000  ] Accepting request       259 at 21:23:8:213
+[ RequestGen ] Scheduling request app 0  at 21:23:9:22
+[   VM 0000  ] Dispatching request     260 at 21:23:8:392
+[ Core 0000  ] Accepting request       260 at 21:23:8:392
+[ Core 0000  ] Queueing request        260
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 771.6239316239316
+[ RequestGen ] Scheduling request app 0  at 21:23:9:315
+[   VM 0000  ] Dispatching request     261 at 21:23:9:28
+[ Core 0000  ] Accepting request       261 at 21:23:9:28
+[ Core 0000  ] Queueing request        261
+[ RequestGen ] Scheduling request app 0  at 21:23:12:985
+[   VM 0000  ] Dispatching request     262 at 21:23:9:318
+[ Core 0000  ] Accepting request       262 at 21:23:9:318
+[ Core 0000  ] Queueing request        262
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 772.3106382978724
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 772.7966101694917
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 774.3164556962025
+[ RequestGen ] Scheduling request app 0  at 21:23:14:656
+[   VM 0000  ] Dispatching request     263 at 21:23:12:991
+[ Core 0000  ] Accepting request       263 at 21:23:12:991
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 773.0966386554624
+[ RequestGen ] Scheduling request app 0  at 21:23:16:993
+[   VM 0000  ] Dispatching request     264 at 21:23:14:661
+[ Core 0000  ] Accepting request       264 at 21:23:14:662
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 772.2719665271966
+[ RequestGen ] Scheduling request app 0  at 21:23:17:916
+[   VM 0000  ] Dispatching request     265 at 21:23:16:999
+[ Core 0000  ] Accepting request       265 at 21:23:16:999
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 771.4625000000001
+[ RequestGen ] Scheduling request app 0  at 21:23:17:990
+[   VM 0000  ] Dispatching request     266 at 21:23:17:920
+[ Core 0000  ] Accepting request       266 at 21:23:17:920
+[ RequestGen ] Scheduling request app 0  at 21:23:18:322
+[   VM 0000  ] Dispatching request     267 at 21:23:17:992
+[ Core 0000  ] Accepting request       267 at 21:23:17:993
+[ Core 0000  ] Queueing request        267
+[ RequestGen ] Scheduling request app 0  at 21:23:18:434
+[   VM 0000  ] Dispatching request     268 at 21:23:18:324
+[ Core 0000  ] Accepting request       268 at 21:23:18:324
+[ Core 0000  ] Queueing request        268
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 770.2365145228217
+[ RequestGen ] Scheduling request app 0  at 21:23:19:353
+[   VM 0000  ] Dispatching request     269 at 21:23:18:436
+[ Core 0000  ] Accepting request       269 at 21:23:18:436
+[ Core 0000  ] Queueing request        269
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 771.2975206611569
+[ RequestGen ] Scheduling request app 1  at 21:23:19:786
+[   VM 0001  ] Dispatching request     270 at 21:23:19:356
+[ Core 0001  ] Accepting request       270 at 21:23:19:356
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 773.2592592592594
+[ RequestGen ] Scheduling request app 0  at 21:23:20:131
+[   VM 0000  ] Dispatching request     271 at 21:23:19:787
+[ Core 0000  ] Accepting request       271 at 21:23:19:787
+[ Core 0000  ] Queueing request        271
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 615.8148148148148
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:23:20:224
+[   VM 0000  ] Dispatching request     272 at 21:23:20:133
+[ Core 0000  ] Accepting request       272 at 21:23:20:133
+[ Core 0000  ] Queueing request        272
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 777.2868852459018
+[ RequestGen ] Scheduling request app 0  at 21:23:20:414
+[   VM 0000  ] Dispatching request     273 at 21:23:20:226
+[ Core 0000  ] Accepting request       273 at 21:23:20:226
+[ Core 0000  ] Queueing request        273
+[ RequestGen ] Scheduling request app 0  at 21:23:21:290
+[   VM 0000  ] Dispatching request     274 at 21:23:20:414
+[ Core 0000  ] Accepting request       274 at 21:23:20:414
+[ Core 0000  ] Queueing request        274
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 777.6816326530612
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 778.8008130081303
+[ RequestGen ] Scheduling request app 0  at 21:23:22:849
+[   VM 0000  ] Dispatching request     275 at 21:23:21:293
+[ Core 0000  ] Accepting request       275 at 21:23:21:293
+[ Core 0000  ] Queueing request        275
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 781.6477732793522
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 785.8024193548387
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 788.2570281124497
+[ RequestGen ] Scheduling request app 0  at 21:23:23:744
+[   VM 0000  ] Dispatching request     276 at 21:23:22:853
+[ Core 0000  ] Accepting request       276 at 21:23:22:853
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 787.7239999999999
+[ RequestGen ] Scheduling request app 0  at 21:23:25:116
+[   VM 0000  ] Dispatching request     277 at 21:23:23:749
+[ Core 0000  ] Accepting request       277 at 21:23:23:749
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 786.9681274900398
+[ RequestGen ] Scheduling request app 0  at 21:23:26:974
+[   VM 0000  ] Dispatching request     278 at 21:23:25:120
+[ Core 0000  ] Accepting request       278 at 21:23:25:120
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 785.8571428571428
+[ RequestGen ] Scheduling request app 0  at 21:23:28:968
+[   VM 0000  ] Dispatching request     279 at 21:23:26:980
+[ Core 0000  ] Accepting request       279 at 21:23:26:980
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 784.901185770751
+[ RequestGen ] Scheduling request app 0  at 21:23:29:343
+[   VM 0000  ] Dispatching request     280 at 21:23:28:973
+[ Core 0000  ] Accepting request       280 at 21:23:28:973
+[ RequestGen ] Scheduling request app 0  at 21:23:30:266
+[   VM 0000  ] Dispatching request     281 at 21:23:29:344
+[ Core 0000  ] Accepting request       281 at 21:23:29:344
+[ Core 0000  ] Queueing request        281
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 784.0078740157481
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 784.0392156862745
+[ RequestGen ] Scheduling request app 0  at 21:23:30:582
+[   VM 0000  ] Dispatching request     282 at 21:23:30:270
+[ Core 0000  ] Accepting request       282 at 21:23:30:270
+[ RequestGen ] Scheduling request app 0  at 21:23:31:819
+[   VM 0000  ] Dispatching request     283 at 21:23:30:586
+[ Core 0000  ] Accepting request       283 at 21:23:30:586
+[ Core 0000  ] Queueing request        283
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 782.9609375
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 782.2996108949416
+[ RequestGen ] Scheduling request app 0  at 21:23:35:545
+[   VM 0000  ] Dispatching request     284 at 21:23:31:823
+[ Core 0000  ] Accepting request       284 at 21:23:31:823
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 781.0697674418603
+[ RequestGen ] Scheduling request app 0  at 21:23:36:39
+[   VM 0000  ] Dispatching request     285 at 21:23:35:550
+[ Core 0000  ] Accepting request       285 at 21:23:35:550
+[ RequestGen ] Scheduling request app 0  at 21:23:38:865
+[   VM 0000  ] Dispatching request     286 at 21:23:36:45
+[ Core 0000  ] Accepting request       286 at 21:23:36:45
+[ Core 0000  ] Queueing request        286
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 780.054054054054
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 779.1153846153845
+[ RequestGen ] Scheduling request app 0  at 21:23:38:917
+[   VM 0000  ] Dispatching request     287 at 21:23:38:869
+[ Core 0000  ] Accepting request       287 at 21:23:38:869
+[ RequestGen ] Scheduling request app 0  at 21:23:41:35
+[   VM 0000  ] Dispatching request     288 at 21:23:38:921
+[ Core 0000  ] Accepting request       288 at 21:23:38:921
+[ Core 0000  ] Queueing request        288
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 778.2950191570882
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 779.3053435114504
+[ RequestGen ] Scheduling request app 0  at 21:23:41:430
+[   VM 0000  ] Dispatching request     289 at 21:23:41:35
+[ Core 0000  ] Accepting request       289 at 21:23:41:35
+[ RequestGen ] Scheduling request app 0  at 21:23:44:959
+[   VM 0000  ] Dispatching request     290 at 21:23:41:433
+[ Core 0000  ] Accepting request       290 at 21:23:41:433
+[ Core 0000  ] Queueing request        290
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 778.1863117870722
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 777.1439393939394
+[ RequestGen ] Scheduling request app 1  at 21:23:47:34
+[   VM 0001  ] Dispatching request     291 at 21:23:44:963
+[ Core 0001  ] Accepting request       291 at 21:23:44:963
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 622.0714285714287
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:23:49:951
+[   VM 0000  ] Dispatching request     292 at 21:23:47:36
+[ Core 0000  ] Accepting request       292 at 21:23:47:36
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 775.8490566037735
+[ RequestGen ] Scheduling request app 0  at 21:23:50:718
+[   VM 0000  ] Dispatching request     293 at 21:23:49:957
+[ Core 0000  ] Accepting request       293 at 21:23:49:957
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 774.9285714285713
+[ RequestGen ] Scheduling request app 0  at 21:23:50:948
+[   VM 0000  ] Dispatching request     294 at 21:23:50:720
+[ Core 0000  ] Accepting request       294 at 21:23:50:720
+[ RequestGen ] Scheduling request app 0  at 21:23:55:800
+[   VM 0000  ] Dispatching request     295 at 21:23:50:950
+[ Core 0000  ] Accepting request       295 at 21:23:50:950
+[ Core 0000  ] Queueing request        295
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 774.0149812734084
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 774.0858208955224
+[ RequestGen ] Scheduling request app 0  at 21:23:56:803
+[   VM 0000  ] Dispatching request     296 at 21:23:55:801
+[ Core 0000  ] Accepting request       296 at 21:23:55:801
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 773.3940520446098
+[ RequestGen ] Scheduling request app 0  at 21:23:57:890
+[   VM 0000  ] Dispatching request     297 at 21:23:56:803
+[ Core 0000  ] Accepting request       297 at 21:23:56:803
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 772.4555555555557
+[ RequestGen ] Scheduling request app 0  at 21:23:58:141
+[   VM 0000  ] Dispatching request     298 at 21:23:57:893
+[ Core 0000  ] Accepting request       298 at 21:23:57:893
+[ RequestGen ] Scheduling request app 0  at 21:24:3:60
+[   VM 0000  ] Dispatching request     299 at 21:23:58:143
+[ Core 0000  ] Accepting request       299 at 21:23:58:143
+[ Core 0000  ] Queueing request        299
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 771.5977859778599
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 771.7389705882354
+[ RequestGen ] Scheduling request app 0  at 21:24:3:944
+[   VM 0000  ] Dispatching request     300 at 21:24:3:61
+[ Core 0000  ] Accepting request       300 at 21:24:3:61
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 771.0183150183152
+[ RequestGen ] Scheduling request app 0  at 21:24:4:379
+[   VM 0000  ] Dispatching request     301 at 21:24:3:949
+[ Core 0000  ] Accepting request       301 at 21:24:3:949
+[ RequestGen ] Scheduling request app 0  at 21:24:4:491
+[   VM 0000  ] Dispatching request     302 at 21:24:4:381
+[ Core 0000  ] Accepting request       302 at 21:24:4:381
+[ Core 0000  ] Queueing request        302
+[ RequestGen ] Scheduling request app 0  at 21:24:6:204
+[   VM 0000  ] Dispatching request     303 at 21:24:4:491
+[ Core 0000  ] Accepting request       303 at 21:24:4:491
+[ Core 0000  ] Queueing request        303
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 770.211678832117
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 769.7636363636362
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 770.9239130434784
+[ RequestGen ] Scheduling request app 0  at 21:24:6:829
+[   VM 0000  ] Dispatching request     304 at 21:24:6:208
+[ Core 0000  ] Accepting request       304 at 21:24:6:208
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 770.1227436823106
+[ RequestGen ] Scheduling request app 0  at 21:24:7:725
+[   VM 0000  ] Dispatching request     305 at 21:24:6:832
+[ Core 0000  ] Accepting request       305 at 21:24:6:833
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 769.1258992805754
+[ RequestGen ] Scheduling request app 0  at 21:24:8:282
+[   VM 0000  ] Dispatching request     306 at 21:24:7:726
+[ Core 0000  ] Accepting request       306 at 21:24:7:726
+[ RequestGen ] Scheduling request app 0  at 21:24:8:554
+[   VM 0000  ] Dispatching request     307 at 21:24:8:286
+[ Core 0000  ] Accepting request       307 at 21:24:8:286
+[ Core 0000  ] Queueing request        307
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 768.4802867383512
+[ RequestGen ] Scheduling request app 0  at 21:24:8:761
+[   VM 0000  ] Dispatching request     308 at 21:24:8:557
+[ Core 0000  ] Accepting request       308 at 21:24:8:557
+[ Core 0000  ] Queueing request        308
+[ RequestGen ] Scheduling request app 0  at 21:24:9:345
+[   VM 0000  ] Dispatching request     309 at 21:24:8:766
+[ Core 0000  ] Accepting request       309 at 21:24:8:766
+[ Core 0000  ] Queueing request        309
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 767.8250000000002
+[ RequestGen ] Scheduling request app 0  at 21:24:9:350
+[   VM 0000  ] Dispatching request     310 at 21:24:9:349
+[ Core 0000  ] Accepting request       310 at 21:24:9:349
+[ Core 0000  ] Queueing request        310
+[ RequestGen ] Scheduling request app 0  at 21:24:10:695
+[   VM 0000  ] Dispatching request     311 at 21:24:9:350
+[ Core 0000  ] Accepting request       311 at 21:24:9:350
+[ Core 0000  ] Queueing request        311
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 768.0711743772241
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 769.3262411347519
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 770.4487632508833
+[ RequestGen ] Scheduling request app 0  at 21:24:14:87
+[   VM 0000  ] Dispatching request     312 at 21:24:10:701
+[ Core 0000  ] Accepting request       312 at 21:24:10:701
+[ Core 0000  ] Queueing request        312
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 773.4225352112675
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 773.2771929824562
+[ RequestGen ] Scheduling request app 0  at 21:24:16:572
+[   VM 0000  ] Dispatching request     313 at 21:24:14:92
+[ Core 0000  ] Accepting request       313 at 21:24:14:92
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 772.2552447552449
+[ RequestGen ] Scheduling request app 0  at 21:24:21:736
+[   VM 0000  ] Dispatching request     314 at 21:24:16:573
+[ Core 0000  ] Accepting request       314 at 21:24:16:573
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 771.5505226480836
+[ RequestGen ] Scheduling request app 0  at 21:24:24:271
+[   VM 0000  ] Dispatching request     315 at 21:24:21:737
+[ Core 0000  ] Accepting request       315 at 21:24:21:737
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 770.638888888889
+[ RequestGen ] Scheduling request app 0  at 21:24:25:234
+[   VM 0000  ] Dispatching request     316 at 21:24:24:272
+[ Core 0000  ] Accepting request       316 at 21:24:24:272
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 769.7335640138408
+[ RequestGen ] Scheduling request app 0  at 21:24:27:175
+[   VM 0000  ] Dispatching request     317 at 21:24:25:239
+[ Core 0000  ] Accepting request       317 at 21:24:25:239
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 768.851724137931
+[ RequestGen ] Scheduling request app 0  at 21:24:28:667
+[   VM 0000  ] Dispatching request     318 at 21:24:27:177
+[ Core 0000  ] Accepting request       318 at 21:24:27:177
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 768.3264604810997
+[ RequestGen ] Scheduling request app 0  at 21:24:28:934
+[   VM 0000  ] Dispatching request     319 at 21:24:28:672
+[ Core 0000  ] Accepting request       319 at 21:24:28:672
+[ RequestGen ] Scheduling request app 0  at 21:24:33:5
+[   VM 0000  ] Dispatching request     320 at 21:24:28:937
+[ Core 0000  ] Accepting request       320 at 21:24:28:937
+[ Core 0000  ] Queueing request        320
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 767.4280821917807
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 767.2662116040956
+[ RequestGen ] Scheduling request app 0  at 21:24:34:382
+[   VM 0000  ] Dispatching request     321 at 21:24:33:5
+[ Core 0000  ] Accepting request       321 at 21:24:33:5
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 766.0986394557824
+[ RequestGen ] Scheduling request app 0  at 21:24:36:720
+[   VM 0000  ] Dispatching request     322 at 21:24:34:387
+[ Core 0000  ] Accepting request       322 at 21:24:34:387
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 765.308474576271
+[ RequestGen ] Scheduling request app 0  at 21:24:36:897
+[   VM 0000  ] Dispatching request     323 at 21:24:36:724
+[ Core 0000  ] Accepting request       323 at 21:24:36:724
+[ RequestGen ] Scheduling request app 1  at 21:24:37:928
+[   VM 0001  ] Dispatching request     324 at 21:24:36:899
+[ Core 0001  ] Accepting request       324 at 21:24:36:899
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 764.341216216216
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 623.4827586206897
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:24:42:265
+[   VM 0000  ] Dispatching request     325 at 21:24:37:931
+[ Core 0000  ] Accepting request       325 at 21:24:37:932
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 763.3737373737372
+[ RequestGen ] Scheduling request app 0  at 21:24:50:629
+[   VM 0000  ] Dispatching request     326 at 21:24:42:271
+[ Core 0000  ] Accepting request       326 at 21:24:42:271
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 762.5436241610737
+[ RequestGen ] Scheduling request app 0  at 21:24:51:489
+[   VM 0000  ] Dispatching request     327 at 21:24:50:630
+[ Core 0000  ] Accepting request       327 at 21:24:50:630
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 761.9297658862874
+[ RequestGen ] Scheduling request app 0  at 21:24:51:566
+[   VM 0000  ] Dispatching request     328 at 21:24:51:491
+[ Core 0000  ] Accepting request       328 at 21:24:51:491
+[ RequestGen ] Scheduling request app 0  at 21:24:52:131
+[   VM 0000  ] Dispatching request     329 at 21:24:51:570
+[ Core 0000  ] Accepting request       329 at 21:24:51:570
+[ Core 0000  ] Queueing request        329
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 760.8566666666668
+[ RequestGen ] Scheduling request app 0  at 21:24:53:145
+[   VM 0000  ] Dispatching request     330 at 21:24:52:134
+[ Core 0000  ] Accepting request       330 at 21:24:52:134
+[ Core 0000  ] Queueing request        330
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 761.3986710963457
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 761.9304635761588
+[ RequestGen ] Scheduling request app 0  at 21:24:53:407
+[   VM 0000  ] Dispatching request     331 at 21:24:53:147
+[ Core 0000  ] Accepting request       331 at 21:24:53:147
+[ RequestGen ] Scheduling request app 1  at 21:24:55:478
+[   VM 0001  ] Dispatching request     332 at 21:24:53:411
+[ Core 0001  ] Accepting request       332 at 21:24:53:411
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 761.0891089108912
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 621.7
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:24:57:714
+[   VM 0000  ] Dispatching request     333 at 21:24:55:481
+[ Core 0000  ] Accepting request       333 at 21:24:55:481
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 760.3486842105262
+[ RequestGen ] Scheduling request app 0  at 21:24:59:272
+[   VM 0000  ] Dispatching request     334 at 21:24:57:720
+[ Core 0000  ] Accepting request       334 at 21:24:57:720
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 759.27868852459
+[ RequestGen ] Scheduling request app 0  at 21:25:0:4
+[   VM 0000  ] Dispatching request     335 at 21:24:59:273
+[ Core 0000  ] Accepting request       335 at 21:24:59:273
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 758.5326797385619
+[ RequestGen ] Scheduling request app 1  at 21:25:0:650
+[   VM 0001  ] Dispatching request     336 at 21:25:0:6
+[ Core 0001  ] Accepting request       336 at 21:25:0:6
+[ RequestGen ] Scheduling request app 0  at 21:25:0:720
+[   VM 0000  ] Dispatching request     337 at 21:25:0:654
+[ Core 0000  ] Accepting request       337 at 21:25:0:654
+[ RequestGen ] Scheduling request app 0  at 21:25:1:304
+[   VM 0000  ] Dispatching request     338 at 21:25:0:721
+[ Core 0000  ] Accepting request       338 at 21:25:0:721
+[ Core 0000  ] Queueing request        338
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 625.1290322580645
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 757.6872964169382
+[ RequestGen ] Scheduling request app 0  at 21:25:2:993
+[   VM 0000  ] Dispatching request     339 at 21:25:1:307
+[ Core 0000  ] Accepting request       339 at 21:25:1:308
+[ Core 0000  ] Queueing request        339
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 758.3214285714287
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 758.9190938511325
+[ RequestGen ] Scheduling request app 0  at 21:25:4:769
+[   VM 0000  ] Dispatching request     340 at 21:25:2:994
+[ Core 0000  ] Accepting request       340 at 21:25:2:994
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 758.1483870967743
+[ RequestGen ] Scheduling request app 0  at 21:25:4:965
+[   VM 0000  ] Dispatching request     341 at 21:25:4:771
+[ Core 0000  ] Accepting request       341 at 21:25:4:771
+[ RequestGen ] Scheduling request app 0  at 21:25:5:86
+[   VM 0000  ] Dispatching request     342 at 21:25:4:970
+[ Core 0000  ] Accepting request       342 at 21:25:4:970
+[ Core 0000  ] Queueing request        342
+[ RequestGen ] Scheduling request app 0  at 21:25:6:688
+[   VM 0000  ] Dispatching request     343 at 21:25:5:88
+[ Core 0000  ] Accepting request       343 at 21:25:5:88
+[ Core 0000  ] Queueing request        343
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 757.6398713826368
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 758.2564102564104
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 760.1309904153356
+[ RequestGen ] Scheduling request app 0  at 21:25:7:647
+[   VM 0000  ] Dispatching request     344 at 21:25:6:689
+[ Core 0000  ] Accepting request       344 at 21:25:6:689
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 759.563694267516
+[ RequestGen ] Scheduling request app 0  at 21:25:7:869
+[   VM 0000  ] Dispatching request     345 at 21:25:7:649
+[ Core 0000  ] Accepting request       345 at 21:25:7:649
+[ RequestGen ] Scheduling request app 0  at 21:25:8:623
+[   VM 0000  ] Dispatching request     346 at 21:25:7:870
+[ Core 0000  ] Accepting request       346 at 21:25:7:871
+[ Core 0000  ] Queueing request        346
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 758.8063492063492
+[ RequestGen ] Scheduling request app 0  at 21:25:9:775
+[   VM 0000  ] Dispatching request     347 at 21:25:8:625
+[ Core 0000  ] Accepting request       347 at 21:25:8:625
+[ Core 0000  ] Queueing request        347
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 758.9145569620255
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 758.186119873817
+[ RequestGen ] Scheduling request app 0  at 21:25:9:937
+[   VM 0000  ] Dispatching request     348 at 21:25:9:777
+[ Core 0000  ] Accepting request       348 at 21:25:9:777
+[ RequestGen ] Scheduling request app 0  at 21:25:13:160
+[   VM 0000  ] Dispatching request     349 at 21:25:9:942
+[ Core 0000  ] Accepting request       349 at 21:25:9:942
+[ Core 0000  ] Queueing request        349
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 757.3773584905662
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 757.7178683385579
+[ RequestGen ] Scheduling request app 0  at 21:25:14:556
+[   VM 0000  ] Dispatching request     350 at 21:25:13:164
+[ Core 0000  ] Accepting request       350 at 21:25:13:164
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 757.0718750000001
+[ RequestGen ] Scheduling request app 0  at 21:25:15:114
+[   VM 0000  ] Dispatching request     351 at 21:25:14:562
+[ Core 0000  ] Accepting request       351 at 21:25:14:562
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 756.0965732087229
+[ RequestGen ] Scheduling request app 0  at 21:25:15:972
+[   VM 0000  ] Dispatching request     352 at 21:25:15:116
+[ Core 0000  ] Accepting request       352 at 21:25:15:116
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 755.2639751552794
+[ RequestGen ] Scheduling request app 0  at 21:25:18:224
+[   VM 0000  ] Dispatching request     353 at 21:25:15:977
+[ Core 0000  ] Accepting request       353 at 21:25:15:977
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 754.4829721362229
+[ RequestGen ] Scheduling request app 1  at 21:25:19:163
+[   VM 0001  ] Dispatching request     354 at 21:25:18:226
+[ Core 0001  ] Accepting request       354 at 21:25:18:226
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 627.1875
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:25:21:574
+[   VM 0000  ] Dispatching request     355 at 21:25:19:165
+[ Core 0000  ] Accepting request       355 at 21:25:19:165
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 753.8024691358025
+[ RequestGen ] Scheduling request app 0  at 21:25:25:930
+[   VM 0000  ] Dispatching request     356 at 21:25:21:575
+[ Core 0000  ] Accepting request       356 at 21:25:21:575
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 753.2369230769232
+[ RequestGen ] Scheduling request app 1  at 21:25:27:458
+[   VM 0001  ] Dispatching request     357 at 21:25:25:931
+[ Core 0001  ] Accepting request       357 at 21:25:25:931
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 628.9090909090909
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:25:28:206
+[   VM 0000  ] Dispatching request     358 at 21:25:27:460
+[ Core 0000  ] Accepting request       358 at 21:25:27:460
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 752.3926380368096
+[ RequestGen ] Scheduling request app 0  at 21:25:28:268
+[   VM 0000  ] Dispatching request     359 at 21:25:28:209
+[ Core 0000  ] Accepting request       359 at 21:25:28:209
+[ RequestGen ] Scheduling request app 0  at 21:25:28:608
+[   VM 0000  ] Dispatching request     360 at 21:25:28:271
+[ Core 0000  ] Accepting request       360 at 21:25:28:271
+[ Core 0000  ] Queueing request        360
+[ RequestGen ] Scheduling request app 0  at 21:25:29:742
+[   VM 0000  ] Dispatching request     361 at 21:25:28:611
+[ Core 0000  ] Accepting request       361 at 21:25:28:611
+[ Core 0000  ] Queueing request        361
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 751.4587155963304
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 752.2835365853657
+[ RequestGen ] Scheduling request app 0  at 21:25:31:824
+[   VM 0000  ] Dispatching request     362 at 21:25:29:742
+[ Core 0000  ] Accepting request       362 at 21:25:29:742
+[ Core 0000  ] Queueing request        362
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 753.7446808510637
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 753.3212121212122
+[ RequestGen ] Scheduling request app 0  at 21:25:33:319
+[   VM 0000  ] Dispatching request     363 at 21:25:31:825
+[ Core 0000  ] Accepting request       363 at 21:25:31:825
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 752.6797583081571
+[ RequestGen ] Scheduling request app 0  at 21:25:33:659
+[   VM 0000  ] Dispatching request     364 at 21:25:33:320
+[ Core 0000  ] Accepting request       364 at 21:25:33:320
+[ RequestGen ] Scheduling request app 0  at 21:25:33:928
+[   VM 0000  ] Dispatching request     365 at 21:25:33:662
+[ Core 0000  ] Accepting request       365 at 21:25:33:662
+[ Core 0000  ] Queueing request        365
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 751.9307228915665
+[ RequestGen ] Scheduling request app 0  at 21:25:33:944
+[   VM 0000  ] Dispatching request     366 at 21:25:33:933
+[ Core 0000  ] Accepting request       366 at 21:25:33:933
+[ Core 0000  ] Queueing request        366
+[ RequestGen ] Scheduling request app 0  at 21:25:34:105
+[   VM 0000  ] Dispatching request     367 at 21:25:33:945
+[ Core 0000  ] Accepting request       367 at 21:25:33:945
+[ Core 0000  ] Queueing request        367
+[ RequestGen ] Scheduling request app 0  at 21:25:34:945
+[   VM 0000  ] Dispatching request     368 at 21:25:34:109
+[ Core 0000  ] Accepting request       368 at 21:25:34:109
+[ Core 0000  ] Queueing request        368
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 751.6876876876877
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 752.12874251497
+[ RequestGen ] Scheduling request app 1  at 21:25:35:256
+[   VM 0001  ] Dispatching request     369 at 21:25:34:950
+[ Core 0001  ] Accepting request       369 at 21:25:34:950
+[ RequestGen ] Scheduling request app 1  at 21:25:35:612
+[   VM 0001  ] Dispatching request     370 at 21:25:35:262
+[ Core 0001  ] Accepting request       370 at 21:25:35:262
+[ Core 0001  ] Queueing request        370
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 754.3671641791046
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 627.0294117647059
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[ Core 0001  ] Reschedule currently served task
+[ Core 0001  ] Remaining instructions : 928
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:25:36:300
+[   VM 0000  ] Dispatching request     371 at 21:25:35:614
+[ Core 0000  ] Accepting request       371 at 21:25:35:614
+[ Core 0000  ] Queueing request        371
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 757.9494047619049
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 635.2571428571429
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:25:37:489
+[   VM 0000  ] Dispatching request     372 at 21:25:36:304
+[ Core 0000  ] Accepting request       372 at 21:25:36:305
+[ Core 0000  ] Queueing request        372
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 758.5370919881304
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 758.7721893491123
+[ RequestGen ] Scheduling request app 0  at 21:25:37:642
+[   VM 0000  ] Dispatching request     373 at 21:25:37:495
+[ Core 0000  ] Accepting request       373 at 21:25:37:495
+[ RequestGen ] Scheduling request app 0  at 21:25:38:367
+[   VM 0000  ] Dispatching request     374 at 21:25:37:650
+[ Core 0000  ] Accepting request       374 at 21:25:37:650
+[ Core 0000  ] Queueing request        374
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 758.1445427728613
+[ RequestGen ] Scheduling request app 0  at 21:25:38:658
+[   VM 0000  ] Dispatching request     375 at 21:25:38:368
+[ Core 0000  ] Accepting request       375 at 21:25:38:368
+[ Core 0000  ] Queueing request        375
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 758.5029411764705
+[ RequestGen ] Scheduling request app 0  at 21:25:39:899
+[   VM 0000  ] Dispatching request     376 at 21:25:38:661
+[ Core 0000  ] Accepting request       376 at 21:25:38:661
+[ Core 0000  ] Queueing request        376
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 758.234604105572
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 758.8508771929824
+[ RequestGen ] Scheduling request app 0  at 21:25:41:909
+[   VM 0000  ] Dispatching request     377 at 21:25:39:904
+[ Core 0000  ] Accepting request       377 at 21:25:39:904
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 758.0466472303208
+[ RequestGen ] Scheduling request app 0  at 21:25:43:633
+[   VM 0000  ] Dispatching request     378 at 21:25:41:910
+[ Core 0000  ] Accepting request       378 at 21:25:41:910
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 757.4854651162792
+[ RequestGen ] Scheduling request app 0  at 21:25:46:360
+[   VM 0000  ] Dispatching request     379 at 21:25:43:637
+[ Core 0000  ] Accepting request       379 at 21:25:43:637
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 756.8405797101449
+[ RequestGen ] Scheduling request app 0  at 21:25:46:500
+[   VM 0000  ] Dispatching request     380 at 21:25:46:364
+[ Core 0000  ] Accepting request       380 at 21:25:46:364
+[ RequestGen ] Scheduling request app 0  at 21:25:47:620
+[   VM 0000  ] Dispatching request     381 at 21:25:46:504
+[ Core 0000  ] Accepting request       381 at 21:25:46:504
+[ Core 0000  ] Queueing request        381
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 756.0838150289017
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 756.4005763688759
+[ RequestGen ] Scheduling request app 0  at 21:25:48:828
+[   VM 0000  ] Dispatching request     382 at 21:25:47:622
+[ Core 0000  ] Accepting request       382 at 21:25:47:622
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 755.8247126436781
+[ RequestGen ] Scheduling request app 0  at 21:25:48:935
+[   VM 0000  ] Dispatching request     383 at 21:25:48:830
+[ Core 0000  ] Accepting request       383 at 21:25:48:830
+[ RequestGen ] Scheduling request app 0  at 21:25:50:919
+[   VM 0000  ] Dispatching request     384 at 21:25:48:938
+[ Core 0000  ] Accepting request       384 at 21:25:48:938
+[ Core 0000  ] Queueing request        384
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 755.1919770773638
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 755.9000000000001
+[ RequestGen ] Scheduling request app 0  at 21:25:51:187
+[   VM 0000  ] Dispatching request     385 at 21:25:50:923
+[ Core 0000  ] Accepting request       385 at 21:25:50:923
+[ RequestGen ] Scheduling request app 0  at 21:25:58:491
+[   VM 0000  ] Dispatching request     386 at 21:25:51:188
+[ Core 0000  ] Accepting request       386 at 21:25:51:188
+[ Core 0000  ] Queueing request        386
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 755.1965811965813
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 755.3636363636365
+[ RequestGen ] Scheduling request app 0  at 21:25:58:874
+[   VM 0000  ] Dispatching request     387 at 21:25:58:496
+[ Core 0000  ] Accepting request       387 at 21:25:58:496
+[ RequestGen ] Scheduling request app 0  at 21:25:59:374
+[   VM 0000  ] Dispatching request     388 at 21:25:58:878
+[ Core 0000  ] Accepting request       388 at 21:25:58:878
+[ Core 0000  ] Queueing request        388
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 754.6713881019829
+[ RequestGen ] Scheduling request app 0  at 21:26:3:459
+[   VM 0000  ] Dispatching request     389 at 21:25:59:375
+[ Core 0000  ] Accepting request       389 at 21:25:59:375
+[ Core 0000  ] Queueing request        389
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 754.3559322033898
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 754.0084507042253
+[ RequestGen ] Scheduling request app 0  at 21:26:3:716
+[   VM 0000  ] Dispatching request     390 at 21:26:3:463
+[ Core 0000  ] Accepting request       390 at 21:26:3:463
+[ RequestGen ] Scheduling request app 1  at 21:26:3:769
+[   VM 0001  ] Dispatching request     391 at 21:26:3:720
+[ Core 0001  ] Accepting request       391 at 21:26:3:720
+[ RequestGen ] Scheduling request app 0  at 21:26:4:799
+[   VM 0000  ] Dispatching request     392 at 21:26:3:771
+[ Core 0000  ] Accepting request       392 at 21:26:3:771
+[ Core 0000  ] Queueing request        392
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 753.2668539325844
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 752.9299719887954
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 640.75
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ RequestGen ] Scheduling request app 0  at 21:26:5:146
+[   VM 0000  ] Dispatching request     393 at 21:26:4:801
+[ Core 0000  ] Accepting request       393 at 21:26:4:801
+[ RequestGen ] Scheduling request app 0  at 21:26:5:592
+[   VM 0000  ] Dispatching request     394 at 21:26:5:149
+[ Core 0000  ] Accepting request       394 at 21:26:5:149
+[ Core 0000  ] Queueing request        394
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 752.1759776536314
+[ RequestGen ] Scheduling request app 0  at 21:26:8:195
+[   VM 0000  ] Dispatching request     395 at 21:26:5:597
+[ Core 0000  ] Accepting request       395 at 21:26:5:597
+[ Core 0000  ] Queueing request        395
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 751.8913649025069
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 751.8805555555557
+[ RequestGen ] Scheduling request app 0  at 21:26:9:45
+[   VM 0000  ] Dispatching request     396 at 21:26:8:201
+[ Core 0000  ] Accepting request       396 at 21:26:8:201
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 751.3905817174515
+[ RequestGen ] Scheduling request app 1  at 21:26:9:665
+[   VM 0001  ] Dispatching request     397 at 21:26:9:48
+[ Core 0001  ] Accepting request       397 at 21:26:9:48
+[ RequestGen ] Scheduling request app 0  at 21:26:11:360
+[   VM 0000  ] Dispatching request     398 at 21:26:9:668
+[ Core 0000  ] Accepting request       398 at 21:26:9:668
+[ ACTT 0001  ] Received a new mean time from his request dispatcher of 641.1621621621622
+[ ACTT 0001  ] Will try to decrease the clockspeed
+[  Cpu 0000  ] Received a request to update clockspeed of core 1 from 1.4 to 1.2999999999999998 GHz
+[ Core 0001  ] Updating clock speed : 1.4 -> 1.4
+[ Core 0001  ] Clock speed updated
+[  Cpu 0000  ] [ 1.9 GHz | 1.4 GHz | ]
+[ ACTT 0000  ] Received a new mean time from his request dispatcher of 750.8453038674033
+[    CVM     ] Ending...
