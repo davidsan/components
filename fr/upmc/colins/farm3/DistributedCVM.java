@@ -42,7 +42,7 @@ public class DistributedCVM extends AbstractDistributedCVM {
 	
 	// Settings
 	/** the main sleep's duration										*/
-	protected static final long 		MAIN_SLEEPING_DURATION = 10000L;
+	protected static final long 		MAIN_SLEEPING_DURATION = 100000L;
 	/** the default clock speed											*/
 	protected static final Double 		CLOCK_SPEED = 1.0;
 	/** the maximum clock speed											*/
@@ -66,6 +66,14 @@ public class DistributedCVM extends AbstractDistributedCVM {
 	/** the mean number of instructions 								*/
 	protected static final double 		MEAN_NROF_INSTRUCTIONS = 1000.0;
 
+	
+	/** the step value of frequency when changing the frequency			*/
+	protected static final double 		BOOST_STEP = 0.6;
+	/** the target service time in milliseconds							*/
+	protected static final int 			TARGET_SERVICE_TIME = 500;
+	/** the flex time for target service time in milliseconds			*/
+	protected static final int 			FLEX_SERVICE_TIME = 200;
+	
 	// Components' URIs
 	protected static final String RG_ARGOP = "rg-argop";
 	protected static final String RG_RGOP_PREFIX = "rg-rgop-";
@@ -167,6 +175,9 @@ public class DistributedCVM extends AbstractDistributedCVM {
 					MEAN_INTER_ARRIVAL_TIME, 
 					MEAN_NROF_INSTRUCTIONS, 
 					STANDARD_DEVIATION, 
+					BOOST_STEP,
+					TARGET_SERVICE_TIME,
+					FLEX_SERVICE_TIME,
 					RG_RGOP_PREFIX, 
 					RG_ARGOP);
 			// add it to the deployed components

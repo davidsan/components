@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.math3.random.RandomDataGenerator;
 
+import fr.upmc.colins.farm3.VerboseSettings;
 import fr.upmc.colins.farm3.admission.ApplicationRequestArrivalI;
 import fr.upmc.colins.farm3.connectors.RequestServiceConnector;
 import fr.upmc.colins.farm3.core.RequestArrivalI;
@@ -83,7 +84,15 @@ public class RequestGenerator extends AbstractComponent {
 	/** count of application deployed 											*/
 	protected int appCount;
 
+	/** step value of frequency when changing the frequency						*/
+	protected double boostStep;
+	/** target service time in milliseconds										*/
+	protected int targetServiceTime;
+	/** flex time for target service time in milliseconds						*/
+	protected int flexServiceTime;
 
+	/** starting time															*/
+	protected long startTime = System.currentTimeMillis();
 	
 
 	/**
@@ -117,6 +126,9 @@ public class RequestGenerator extends AbstractComponent {
 			double meanInterArrivalTime,
 			double meanNrofInstructions, 
 			double standardDeviation,
+			double boostStep,
+			int targetServiceTime,
+			int flexServiceTime,
 			String requestOutboundPortPrefix, 
 			String appRequestOutboundPortURI
 			) throws Exception {
@@ -133,6 +145,9 @@ public class RequestGenerator extends AbstractComponent {
 		this.rng = new RandomDataGenerator();
 		this.rng.reSeed();
 		this.nextRequestTaskFuture = null;
+		this.boostStep = boostStep;
+		this.targetServiceTime = targetServiceTime;
+		this.flexServiceTime = flexServiceTime;
 
 		this.rgops = new ArrayList<>();
 		// Component management
@@ -213,16 +228,22 @@ public class RequestGenerator extends AbstractComponent {
 	public void generateNextRequest() throws Exception {
 
 		if(appCount < nrofApplications){
-			System.out.println(logId + " Submit a new app (id "
-					+ appCount + ")");
+			if(VerboseSettings.VERBOSE_GENERATOR)
+				System.out.println(logId + " Submit a new app (id "
+						+ appCount + ")");
 			String rdUri = this.argop.acceptApplication(
 					new Application(
 							appCount,
 							this.meanNrofInstructions,
-							this.standardDeviation
+							this.standardDeviation,
+							this.boostStep,
+							this.targetServiceTime,
+							this.flexServiceTime
 							));
-			System.out
-					.println(logId + " Connect to the request dispatcher for the requested app (via " + rdUri+")");
+
+			if(VerboseSettings.VERBOSE_GENERATOR)
+				System.out
+						.println(logId + " Connect to the request dispatcher for the requested app (via " + rdUri+")");
 			this.rgops.get(appCount).doConnection(rdUri,
 					RequestServiceConnector.class.getCanonicalName());
 			appCount++;
@@ -239,9 +260,13 @@ public class RequestGenerator extends AbstractComponent {
 		final RequestGenerator cg = this;
 		long interArrivalDelay = (long) this.rng
 				.nextExponential(this.meanInterArrivalTime);
-		System.out.println(logId + " Scheduling request app " + requestedApp + "  at "
-				+ TimeProcessing.toString(System.currentTimeMillis()
-						+ interArrivalDelay));
+//		System.err.println(System.currentTimeMillis()-this.startTime);
+//		System.err.println(Math.max(0.1, Math.sin((System.currentTimeMillis()-this.startTime)/10000.0)));
+		interArrivalDelay = (long) (interArrivalDelay + interArrivalDelay * Math.max(0.1, Math.sin((System.currentTimeMillis()-this.startTime)/5000.0)));
+		if(VerboseSettings.VERBOSE_GENERATOR)
+			System.out.println(logId + " Scheduling request app " + requestedApp + "  at "
+					+ TimeProcessing.toString(System.currentTimeMillis()
+							+ interArrivalDelay));
 		this.nextRequestTaskFuture = this.scheduleTask(new ComponentTask() {
 			@Override
 			public void run() {

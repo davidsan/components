@@ -10,6 +10,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
+import fr.upmc.colins.farm3.VerboseSettings;
 import fr.upmc.colins.farm3.connectors.RequestServiceConnector;
 import fr.upmc.colins.farm3.connectors.ResponseServiceConnector;
 import fr.upmc.colins.farm3.core.RequestArrivalI;
@@ -274,7 +275,9 @@ extends		AbstractComponent
 		// ask the virtual machines to do the connection to the inbound port of the request dispatcher (for response)
 		if(firstCall){
 			firstCall =false;
-			System.out.println(logId + " Linking virtual machines to the request dispatcher for response connection");
+
+			if(VerboseSettings.VERBOSE_DISPATCHER)
+				System.out.println(logId + " Linking virtual machines to the request dispatcher for response connection");
 			RequestGeneratorOutboundPort[] rgopsArray = rgops.toArray(new RequestGeneratorOutboundPort[0]);
 			for (int i = 0; i < respAips.size(); i++) {
 				RDResponseArrivalInboundPort rdRespAip = respAips.get(i);
@@ -290,13 +293,15 @@ extends		AbstractComponent
 		}
 		
 		r.setNrofInstructions(nrofInstructions);
-		System.out.println(logId + " Accepting request       " + r + " at "
-				+ TimeProcessing.toString(t) + " with " + nrofInstructions
-				+ " instructions");
+		if(VerboseSettings.VERBOSE_DISPATCHER)
+			System.out.println(logId + " Accepting request       " + r + " at "
+					+ TimeProcessing.toString(t) + " with " + nrofInstructions
+					+ " instructions");
 		r.setArrivalTime(t) ;
 		this.requestsQueue.add(r) ;
 		if (!this.dispatcherIdle) {
-			System.out.println(logId + " Queueing request " + r) ;
+			if(VerboseSettings.VERBOSE_DISPATCHER)
+				System.out.println(logId + " Queueing request " + r) ;
 		} else {
 			this.beginServicingEvent() ;
 		}
@@ -330,9 +335,10 @@ extends		AbstractComponent
 		
 		this.dispatcherIdle = false ;
 		try {
-			System.out.println(logId + " Dispatching request     "
-					+ this.servicing + " at "
-					+ TimeProcessing.toString(System.currentTimeMillis())) ;
+			if(VerboseSettings.VERBOSE_DISPATCHER)
+				System.out.println(logId + " Dispatching request     "
+						+ this.servicing + " at "
+						+ TimeProcessing.toString(System.currentTimeMillis())) ;
 			RequestGeneratorOutboundPort rgop = this.rgops.poll();		
 			rgop.acceptRequest(request);
 			this.rgops.add(rgop);
@@ -378,8 +384,9 @@ extends		AbstractComponent
 	 */
 	public void responseArrivalEvent(Response response) {
 		this.stats.addValue(response.getDuration());
-			
-		System.out.println(logId + " New mean time : " + this.stats.getMean());
+
+		if(VerboseSettings.VERBOSE_DISPATCHER)
+			System.out.println(logId + " New mean time : " + this.stats.getMean());
 		
 		// send the new mean time of the request dispatcher to a controller
 		response.setDuration(this.stats.getMean());

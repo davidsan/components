@@ -3,6 +3,7 @@ package fr.upmc.colins.farm3.actuator;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 
+import fr.upmc.colins.farm3.VerboseSettings;
 import fr.upmc.colins.farm3.connectors.ControlRequestServiceConnector;
 import fr.upmc.colins.farm3.core.ControlRequestArrivalI;
 import fr.upmc.colins.farm3.core.ResponseArrivalI;
@@ -21,6 +22,11 @@ import fr.upmc.components.exceptions.ComponentShutdownException;
  * An actuator is a component that will forward received requests to
  * its dedicated virtual machine. 
  * 
+ * A target service time is set. The mean service time sent by the 
+ * request dispatcher is processed and an action is taken if the 
+ * mean service time is too slow or if it is too fast.
+ * A flex time is added to make the target service time for flexible.
+ * 
  * <p>
  * Created on : jan. 2015
  * </p>
@@ -36,10 +42,13 @@ extends		AbstractComponent
 	protected String logId;
     
 	/** step value of frequency when changing the frequency					*/
-	protected static final double BOOST_STEP = 0.6;
+	protected double boostStep;
 
-	/** goal time in milliseconds											*/
-	protected static final int GOAL_TIME = 1000;
+	/** target service time in milliseconds									*/
+	protected long targetServiceTime;
+
+	/** flex time for target service time in milliseconds					*/
+	private long flexServiceTime;
 
 	
 	// -------------------------------------------------------------------------
@@ -70,10 +79,23 @@ extends		AbstractComponent
 	 *
 	 * @param id					
 	 * 				identifier of the actuator
+	 * @param boostStep
+	 * 				step value of frequency change (increase or decrease)
+	 * @param targetServiceTime
+	 * 				target service time (milliseconds)
+	 * @param flexServiceTime
+	 * 				flex service time (milliseconds)
+	 * @param actuatorResponseArrivalInboundPortUri
+	 * 				inbound port of the component for response arrival
+	 * @param assignedCoreControlRequestArrivalInboundPortUris
+	 * 				inbound port of the cores for updating the frequency
 	 * @throws Exception
 	 */
 	public				Actuator(
 		Integer id, 
+		Double boostStep,
+		Long targetServiceTime,
+		Long flexServiceTime,
 		String actuatorResponseArrivalInboundPortUri,
 		ArrayList<String> assignedCoreControlRequestArrivalInboundPortUris
 		) throws Exception
@@ -84,6 +106,9 @@ extends		AbstractComponent
 		
 		this.logId = MessageFormat.format("[ ACTT {0}  ]", String.format("%04d", id));
 		this.id = id ;
+		this.boostStep = boostStep;
+		this.targetServiceTime = targetServiceTime;
+		this.flexServiceTime = flexServiceTime;
 		
 		// inbound port for request arrival
 		this.addOfferedInterface(ResponseArrivalI.class) ;
@@ -158,16 +183,30 @@ extends		AbstractComponent
 
 	/**
 	 * update the mean time of request processing (from the virtual machine)
-	 * TODO: and forward the mean of mean time to a controller
+	 * and react
 	 * @param response the received response
 	 * @throws Exception 
 	 */
 	public void 			responseArrivalEvent(Response response) throws Exception {	
-		System.out.println(logId + " Received a new mean time from his request dispatcher of " + response.getDuration());
-		if (response.getDuration() < GOAL_TIME) {
+		if(VerboseSettings.VERBOSE_ACTUATOR)
+			System.out.println(logId + " Received a new mean time from his request dispatcher of " + response.getDuration());
+		
+		// check if too slow
+		if (response.getDuration() > targetServiceTime + flexServiceTime) {
+			if(VerboseSettings.VERBOSE_ACTUATOR)
+				System.out.println(logId + " Will try to increase the clockspeed");
 			for (ControlRequestGeneratorOutboundPort port : crgops) {
-				port.updateClockSpeedPlease(port.getClockSpeed() + BOOST_STEP);
+				port.updateClockSpeedPlease(port.getClockSpeed() + boostStep);
 			}
 		}
+		
+		// check if too fast
+		if (response.getDuration() < targetServiceTime - flexServiceTime) {
+			if(VerboseSettings.VERBOSE_ACTUATOR)
+				System.out.println(logId + " Will try to decrease the clockspeed");
+			for (ControlRequestGeneratorOutboundPort port : crgops) {
+				port.updateClockSpeedPlease(port.getClockSpeed() - boostStep);
+			}
+		}		
 	}
 }

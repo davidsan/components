@@ -6,6 +6,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
+import fr.upmc.colins.farm3.VerboseSettings;
 import fr.upmc.colins.farm3.connectors.Core2CpuServiceConnector;
 import fr.upmc.colins.farm3.connectors.ResponseServiceConnector;
 import fr.upmc.colins.farm3.objects.Request;
@@ -102,16 +103,16 @@ extends		AbstractComponent
 	protected CoreResponseGeneratorOutboundPort coreResponseGeneratorOutboundPort;
 
 	/** uri of the core inbound port for request 							*/
-	protected String inboundPortURI;
+	protected String 					inboundPortURI;
 
 	/** uri of the core inbound control port								*/
-	protected String controlInboundPortURI;
+	protected String 					controlInboundPortURI;
 
 	/** outbound port to send request of clock update to the cpu 			*/
-	protected Core2CpuOutboundPort core2CpuOutboundPort;
+	protected Core2CpuOutboundPort 		core2CpuOutboundPort;
 
 	/** uri of the cpu inbound port for control								*/
-	private String cpuControlInboundPortURI;
+	private String 						cpuControlInboundPortURI;
 
 	/**
 	 * create a service provider.
@@ -288,18 +289,24 @@ extends		AbstractComponent
 
 		// keep track of the old clock rate
 		double oldClockSpeed = this.clockSpeed;
-		System.out.println(logId + " Updating clock speed : " + this.clockSpeed + " -> "
-				+ clockSpeed);
+		if(VerboseSettings.VERBOSE_CORE)
+			System.out.println(logId + " Updating clock speed : " + this.clockSpeed + " -> "
+					+ clockSpeed);
 		// update the clock rate
-		this.clockSpeed = clockSpeed;
-		System.out.println(logId + " Clock speed updated");
+		this.clockSpeed = (double) Math.round(clockSpeed * 10) / 10; // for rounding with Java's Double
+		// TODO: might be better using BigDecimal instead of Double
+		
+		if(VerboseSettings.VERBOSE_CORE)
+			System.out.println(logId + " Clock speed updated");
 		
 		if (this.requestsQueue.isEmpty() && this.coreIdle) {
 			// nothing to reschedule
-			System.out.println(logId + " No ongoing task, nothing to reschedule");
+//			if(VerboseSettings.VERBOSE_CORE)
+//				System.out.println(logId + " No ongoing task, nothing to reschedule");
 		}else{
 			// reschedule currently served task
-			System.out.println(logId + " Reschedule currently served task");
+			if(VerboseSettings.VERBOSE_CORE)
+				System.out.println(logId + " Reschedule currently served task");
 			// time capture
 			long timeCancel = System.currentTimeMillis();
 			long timeServed = timeCancel - timeStart;
@@ -307,8 +314,9 @@ extends		AbstractComponent
 			this.nextEndServicingTaskFuture.cancel(true);
 			// compute remaining number of instructions to be processed
 			this.remainingInstructions =  Math.max(0, this.remainingInstructions - ((long)(oldClockSpeed * timeServed)));
-			System.out.println(logId + " Remaining instructions : "
-					+ this.remainingInstructions);
+			if(VerboseSettings.VERBOSE_CORE)
+				System.out.println(logId + " Remaining instructions : "
+						+ this.remainingInstructions);
 			// reschedule the servicing task using the new clock speed of the core
 			scheduleServicing();
 		}
@@ -325,19 +333,16 @@ extends		AbstractComponent
 			this.core2CpuOutboundPort.doConnection(this.cpuControlInboundPortURI, Core2CpuServiceConnector.class.getCanonicalName());
 		}
 		
-		// safe check
-		if (clockSpeed <= 0 || clockSpeed > maxClockSpeed) {
-			return false;
+		// clockspeed correction
+		if (clockSpeed <= 0) {
+			clockSpeed = 0.1;
+		}	
+		if (clockSpeed > this.maxClockSpeed) {
+			clockSpeed = maxClockSpeed;
 		}
 
+		this.core2CpuOutboundPort.acceptUpdateClockspeedRequest(clockSpeed, this.coreId);
 		
-		System.out.println(logId + " Ask the cpu to update his clock speed");
-		Boolean updated = this.core2CpuOutboundPort.acceptUpdateClockspeedRequest(clockSpeed, this.coreId);
-		if(updated){
-			System.out.println(logId + " Core clockspeed's update request granted");
-		}else{
-			System.out.println(logId + " Core clockspeed's update request revoked");
-		}
 		assert this.clockSpeed > 0;
 		return true;
 	}
@@ -359,9 +364,9 @@ extends		AbstractComponent
 		this.servicing = this.requestsQueue.remove() ;
 		
 		this.remainingInstructions = servicing.getNrofInstructions();
-		
-		System.out.println(logId + " Begin servicing request " + this.servicing + " at "
-						+ TimeProcessing.toString(System.currentTimeMillis())) ;
+//		if(VerboseSettings.VERBOSE_CORE)
+//			System.out.println(logId + " Begin servicing request " + this.servicing + " at "
+//							+ TimeProcessing.toString(System.currentTimeMillis())) ;
 		scheduleServicing();
 	}
 	
@@ -416,9 +421,10 @@ extends		AbstractComponent
 		if(this.coreResponseGeneratorOutboundPort.connected()){
 			this.coreResponseGeneratorOutboundPort.acceptResponse(response);
 		}
-		System.out.println(logId + " End servicing request   " + this.servicing +
-								" at " + TimeProcessing.toString(t) +
-								" with service time " + st) ;
+//		if(VerboseSettings.VERBOSE_CORE)
+//			System.out.println(logId + " End servicing request   " + this.servicing +
+//									" at " + TimeProcessing.toString(t) +
+//									" with service time " + st) ;
 		this.totalServicingTime += st ;
 		this.totalNumberOfServicedRequests++ ;
 		
@@ -441,7 +447,8 @@ extends		AbstractComponent
 	 */
 	public void connectResponseConnection(String furi) throws Exception 
 	{
-		System.out.println(logId + " Connect the response connection to the VM");
+		if(VerboseSettings.VERBOSE_CORE)
+			System.out.println(logId + " Connect the response connection to the VM");
 		// do connection
 		if (!this.coreResponseGeneratorOutboundPort.connected()) {
 			this.coreResponseGeneratorOutboundPort
@@ -450,6 +457,8 @@ extends		AbstractComponent
 	}
 	
 
+	/** getters */
+	
 	public String getInboundPortURI() {
 		return inboundPortURI;
 	}
@@ -457,4 +466,9 @@ extends		AbstractComponent
 	public String getControlInboundPortURI() {
 		return controlInboundPortURI;
 	}
+
+	public double getClockSpeed() {
+		return clockSpeed;
+	}
+	
 }

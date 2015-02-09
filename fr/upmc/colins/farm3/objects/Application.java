@@ -41,8 +41,15 @@ implements 	Serializable
 	protected double 	meanNrofInstructions; 
 	/** standard deviation 													*/
 	protected double 	standardDeviation;
-	/** time at which it has been received by the service provider.			*/
+	/** time at which it has been received by the service provider			*/
 	protected long		arrivalTime ;
+	/** step value of the boost of frequency for this app's actuator		*/
+	protected double	boostStep ;
+	/** target service time 												*/
+	protected long		targetServiceTime ;
+	/** flex service time 													*/
+	protected long		flexServiceTime ;
+	
 
 	/**
 	 * create a new application with given uri, a mean number of instructions
@@ -61,7 +68,10 @@ implements 	Serializable
 	public				Application(
 		int uri,
 		double meanNrofInstructions,
-		double standardDeviation
+		double standardDeviation,
+		double boostStep,
+		long targetServiceTime,
+		long flexServiceTime
 		)
 	{
 		super() ;
@@ -72,6 +82,9 @@ implements 	Serializable
 		this.meanNrofInstructions = meanNrofInstructions ;
 		this.standardDeviation = standardDeviation ;
 		this.arrivalTime = 0 ;
+		this.boostStep = boostStep;
+		this.targetServiceTime = targetServiceTime;
+		this.flexServiceTime = flexServiceTime;
 
 		assert	this.meanNrofInstructions >= 0 && this.arrivalTime >= 0 ;
 	}
@@ -173,4 +186,57 @@ implements 	Serializable
 	public String		toString() {
 		return "" + this.uri ;
 	}
+
+	/**
+	 * return the step value of the boost when changing frequency for this app
+	 * 
+	 * <p><strong>Contract</strong></p>
+	 * 
+	 * <pre>
+	 * pre	true			// no precondition.
+	 * post	true			// no postcondition.
+	 * </pre>
+	 *
+	 * @return	the step value of the boost when changing frequency for this app
+	 */
+	public double getBoostStep() {
+		return boostStep;
+	}
+
+
+	/**
+	 * return the target service time for this app
+	 * 
+	 * <p><strong>Contract</strong></p>
+	 * 
+	 * <pre>
+	 * pre	true			// no precondition.
+	 * post	true			// no postcondition.
+	 * </pre>
+	 *
+	 * @return	the target service time for this app
+	 */
+	public long getTargetServiceTime() {
+		return targetServiceTime;
+	}
+
+
+	/**
+	 * return the flex service time for this app
+	 * 
+	 * <p><strong>Contract</strong></p>
+	 * 
+	 * <pre>
+	 * pre	true			// no precondition.
+	 * post	true			// no postcondition.
+	 * </pre>
+	 *
+	 * @return	the flex service time for this app
+	 */
+	public long getFlexServiceTime() {
+		return flexServiceTime;
+	}
+
+	
+	
 }

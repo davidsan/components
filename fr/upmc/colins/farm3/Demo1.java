@@ -12,46 +12,36 @@ import fr.upmc.components.cvm.AbstractCVM;
 import fr.upmc.components.ports.PortI;
 
 /**
- * The class <code>CVM</code> contains the main used the launch the
- * compute cluster simulation. This main use only one JVM.
- *
- * <p>
- * <strong>Description</strong>
- * </p>
- * 
- * This main supports the following components : core, admission control,
- * request dispatcher, virtual machine, cpu
- *
- * <p>
- * How to launch : https://i.imgur.com/cvT1RMb.png
- * </p>
+ * The class <code>Demo1</code> contains an example of scenario with 
+ * a single CPU of 4 cores and one application consuming all 4 cores
+ * with 2 virtual machines.
  * 
  * <p>
- * Created on : jan. 2015
+ * Created on : feb. 2015
  * </p>
  * 
  * @author Colins-Alasca
  * @version $Name$ -- $Revision$ -- $Date$
  */
 
-public class CVM extends AbstractCVM {
+public class Demo1 extends AbstractCVM {
 
 	protected static final String 		logId = "[    CVM     ]";
 	// Settings
 	/** the main sleep's duration										*/
-	protected static final long 		MAIN_SLEEPING_DURATION = 5000L;
+	protected static final long 		MAIN_SLEEPING_DURATION = 500000L;
 	/** the default clock speed											*/
 	protected static final Double 		CLOCK_SPEED = 1.0;
 	/** the maximum clock speed											*/
-	protected static final Double 		MAX_CLOCK_SPEED = 2.0;
+	protected static final Double 		MAX_CLOCK_SPEED = 3.0;
 	/** the maximum clock speed	gap										*/
 	protected static final Double 		MAX_CLOCK_SPEED_GAP = 0.5;
 	/** the number of cpu in the cluster								*/
-	protected static final Long 		NROF_CPU = 4L;
+	protected static final Long 		NROF_CPU = 1L;
 	/** the number of cores	in the cluster								*/
-	protected static final Long 		NROF_CORES_PER_CPU = 2L;
+	protected static final Long 		NROF_CORES_PER_CPU = 4L;
 	/** the number of applications to be submitted by the consumer		*/
-	protected static final Long 		NROF_APPS = 2L;
+	protected static final Long 		NROF_APPS = 1L;
 	/** the number of cores allocated per virtual machines				*/
 	protected static final int 			NROF_CORES_PER_VM = 2;
 	/** the number of virtual machines allocated per dispatcher			*/
@@ -67,9 +57,9 @@ public class CVM extends AbstractCVM {
 	/** the step value of frequency when changing the frequency			*/
 	protected static final double 		BOOST_STEP = 0.6;
 	/** the target service time in milliseconds							*/
-	protected static final int 			TARGET_SERVICE_TIME = 500;
+	protected static final int 			TARGET_SERVICE_TIME = 600;
 	/** the flex time for target service time in milliseconds			*/
-	protected static final int 			FLEX_SERVICE_TIME = 200;
+	protected static final int 			FLEX_SERVICE_TIME = 100;
 	
 	
 	// Components' URIs
@@ -221,7 +211,7 @@ public class CVM extends AbstractCVM {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		CVM a = new CVM();
+		Demo1 a = new Demo1();
 		try {
 			a.deploy();
 			System.out.println(logId + " Starting...");

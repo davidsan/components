@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
+import fr.upmc.colins.farm3.VerboseSettings;
 import fr.upmc.colins.farm3.connectors.ControlRequestServiceConnector;
 import fr.upmc.colins.farm3.core.ControlRequestArrivalI;
 import fr.upmc.colins.farm3.core.Core;
@@ -258,18 +259,24 @@ public class Cpu extends AbstractComponent {
 
 	}
 
-	public Boolean acceptUpdateClockspeedRequest(Double clockspeed,
+	public Boolean acceptUpdateClockspeedRequest(Double newClockSpeed,
 			Integer coreId) throws Exception {
 
-		if (clockspeed > maxClockSpeed) {
+		if (newClockSpeed > maxClockSpeed) {
 			return false;
 		}
+		
+		
+		int coreIndex = coreId;
+		ControlRequestGeneratorOutboundPort crgop = this.controlRequestGeneratorOutboundPorts
+				.get(coreIndex);
 
-		System.out.println(logId
-				+ " Received a request to update clockspeed of core " + coreId
-				+ " to " + clockspeed + " GHz");
-		int coreIndex = coreId - 1;
-
+		if(VerboseSettings.VERBOSE_CPU)
+			System.out.println(logId
+					+ " Received a request to update clockspeed of core " + coreId
+					+ " from " + crgop.getClockSpeed()
+					+ " to " + newClockSpeed + " GHz");
+		
 		DescriptiveStatistics stats = new DescriptiveStatistics();
 		// this method should not be called asynchronously
 		for (int i = 0; i < controlRequestGeneratorOutboundPorts.size(); i++) {
@@ -280,30 +287,30 @@ public class Cpu extends AbstractComponent {
 					.getClockSpeed());
 		}
 
-		if (clockspeed > stats.getMax()) {
+		if (newClockSpeed > stats.getMax()) {
 			// allow and make the necessary overclocking
-			System.out.println(logId + " Might overclock some cores.");
+			
 			for (int i = 0; i < controlRequestGeneratorOutboundPorts.size(); i++) {
 				if (i == coreIndex) {
 					continue;
 				}
-				ControlRequestGeneratorOutboundPort crgop = this.controlRequestGeneratorOutboundPorts
-						.get(coreIndex);
-				if (clockspeed - crgop.getClockSpeed() > maxGapClockSpeed) {
-					crgop.updateClockSpeed(clockspeed);
+				
+				if (newClockSpeed - crgop.getClockSpeed() > maxGapClockSpeed) {
+					crgop.updateClockSpeed(Math.max(crgop.getClockSpeed(),
+							newClockSpeed - this.maxGapClockSpeed));
 				}
 			}
-		} else if (clockspeed < stats.getMin()) {
+		} else if (newClockSpeed < stats.getMin()) {
 			// allow only if we can make the changes without underclocking the
 			// others
 			for (Double freq : stats.getValues()) {
-				if (freq - clockspeed > maxGapClockSpeed) {
-					return false;
+				if (freq - newClockSpeed > maxGapClockSpeed) {
+					newClockSpeed = freq - maxGapClockSpeed;
 				}
 			}
 		}
 		this.controlRequestGeneratorOutboundPorts.get(coreIndex)
-				.updateClockSpeed(clockspeed);
+				.updateClockSpeed(newClockSpeed);
 		return true;
 	}
 	

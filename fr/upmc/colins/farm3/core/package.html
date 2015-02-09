@@ -1,0 +1,33 @@
+<html>
+<body>
+<p>Core</p>
+
+<p>
+This package contains the Core component.
+This package also contains all classes affiliated with the Core.
+</p>
+
+<p>
+The core component receives requests to be serviced through an
+inbound port implementing the interface <code>RequestArrivalI</code>.  The
+discrete-event simulation is based upon three kinds of events:
+
+<ol>
+<li>request arrival, upon which the request is queued, and then if the
+ server is idle, a begin request processing event is immediately executed;
+ </li>
+<li>begin request processing, upon which a end request processing event is
+ scheduled after a delay given by the request processing time; and,</li>
+<li>end request processing, upon which if the queue is not empty a begin
+ request processing event is immediately executed</li>
+</ol>
+
+Total service times (waiting + processing) of requests is accumulated in the
+variable <code>totalServicingTime</code> while the number of serviced
+requests is accumulated in the variable
+<code>totalNumberOfServicedRequests</code>.  When the component is shut down,
+any end processing event already scheduled is cancelled, and the component
+outputs the average service time of the completely serviced requests.
+</p>
+</body>
+</html>
