@@ -183,7 +183,7 @@ extends		AbstractComponent
 
 	/**
 	 * update the mean time of request processing (from the virtual machine)
-	 * TODO: and forward the mean of mean time to a controller
+	 * and react
 	 * @param response the received response
 	 * @throws Exception 
 	 */

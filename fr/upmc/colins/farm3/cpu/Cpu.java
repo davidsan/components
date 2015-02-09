@@ -297,8 +297,9 @@ public class Cpu extends AbstractComponent {
 					continue;
 				}
 
-				if(VerboseSettings.VERBOSE_CPU)
-					System.out.println(i+" Computed delta is "+ (newClockSpeed - crgop.getClockSpeed()));
+				if (VerboseSettings.VERBOSE_CPU)
+					System.out.println(i + " Computed delta is "
+							+ (newClockSpeed - crgop.getClockSpeed()));
 				
 				if (newClockSpeed - crgop.getClockSpeed() > maxGapClockSpeed) {
 					crgop.updateClockSpeed(Math.max(crgop.getClockSpeed(),
