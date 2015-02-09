@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
+import fr.upmc.colins.farm3.VerboseSettings;
 import fr.upmc.colins.farm3.connectors.ControlRequestServiceConnector;
 import fr.upmc.colins.farm3.core.ControlRequestArrivalI;
 import fr.upmc.colins.farm3.core.Core;
@@ -270,11 +271,11 @@ public class Cpu extends AbstractComponent {
 		ControlRequestGeneratorOutboundPort crgop = this.controlRequestGeneratorOutboundPorts
 				.get(coreIndex);
 
-
-		System.out.println(logId
-				+ " Received a request to update clockspeed of core " + coreId
-				+ " from " + crgop.getClockSpeed()
-				+ " to " + newClockSpeed + " GHz");
+		if(VerboseSettings.VERBOSE_CPU)
+			System.out.println(logId
+					+ " Received a request to update clockspeed of core " + coreId
+					+ " from " + crgop.getClockSpeed()
+					+ " to " + newClockSpeed + " GHz");
 		
 		DescriptiveStatistics stats = new DescriptiveStatistics();
 		// this method should not be called asynchronously
@@ -288,14 +289,20 @@ public class Cpu extends AbstractComponent {
 
 		if (newClockSpeed > stats.getMax()) {
 			// allow and make the necessary overclocking
-			System.out.println(logId + " Might overclock some cores.");
+
+			if(VerboseSettings.VERBOSE_CPU)
+				System.out.println(logId + " Might overclock some cores.");
 			for (int i = 0; i < controlRequestGeneratorOutboundPorts.size(); i++) {
 				if (i == coreIndex) {
 					continue;
 				}
+
+				if(VerboseSettings.VERBOSE_CPU)
+					System.out.println(i+" Computed delta is "+ (newClockSpeed - crgop.getClockSpeed()));
 				
 				if (newClockSpeed - crgop.getClockSpeed() > maxGapClockSpeed) {
-					crgop.updateClockSpeed(newClockSpeed);
+					crgop.updateClockSpeed(Math.max(crgop.getClockSpeed(),
+							newClockSpeed - this.maxGapClockSpeed));
 				}
 			}
 		} else if (newClockSpeed < stats.getMin()) {

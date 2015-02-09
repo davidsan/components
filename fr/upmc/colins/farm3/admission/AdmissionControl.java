@@ -3,6 +3,7 @@ package fr.upmc.colins.farm3.admission;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.upmc.colins.farm3.VerboseSettings;
 import fr.upmc.colins.farm3.actuator.dynamic.DynamicActuator;
 import fr.upmc.colins.farm3.connectors.ControlRequestServiceConnector;
 import fr.upmc.colins.farm3.core.ControlRequestArrivalI;
@@ -158,10 +159,10 @@ public class AdmissionControl extends AbstractComponent {
 	}
 	
 	String acceptApplication(Application a) throws Exception {
-		
-		System.out.println(logId + " Begin creation of application "
-				+ a.getUri());
-		
+		if(VerboseSettings.VERBOSE_ADMISSION)
+			System.out.println(logId + " Begin creation of application "
+					+ a.getUri());
+			
 		Integer requestDispatcherId = requestDispatcherCount++;
 		ArrayList<String> rdRequestGeneratorOutboundPortUris = new ArrayList<>();
 		for (int i = 0; i < nrofVMPerDispatcher; i++) {
@@ -234,9 +235,10 @@ public class AdmissionControl extends AbstractComponent {
 					actuatorResponseArrivalInboundPortUri
 				}
 			);
-		System.out.println(logId + " End creation of application " + a.getUri());
-		System.out.println(logId + " Deployed application " + a.getUri() + " is available from " + RD_RAIP_PREFIX + requestDispatcherId);
-
+		if(VerboseSettings.VERBOSE_ADMISSION){
+			System.out.println(logId + " End creation of application " + a.getUri());
+			System.out.println(logId + " Deployed application " + a.getUri() + " is available from " + RD_RAIP_PREFIX + requestDispatcherId);
+		}
 		return RD_RAIP_PREFIX + requestDispatcherId;
 	}
 

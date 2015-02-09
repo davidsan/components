@@ -7,6 +7,7 @@ import java.util.Queue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
+import fr.upmc.colins.farm3.VerboseSettings;
 import fr.upmc.colins.farm3.connectors.RequestServiceConnector;
 import fr.upmc.colins.farm3.connectors.ResponseServiceConnector;
 import fr.upmc.colins.farm3.core.RequestArrivalI;
@@ -255,12 +256,12 @@ extends		AbstractComponent
 		}
 		
 		long t = System.currentTimeMillis() ;
-//		System.out.println(logId + " Accepting request       " + r + " at " +
-//												TimeProcessing.toString(t)) ;
+
 		r.setArrivalTime(t) ;
 		this.requestsQueue.add(r) ;
 		if (!this.vmIdle) {
-			System.out.println(logId + " Queueing request " + r) ;
+			if(VerboseSettings.VERBOSE_VM)
+				System.out.println(logId + " Queueing request " + r) ;
 		} else {
 			this.beginServicingEvent() ;
 		}
@@ -294,9 +295,11 @@ extends		AbstractComponent
 		
 		this.vmIdle = false ;
 		try {
-			System.out.println(logId + " Dispatching request     "
-					+ this.servicing + " at "
-					+ TimeProcessing.toString(System.currentTimeMillis())) ;
+
+			if(VerboseSettings.VERBOSE_VM)
+				System.out.println(logId + " Dispatching request     "
+						+ this.servicing + " at "
+						+ TimeProcessing.toString(System.currentTimeMillis())) ;
 			RequestGeneratorOutboundPort rgop = this.rgops.poll();		
 			rgop.acceptRequest(request);
 			this.rgops.add(rgop);
@@ -356,7 +359,9 @@ extends		AbstractComponent
 	 */
 	public void connectResponseConnection(String furi) throws Exception 
 	{
-		System.out.println(logId + " Connect the response connection to the request dispatcher");
+
+		if(VerboseSettings.VERBOSE_VM)
+			System.out.println(logId + " Connect the response connection to the request dispatcher");
 		// do connection
 		if (!this.vmResponseGeneratorOutboundPort.connected()) {
 			this.vmResponseGeneratorOutboundPort
