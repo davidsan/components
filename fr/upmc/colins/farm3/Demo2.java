@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import fr.upmc.colins.farm3.admission.AdmissionControl;
 import fr.upmc.colins.farm3.connectors.ApplicationRequestServiceConnector;
 import fr.upmc.colins.farm3.cpu.Cpu;
-import fr.upmc.colins.farm3.generator.RequestGenerator;
+import fr.upmc.colins.farm3.generator.RequestGeneratorLoadFirstApp;
 import fr.upmc.colins.farm3.utils.TimeProcessing;
 import fr.upmc.components.ComponentI.ComponentTask;
 import fr.upmc.components.cvm.AbstractCVM;
@@ -13,8 +13,11 @@ import fr.upmc.components.ports.PortI;
 
 /**
  * The class <code>Demo2</code> contains an example of scenario with 
- * a single CPU of 8 cores and two applications consuming each 4 cores
+ * a single CPU of 2 cores and two applications consuming each 1 core
  * with 2 virtual machines.
+ * 
+ * This main use a specific request generator which will send more 
+ * request for the first application.
  * 
  * <p>
  * Created on : feb. 2015
@@ -55,11 +58,11 @@ public class Demo2 extends AbstractCVM {
 	
 
 	/** the step value of frequency when changing the frequency			*/
-	protected static final double 		BOOST_STEP = 0.6;
+	protected static final double 		BOOST_STEP = 0.1;
 	/** the target service time in milliseconds							*/
-	protected static final int 			TARGET_SERVICE_TIME = 600;
+	protected static final int 			TARGET_SERVICE_TIME = 800;
 	/** the flex time for target service time in milliseconds			*/
-	protected static final int 			FLEX_SERVICE_TIME = 100;
+	protected static final int 			FLEX_SERVICE_TIME = 50;
 	
 	
 	// Components' URIs
@@ -76,7 +79,7 @@ public class Demo2 extends AbstractCVM {
 	protected ArrayList<Cpu> mCpus;
 	
 	/** consumer */
-	protected RequestGenerator mRequestGenerator;
+	protected RequestGeneratorLoadFirstApp mRequestGenerator;
 	
 	/**
 	 * create a compute cluster (cores, admission control) and a request
@@ -136,7 +139,7 @@ public class Demo2 extends AbstractCVM {
 		//////////////
 		// Consumer	//	
 		//////////////
-		this.mRequestGenerator = new RequestGenerator(
+		this.mRequestGenerator = new RequestGeneratorLoadFirstApp(
 				NROF_APPS, 
 				MEAN_INTER_ARRIVAL_TIME, 
 				MEAN_NROF_INSTRUCTIONS, 
@@ -147,6 +150,7 @@ public class Demo2 extends AbstractCVM {
 				RG_RGOP_PREFIX, 
 				RG_ARGOP
 				);
+		
 		this.deployedComponents.add(this.mRequestGenerator);
 
 		// connect the request generator to the admission control (for applications)
@@ -217,7 +221,7 @@ public class Demo2 extends AbstractCVM {
 			System.out.println(logId + " Starting...");
 			a.start();
 
-			final RequestGenerator fcg = a.mRequestGenerator;
+			final RequestGeneratorLoadFirstApp fcg = a.mRequestGenerator;
 			System.out.println(logId + " Kick start request at "
 					+ TimeProcessing.toString(System.currentTimeMillis()));
 			fcg.runTask(new ComponentTask() {
