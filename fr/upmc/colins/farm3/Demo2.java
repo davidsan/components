@@ -39,13 +39,13 @@ public class Demo2 extends AbstractCVM {
 	/** the number of cpu in the cluster								*/
 	protected static final Long 		NROF_CPU = 1L;
 	/** the number of cores	in the cluster								*/
-	protected static final Long 		NROF_CORES_PER_CPU = 8L;
+	protected static final Long 		NROF_CORES_PER_CPU = 2L;
 	/** the number of applications to be submitted by the consumer		*/
 	protected static final Long 		NROF_APPS = 2L;
 	/** the number of cores allocated per virtual machines				*/
-	protected static final int 			NROF_CORES_PER_VM = 2;
+	protected static final int 			NROF_CORES_PER_VM = 1;
 	/** the number of virtual machines allocated per dispatcher			*/
-	protected static final int 			NROF_VM_PER_DISPATCHER = 2;
+	protected static final int 			NROF_VM_PER_DISPATCHER = 1;
 	/** the mean inter arrival time										*/
 	protected static final double 		MEAN_INTER_ARRIVAL_TIME = 1000.0;
 	/** the standard deviation 											*/

@@ -296,7 +296,7 @@ public class Cpu extends AbstractComponent {
 				}
 				
 				if (newClockSpeed - crgop.getClockSpeed() > maxGapClockSpeed) {
-					crgop.updateClockSpeed(Math.max(crgop.getClockSpeed(),
+					controlRequestGeneratorOutboundPorts.get(i).updateClockSpeed(Math.max(crgop.getClockSpeed(),
 							newClockSpeed - this.maxGapClockSpeed));
 				}
 			}
@@ -311,6 +311,14 @@ public class Cpu extends AbstractComponent {
 		}
 		this.controlRequestGeneratorOutboundPorts.get(coreIndex)
 				.updateClockSpeed(newClockSpeed);
+		
+
+		System.out.print(logId + " [ ");
+		for (int i = 0; i < controlRequestGeneratorOutboundPorts.size(); i++) {
+			System.out.print(controlRequestGeneratorOutboundPorts.get(i)
+					.getClockSpeed() + " GHz | ");
+		}
+		System.out.println("]");
 		return true;
 	}
 	
