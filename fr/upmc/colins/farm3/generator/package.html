@@ -1,0 +1,28 @@
+<html>
+<body>
+<p>Request Generator</p>
+
+<p>
+This package contains the Request Generator component and his dynamic version.
+This package also contains all classes affiliated with the Request Generator.
+</p>
+
+<p>
+The class <code>RequestGenerator</code> implements a component that generates
+requests for a service provider in a discrete-event based simulation.
+</p>
+
+<p>
+A request has a processing time and an arrival process that both follow an
+exponential probability distribution. The generation process is started by
+executing the method <code>generateNextRequest</code> as a component task. It
+generates an instance of the class <code>Request</code>, with a processing
+time generated from its exponential distribution, and then schedule its next
+run after the interarrival time also generated from its exponential
+distribution. To stop the generation process, the method
+<code>shutdown</code> uses the future returned when scheduling the next
+request generation to cancel its execution.
+</p>
+
+</body>
+</html>
