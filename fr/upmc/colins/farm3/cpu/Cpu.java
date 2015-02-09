@@ -289,17 +289,11 @@ public class Cpu extends AbstractComponent {
 
 		if (newClockSpeed > stats.getMax()) {
 			// allow and make the necessary overclocking
-
-			if(VerboseSettings.VERBOSE_CPU)
-				System.out.println(logId + " Might overclock some cores.");
+			
 			for (int i = 0; i < controlRequestGeneratorOutboundPorts.size(); i++) {
 				if (i == coreIndex) {
 					continue;
 				}
-
-				if (VerboseSettings.VERBOSE_CPU)
-					System.out.println(i + " Computed delta is "
-							+ (newClockSpeed - crgop.getClockSpeed()));
 				
 				if (newClockSpeed - crgop.getClockSpeed() > maxGapClockSpeed) {
 					crgop.updateClockSpeed(Math.max(crgop.getClockSpeed(),
@@ -311,7 +305,7 @@ public class Cpu extends AbstractComponent {
 			// others
 			for (Double freq : stats.getValues()) {
 				if (freq - newClockSpeed > maxGapClockSpeed) {
-					return false;
+					newClockSpeed = freq - maxGapClockSpeed;
 				}
 			}
 		}

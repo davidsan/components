@@ -12,8 +12,8 @@ import fr.upmc.components.cvm.AbstractCVM;
 import fr.upmc.components.ports.PortI;
 
 /**
- * The class <code>Demo1</code> contains an example of scenario with 
- * a single CPU of 4 cores and one application consuming all 4 cores
+ * The class <code>Demo2</code> contains an example of scenario with 
+ * a single CPU of 8 cores and two applications consuming each 4 cores
  * with 2 virtual machines.
  * 
  * <p>
@@ -24,7 +24,7 @@ import fr.upmc.components.ports.PortI;
  * @version $Name$ -- $Revision$ -- $Date$
  */
 
-public class Demo1 extends AbstractCVM {
+public class Demo2 extends AbstractCVM {
 
 	protected static final String 		logId = "[    CVM     ]";
 	// Settings
@@ -39,9 +39,9 @@ public class Demo1 extends AbstractCVM {
 	/** the number of cpu in the cluster								*/
 	protected static final Long 		NROF_CPU = 1L;
 	/** the number of cores	in the cluster								*/
-	protected static final Long 		NROF_CORES_PER_CPU = 4L;
+	protected static final Long 		NROF_CORES_PER_CPU = 8L;
 	/** the number of applications to be submitted by the consumer		*/
-	protected static final Long 		NROF_APPS = 1L;
+	protected static final Long 		NROF_APPS = 2L;
 	/** the number of cores allocated per virtual machines				*/
 	protected static final int 			NROF_CORES_PER_VM = 2;
 	/** the number of virtual machines allocated per dispatcher			*/
@@ -211,7 +211,7 @@ public class Demo1 extends AbstractCVM {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Demo1 a = new Demo1();
+		Demo2 a = new Demo2();
 		try {
 			a.deploy();
 			System.out.println(logId + " Starting...");

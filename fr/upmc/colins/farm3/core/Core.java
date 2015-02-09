@@ -293,14 +293,16 @@ extends		AbstractComponent
 			System.out.println(logId + " Updating clock speed : " + this.clockSpeed + " -> "
 					+ clockSpeed);
 		// update the clock rate
-		this.clockSpeed = clockSpeed;
+		this.clockSpeed = (double) Math.round(clockSpeed * 10) / 10; // for rounding with Java's Double
+		// TODO: might be better using BigDecimal instead of Double
+		
 		if(VerboseSettings.VERBOSE_CORE)
 			System.out.println(logId + " Clock speed updated");
 		
 		if (this.requestsQueue.isEmpty() && this.coreIdle) {
 			// nothing to reschedule
-			if(VerboseSettings.VERBOSE_CORE)
-				System.out.println(logId + " No ongoing task, nothing to reschedule");
+//			if(VerboseSettings.VERBOSE_CORE)
+//				System.out.println(logId + " No ongoing task, nothing to reschedule");
 		}else{
 			// reschedule currently served task
 			if(VerboseSettings.VERBOSE_CORE)
@@ -339,17 +341,8 @@ extends		AbstractComponent
 			clockSpeed = maxClockSpeed;
 		}
 
-		if(VerboseSettings.VERBOSE_CORE)
-			System.out.println(logId + " Ask the cpu to update his clock speed");
-		Boolean updated = this.core2CpuOutboundPort.acceptUpdateClockspeedRequest(clockSpeed, this.coreId);
+		this.core2CpuOutboundPort.acceptUpdateClockspeedRequest(clockSpeed, this.coreId);
 		
-		if(VerboseSettings.VERBOSE_CORE){
-			if(updated){
-				System.out.println(logId + " Core clockspeed's update request granted");
-			}else{
-				System.out.println(logId + " Core clockspeed's update request revoked");
-			}
-		}
 		assert this.clockSpeed > 0;
 		return true;
 	}
@@ -371,9 +364,9 @@ extends		AbstractComponent
 		this.servicing = this.requestsQueue.remove() ;
 		
 		this.remainingInstructions = servicing.getNrofInstructions();
-		if(VerboseSettings.VERBOSE_CORE)
-			System.out.println(logId + " Begin servicing request " + this.servicing + " at "
-							+ TimeProcessing.toString(System.currentTimeMillis())) ;
+//		if(VerboseSettings.VERBOSE_CORE)
+//			System.out.println(logId + " Begin servicing request " + this.servicing + " at "
+//							+ TimeProcessing.toString(System.currentTimeMillis())) ;
 		scheduleServicing();
 	}
 	
@@ -428,10 +421,10 @@ extends		AbstractComponent
 		if(this.coreResponseGeneratorOutboundPort.connected()){
 			this.coreResponseGeneratorOutboundPort.acceptResponse(response);
 		}
-		if(VerboseSettings.VERBOSE_CORE)
-			System.out.println(logId + " End servicing request   " + this.servicing +
-									" at " + TimeProcessing.toString(t) +
-									" with service time " + st) ;
+//		if(VerboseSettings.VERBOSE_CORE)
+//			System.out.println(logId + " End servicing request   " + this.servicing +
+//									" at " + TimeProcessing.toString(t) +
+//									" with service time " + st) ;
 		this.totalServicingTime += st ;
 		this.totalNumberOfServicedRequests++ ;
 		

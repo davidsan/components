@@ -84,12 +84,15 @@ public class RequestGenerator extends AbstractComponent {
 	/** count of application deployed 											*/
 	protected int appCount;
 
-	/** step value of frequency when changing the frequency					*/
+	/** step value of frequency when changing the frequency						*/
 	protected double boostStep;
-	/** target service time in milliseconds									*/
+	/** target service time in milliseconds										*/
 	protected int targetServiceTime;
-	/** flex time for target service time in milliseconds					*/
+	/** flex time for target service time in milliseconds						*/
 	protected int flexServiceTime;
+
+	/** starting time															*/
+	protected long startTime = System.currentTimeMillis();
 	
 
 	/**
@@ -257,6 +260,9 @@ public class RequestGenerator extends AbstractComponent {
 		final RequestGenerator cg = this;
 		long interArrivalDelay = (long) this.rng
 				.nextExponential(this.meanInterArrivalTime);
+//		System.err.println(System.currentTimeMillis()-this.startTime);
+//		System.err.println(Math.max(0.1, Math.sin((System.currentTimeMillis()-this.startTime)/10000.0)));
+		interArrivalDelay = (long) (interArrivalDelay + interArrivalDelay * Math.max(0.1, Math.sin((System.currentTimeMillis()-this.startTime)/5000.0)));
 		if(VerboseSettings.VERBOSE_GENERATOR)
 			System.out.println(logId + " Scheduling request app " + requestedApp + "  at "
 					+ TimeProcessing.toString(System.currentTimeMillis()
